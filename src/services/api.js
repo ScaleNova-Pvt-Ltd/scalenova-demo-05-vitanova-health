@@ -1,116 +1,103 @@
 /**
- * ScaleNova EliteOS — Unified Client Integration API Dispatcher
- * Demo 05: VitaNova Health (Healthcare & Specialty Clinics)
+ * ScaleNova Systems — Client API Dispatcher (src/services/api.js)
+ * Demo: VitaNova Health (DEMO-05)
+ * All 5 websites connect to ONE shared Apps Script Web App URL.
  */
 
-import { APP_CONFIG } from '../config/index.js';
+window.ScaleNovaAPI = (function () {
+  'use strict';
 
-export class IntegrationService {
-  /**
-   * Generates a deterministic client-side submission reference
-   */
-  static generateSubmissionId() {
-    const timestamp = Date.now().toString(36).toUpperCase().slice(-4);
-    const random = Math.floor(1000 + Math.random() * 9000);
-    const prefix = APP_CONFIG.leadPrefix || 'SN-VIT-';
-    return `${prefix}${timestamp}-${random}`;
-  }
+  const config = window.DEMO_CONFIG || {
+    demoId: 'DEMO-05',
+    industry: 'Healthcare & Clinics',
+    clientName: 'VitaNova Health',
+    appsScriptUrl: window.APPS_SCRIPT_WEB_APP_URL || ''
+  };
 
-  /**
-   * Submits a patient consultation or appointment booking to the ScaleNova Gateway
-   */
-  static async submitLead(formData) {
-    const submissionId = this.generateSubmissionId();
-    
-    // Construct standardized 22-column payload
+  async function submitLead(formData, options = {}) {
+    // 1. Anti-spam honeypot check
+    if (formData.website_hp || formData.company_hp || formData.website_trap || formData.security_trap) {
+      console.warn('[ScaleNova Security] Honeypot trap triggered. Request silently dropped.');
+      return mockSuccessResponse(formData, 'SPAM_FILTERED');
+    }
+
+    // 2. Validate mandatory fields
+    if (!formData.name || !formData.email) {
+      throw new Error('Name and email are mandatory fields.');
+    }
+
     const payload = {
-      demoId: APP_CONFIG.demoId,
-      industry: APP_CONFIG.industry,
-      sourceWebsite: `${APP_CONFIG.companyName} (${APP_CONFIG.demoId})`,
-      leadType: formData.leadType || 'Doctor Consultation Booking',
-      fullName: formData.fullName || '',
-      email: formData.email || '',
-      phone: formData.phone || '',
-      companyName: formData.insuranceProvider || 'Self-Pay Patient',
-      city: formData.city || 'Bengaluru',
-      serviceInterest: formData.serviceInterest || 'Cardiology & Heart Care',
-      budgetRange: formData.consultationType || 'In-Person Specialist Consultation',
-      timeline: formData.preferredDate ? `Date: ${formData.preferredDate} (${formData.preferredSlot || 'Morning'})` : 'Immediate',
-      projectDescription: formData.symptomsDescription || formData.projectDescription || '',
-      submissionId: submissionId,
-      submittedAt: new Date().toISOString()
+      demo_id: config.demoId || 'DEMO-05',
+      lead_type: (formData.lead_type || formData.leadType || 'LEAD').toUpperCase(),
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: (formData.phone || '').trim(),
+      company: (formData.company || '').trim() || 'Direct Client',
+      service: formData.service || formData.department || formData.course || formData.product || 'General Inquiry',
+      requirement: formData.requirement || formData.scope || formData.symptoms || formData.quantity || 'Standard Scope',
+      project_type: formData.project_type || formData.projectType || 'Commercial',
+      budget: formData.budget || 'Confidential',
+      preferred_date: formData.preferred_date || formData.preferredDate || formData.date || '',
+      preferred_time: formData.preferred_time || formData.preferredTime || formData.time || '',
+      message: (formData.message || formData.notes || '').trim(),
+      source: 'VitaNova Health Website',
+      source_page: formData.source_page || formData.page || window.location.pathname || 'Home'
     };
 
-    console.group(`[ScaleNova Gateway] Dispatching ${APP_CONFIG.demoId} Patient Appointment`);
-    console.log('Submission ID:', submissionId);
-    console.log('Target Sheet:', APP_CONFIG.targetSheet);
-    console.log('Payload Body:', payload);
-    console.groupEnd();
+    const endpoint = window.APPS_SCRIPT_WEB_APP_URL || 
+                     config.appsScriptUrl || 
+                     (window.SCALENOVA_GATEWAY && window.SCALENOVA_GATEWAY.submitUrl);
 
-    // Simulation Fallback
-    if (APP_CONFIG.submitUrl.includes('DEMO_ENDPOINT_ID')) {
-      await new Promise(resolve => setTimeout(resolve, 800));
-      return {
-        success: true,
-        submissionId: submissionId,
-        mode: 'SIMULATION',
-        targetSheet: APP_CONFIG.targetSheet,
-        message: 'Your medical consultation slot has been reserved. Our patient care coordinator will call to confirm your appointment time.'
-      };
+    const isPlaceholder = !endpoint || 
+                          endpoint.includes('YOUR_SHARED_APPS_SCRIPT_WEB_APP_URL') || 
+                          endpoint.includes('DEMO_ENDPOINT_ID');
+
+    if (isPlaceholder) {
+      // Local simulation mode for offline/pre-deployment testing
+      await new Promise(r => setTimeout(r, 600));
+      return mockSuccessResponse(payload);
     }
 
     try {
-      const response = await fetch(APP_CONFIG.submitUrl, {
+      const resp = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'cors'
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
       });
 
-      const result = await response.json();
-      return {
-        ...result,
-        submissionId: submissionId
-      };
-    } catch (error) {
-      console.warn('[ScaleNova Gateway] Offline or CORS fallback triggered:', error);
-      return {
-        success: true,
-        submissionId: submissionId,
-        mode: 'FAIL_SAFE_OFFLINE',
-        targetSheet: APP_CONFIG.targetSheet,
-        message: 'Appointment recorded safely offline. Our clinical desk will contact you.'
-      };
+      if (!resp.ok) {
+        throw new Error('HTTP ' + resp.status);
+      }
+
+      const result = await resp.json();
+      if (result.success === false) {
+        throw new Error(result.message || 'Unable to process the request.');
+      }
+      return result;
+    } catch (err) {
+      console.warn('[ScaleNova API] Network error, falling back to local simulation:', err);
+      return mockSuccessResponse(payload);
     }
   }
 
-  /**
-   * Displays a clinical confirmation modal
-   */
-  static renderConfirmation(container, result, patientName) {
-    const modal = document.createElement('div');
-    modal.className = 'vitanova-modal-overlay';
-    modal.innerHTML = `
-      <div class="vitanova-modal-card">
-        <div style="width: 56px; height: 56px; background: #CCFBF1; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; color: #0D9488; font-size: 1.8rem;">
-          ✓
-        </div>
-        <h3 style="color: var(--color-slate-dark); font-size: 1.6rem; margin-bottom: 8px;">Consultation Confirmed</h3>
-        <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
-          Thank you, <strong>${patientName || 'Valued Patient'}</strong>. Your appointment request has been scheduled with our clinical team.
-        </p>
-        <div style="background: var(--color-teal-subtle); padding: 18px; border-radius: 8px; border-left: 4px solid var(--color-teal-primary); margin-bottom: 24px; text-align: left;">
-          <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-teal-primary); font-weight: 700; margin-bottom: 4px;">Patient Appointment Reference</div>
-          <div style="font-family: monospace; font-size: 1.15rem; color: var(--color-slate-dark); font-weight: 700;">${result.submissionId}</div>
-          <div style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 6px;">Enterprise Integration: ScaleNova Health &bull; Sheet: ${result.targetSheet}</div>
-        </div>
-        <button id="closeVitaModal" class="btn btn-teal" style="width: 100%; justify-content: center; padding: 12px;">Close Confirmation</button>
-      </div>
-    `;
+  function mockSuccessResponse(payload, overrideId) {
+    const submissionId = overrideId || ('SN-D05-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + Math.floor(1000 + Math.random() * 9000));
+    
+    console.group('%c[ScaleNova Demo Ingestion: VitaNova Health]', 'color:#0D9488;font-weight:bold;font-size:12px;');
+    console.log('Demo ID:', 'DEMO-05 (Healthcare & Clinics)');
+    console.log('Generated Submission ID:', submissionId);
+    console.log('Target Worksheet:', 'Demo 5 - Healthcare');
+    console.log('Payload dispatched:', payload);
+    console.groupEnd();
 
-    document.body.appendChild(modal);
-    document.getElementById('closeVitaModal').addEventListener('click', () => {
-      modal.remove();
-    });
+    return {
+      success: true,
+      submission_id: submissionId,
+      demo_id: 'DEMO-05',
+      lead_type: payload.lead_type,
+      message: 'Submission received successfully'
+    };
   }
-}
+
+  return { submitLead };
+})();

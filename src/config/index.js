@@ -1,3 +1,10 @@
+window.DEMO_CONFIG = {
+  demoId: 'DEMO-05',
+  industry: 'Healthcare & Clinics',
+  clientName: 'VitaNova Health',
+  appsScriptUrl: window.APPS_SCRIPT_WEB_APP_URL || 'YOUR_SHARED_APPS_SCRIPT_WEB_APP_URL'
+};
+
 /**
  * ScaleNova EliteOS — Demo 05: VitaNova Health Configuration
  */

@@ -12,8 +12,11 @@
  * for all five ScaleNova EliteOS demonstration client websites:
  * 
  *   [Demo 01: Nexora Advisory]        (Professional & B2B Services)
- *   [Demo 02: ForgeCore Industries]   (Manufacturing & Industrial SMEs)
+ *   [Demo 02: ForgeCore Industries]   (Manufacturing & Industrial)
  *   [Demo 03: Aurelia Estates]        (Real Estate & Construction)
+ *   [Demo 04: Bloombridge Academy]    (Education & Training)
+ *   [Demo 05: VitaNova Health]        (Healthcare & Clinics)
+ * 
  * Target Central Spreadsheet: "Demo Lead Captures — ScaleNova"
  * Worksheets:
  *  - "Demo 1 - Professional"
@@ -28,17 +31,17 @@
  * ==============================================================================
  * 
  * MODULAR CODE STRUCTURE (17 Sections):
- *  1. CONFIGURATION
- *  2. DEMO CONFIGURATION
+ *  1. CONFIGURATION (getConfig)
+ *  2. DEMO CONFIGURATION (DEMO_REGISTRY)
  *  3. HTTP ENTRYPOINTS (doPost, doGet)
  *  4. REQUEST VALIDATION
- *  5. LEAD NORMALIZATION
- *  6. SUBMISSION ID GENERATION
+ *  5. LEAD NORMALIZATION (28 Standard Columns)
+ *  6. SUBMISSION ID GENERATION (SN-D0X-YYYYMMDD-XXXX)
  *  7. SHEET ROUTING
  *  8. GOOGLE SHEET FUNCTIONS (28 Standard Columns)
  *  9. EMAIL ENGINE
  * 10. EMAIL TEMPLATES (5 Distinct Brand Identities)
- * 11. FRAPPE API DISPATCHER
+ * 11. FRAPPE API DISPATCHER (getCleanFrappeEndpoint)
  * 12. FRAPPE FIELD MAPPING
  * 13. SYSTEM LOGGING (12 Columns)
  * 14. ERROR HANDLING
@@ -51,21 +54,30 @@
 // ==============================================================================
 // 1. CONFIGURATION
 // ==============================================================================
-function getGatewayConfig() {
-  var props = PropertiesService.getScriptProperties().getProperties();
+function getConfig() {
+  var props = PropertiesService.getScriptProperties();
+
+  // Strip trailing slashes, /app/home, or /app from Frappe API URL
+  var rawFrappeUrl = props.getProperty('FRAPPE_API_URL') || '';
+  var cleanFrappeUrl = rawFrappeUrl ? rawFrappeUrl.trim().replace(/\/+$/, '').replace(/\/app(\/.*)?$/, '') : 'https://demo.scalenovasys.com';
+
   return {
-    spreadsheetId: props['SPREADSHEET_ID'] || '',
-    ownerEmail: props['OWNER_EMAIL'] || 'support@scalenovasys.com',
-    demoEmail: props['DEMO_EMAIL'] || 'demo@scalenovasys.com',
-    frappeUrl: (props['FRAPPE_API_URL'] || 'https://demo.scalenovasys.com').replace(/\/+$/, ''),
-    frappeApiKey: props['FRAPPE_API_KEY'] || '',
-    frappeApiSecret: props['FRAPPE_API_SECRET'] || '',
-    environment: props['ENVIRONMENT'] || 'production',
-    allowedOrigins: props['ALLOWED_ORIGINS'] || '*',
-    notificationMode: props['NOTIFICATION_MODE'] || 'ALL', // ALL | OWNER_ONLY | CUSTOMER_ONLY | SILENT
-    enableClientConfirmation: props['ENABLE_CLIENT_CONFIRMATION'] !== 'false'
+    spreadsheetId: props.getProperty('SPREADSHEET_ID') || '',
+    ownerEmail: props.getProperty('OWNER_EMAIL') || 'support@scalenovasys.com',
+    demoEmail: props.getProperty('DEMO_EMAIL') || 'demo@scalenovasys.com',
+    frappeApiUrl: cleanFrappeUrl,
+    frappeUrl: cleanFrappeUrl,
+    frappeApiKey: props.getProperty('FRAPPE_API_KEY') || '',
+    frappeApiSecret: props.getProperty('FRAPPE_API_SECRET') || '',
+    environment: props.getProperty('ENVIRONMENT') || 'production',
+    notificationMode: props.getProperty('NOTIFICATION_MODE') || 'ALL',
+    allowedOrigins: props.getProperty('ALLOWED_ORIGINS') || '*',
+    enableClientConfirmation:
+      String(props.getProperty('ENABLE_CLIENT_CONFIRMATION')).toLowerCase() === 'true'
   };
 }
+
+var getGatewayConfig = getConfig;
 
 // ==============================================================================
 // 2. DEMO CONFIGURATION
@@ -89,7 +101,7 @@ var DEMO_REGISTRY = {
   'DEMO-02': {
     demoId: 'DEMO-02',
     name: 'ForgeCore Industries',
-    industry: 'Manufacturing & Industrial SMEs',
+    industry: 'Manufacturing & Industrial',
     sheetName: 'Demo 2 - Manufacturing',
     idPrefix: 'SN-D02',
     primaryColor: '#121214',
@@ -148,7 +160,6 @@ var DEMO_REGISTRY = {
   }
 };
 
-// Supported Lead Types
 var ALLOWED_LEAD_TYPES = [
   'LEAD',
   'CONTACT',
@@ -165,18 +176,17 @@ var ALLOWED_LEAD_TYPES = [
 // 3. HTTP ENTRYPOINTS (doPost, doGet)
 // ==============================================================================
 function doPost(e) {
-  var config = getGatewayConfig();
+  var config = getConfig();
   var lock = LockService.getScriptLock();
-  var hasLock = lock.tryLock(15000); // 15-second concurrency guard
+  var hasLock = lock.tryLock(15000);
 
   try {
-    // 3.1 Verify Incoming Request Payload
     if (!e || !e.postData || !e.postData.contents) {
       logSystemEvent('GATEWAY', 'NONE', 'REQUEST_REJECTED', 'FAILED', 'Empty payload received', 'EMPTY_PAYLOAD', 'No postData in event', 0, config);
       return sendJsonResponse({
         success: false,
         submission_id: null,
-        message: 'No payload detected in incoming request.'
+        message: "We couldn't complete your request right now. Please try again in a moment."
       }, 400);
     }
 
@@ -188,21 +198,21 @@ function doPost(e) {
       return sendJsonResponse({
         success: false,
         submission_id: null,
-        message: 'Malformed JSON payload.'
+        message: 'Unable to process the request'
       }, 400);
     }
 
-    // 3.2 Anti-Spam Honeypot Trap
+    // Honeypot check
     if (checkHoneypot(payload)) {
-      Logger.log('[Security Guard] Spam honeypot triggered. Request silently dropped.');
+      Logger.log('[Security Guard] Spam honeypot triggered. Silently dropped.');
       return sendJsonResponse({
         success: true,
         submission_id: 'SN-SPAM-FILTERED',
-        message: 'Inquiry received.'
-      });
+        message: 'Submission received successfully'
+      }, 200);
     }
 
-    // 3.3 Request Validation
+    // Validation
     var validationResult = validateLeadRequest(payload);
     if (!validationResult.valid) {
       logSystemEvent(payload.demo_id || payload.demoId || 'UNKNOWN', 'NONE', 'VALIDATION_FAILED', 'FAILED', validationResult.message, 'VALIDATION_ERROR', validationResult.message, 0, config);
@@ -216,40 +226,42 @@ function doPost(e) {
     var demoDef = validationResult.demoDef;
     var demoId = demoDef.demoId;
 
-    // 3.4 Duplicate Submission Guard
+    // Duplicate check
     if (isDuplicateSubmission(payload)) {
-      Logger.log('[Notice] Duplicate submission detected for email: ' + payload.email);
+      Logger.log('[Notice] Duplicate submission suppressed for email: ' + payload.email);
       return sendJsonResponse({
         success: true,
         submission_id: payload.submission_id || 'SN-DUPLICATE-SUPPRESSED',
-        message: 'Submission already received. Our team is processing your request.'
-      });
+        demo_id: demoId,
+        lead_type: validationResult.leadType,
+        message: 'Submission received successfully'
+      }, 200);
     }
 
-    // 3.5 Generate Submission ID
+    // Generate Submission ID
     var submissionId = generateSubmissionId(demoDef.idPrefix);
 
-    // 3.6 Normalize Lead Payload (28-Field Schema)
+    // Normalize Lead
     var leadRecord = normalizeLeadRecord(payload, demoDef, submissionId);
 
-    // 3.7 Write to Dedicated Demo Worksheet
+    // Write to Google Sheet (Permanent Capture Layer)
     var sheetWriteResult = writeLeadToSheet(leadRecord, demoDef, config);
 
-    // 3.8 Execute Dual Email Notifications
+    // Dispatch Emails
     var emailStatus = dispatchTransactionalEmails(leadRecord, demoDef, config);
     leadRecord.emailStatus = emailStatus;
 
-    // 3.9 Forward to Frappe CRM REST API (Fail-Safe)
+    // Create Frappe CRM Lead (Fail-Safe)
     var frappeResult = forwardLeadToFrappeCRM(leadRecord, demoDef, config);
     leadRecord.frappeStatus = frappeResult.status;
     leadRecord.frappeLeadId = frappeResult.leadId;
 
-    // 3.10 Update Sheet Row with Frappe Status & Email Status
+    // Update row in Sheet with Frappe Status & Email Status
     if (sheetWriteResult.success && sheetWriteResult.sheet && sheetWriteResult.rowIndex) {
       updateSheetRowStatus(sheetWriteResult.sheet, sheetWriteResult.rowIndex, emailStatus, frappeResult.status, frappeResult.leadId);
     }
 
-    // 3.11 Log to System Log
+    // Write System Log
     logSystemEvent(
       demoId,
       submissionId,
@@ -262,16 +274,13 @@ function doPost(e) {
       config
     );
 
-    // 3.12 Return Clean JSON Response
+    // Return Clean Success JSON
     return sendJsonResponse({
       success: true,
       submission_id: submissionId,
       demo_id: demoId,
       lead_type: leadRecord.leadType,
-      sheet_logged: sheetWriteResult.success,
-      email_status: emailStatus,
-      frappe_status: frappeResult.status,
-      message: 'Submission received successfully. Reference #' + submissionId
+      message: 'Submission received successfully'
     }, 200);
 
   } catch (err) {
@@ -280,7 +289,7 @@ function doPost(e) {
     return sendJsonResponse({
       success: false,
       submission_id: null,
-      message: 'Unable to process the request. Our operational team has been alerted.'
+      message: 'Unable to process the request'
     }, 500);
   } finally {
     if (hasLock) {
@@ -290,7 +299,7 @@ function doPost(e) {
 }
 
 function doGet(e) {
-  var config = getGatewayConfig();
+  var config = getConfig();
   return sendJsonResponse({
     service: 'ScaleNova Master Client Production Gateway',
     version: '1.0.0',
@@ -337,7 +346,7 @@ function validateLeadRequest(payload) {
   }
 
   var email = (payload.email || payload.email_id || '').toString().trim();
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var emailRegex = /^[^s@]+@[^s@]+.[^s@]+$/;
   if (!email || !emailRegex.test(email)) {
     return { valid: false, message: 'Please provide a valid email address.' };
   }
@@ -375,14 +384,14 @@ function normalizeLeadRecord(payload, demoDef, submissionId) {
     email: cleanString(payload.email || payload.email_id).toLowerCase(),
     phone: cleanPhone(payload.phone || payload.mobile_no),
     company: cleanString(payload.company || payload.company_name) || 'Direct Client',
-    service: cleanString(payload.service || payload.service_interest) || 'General Inquiry',
-    requirement: cleanString(payload.requirement || payload.project_scope || payload.symptoms || payload.course) || 'Standard Inquiry',
+    service: cleanString(payload.service || payload.service_interest || payload.property || payload.course || payload.doctor || payload.department) || 'General Inquiry',
+    requirement: cleanString(payload.requirement || payload.project_scope || payload.symptoms || payload.quantity) || 'Standard Inquiry',
     projectType: cleanString(payload.project_type || payload.projectType || payload.category) || 'Commercial',
     budget: cleanString(payload.budget || payload.budget_range || payload.budgetRange) || 'Confidential',
     preferredDate: cleanString(payload.preferred_date || payload.preferredDate || payload.date),
     preferredTime: cleanString(payload.preferred_time || payload.preferredTime || payload.time),
     message: cleanString(payload.message || payload.notes || payload.inquiry),
-    source: cleanString(payload.source || payload.source_website) || (demoDef.name + ' Website'),
+    source: cleanString(payload.source || payload.source_website) || 'Website',
     sourcePage: cleanString(payload.source_page || payload.sourcePage || payload.page) || 'Home',
     userAgent: cleanString(payload.user_agent || payload.userAgent || 'Web Browser (Cloudflare Edge)'),
     ipReference: cleanString(payload.ip_reference || payload.ipReference || 'REQ-' + Utilities.formatDate(new Date(), 'GMT', 'yyyyMMdd-HHmmss')),
@@ -397,12 +406,12 @@ function normalizeLeadRecord(payload, demoDef, submissionId) {
 }
 
 // ==============================================================================
-// 6. SUBMISSION ID GENERATION
+// 6. SUBMISSION ID GENERATION (SN-D0X-YYYYMMDD-XXXX)
 // ==============================================================================
 function generateSubmissionId(prefix) {
   var now = new Date();
   var dateStr = Utilities.formatDate(now, 'GMT', 'yyyyMMdd');
-  var rand = Math.floor(1000 + Math.random() * 9000);
+  var rand = ('000' + Math.floor(1 + Math.random() * 9999)).slice(-4);
   return prefix + '-' + dateStr + '-' + rand;
 }
 
@@ -516,7 +525,6 @@ function provisionDemoSheetHeaders(sheet, headerColor) {
 
 function updateSheetRowStatus(sheet, rowIndex, emailStatus, frappeStatus, frappeLeadId) {
   try {
-    // Col 24: Email Status | Col 25: Frappe Status | Col 26: Frappe Lead ID
     sheet.getRange(rowIndex, 24).setValue(emailStatus);
     sheet.getRange(rowIndex, 25).setValue(frappeStatus);
     if (frappeLeadId) {
@@ -538,12 +546,10 @@ function dispatchTransactionalEmails(record, demoDef, config) {
   var ownerSuccess = false;
   var customerSuccess = false;
 
-  // 9.1 Internal Hot Lead Alert
   if (config.notificationMode === 'ALL' || config.notificationMode === 'OWNER_ONLY') {
     ownerSuccess = sendOwnerAlertEmail(record, demoDef, config);
   }
 
-  // 9.2 Branded Customer Confirmation Receipt
   if (config.enableClientConfirmation && (config.notificationMode === 'ALL' || config.notificationMode === 'CUSTOMER_ONLY')) {
     customerSuccess = sendCustomerConfirmationEmail(record, demoDef, config);
   }
@@ -563,7 +569,7 @@ function sendOwnerAlertEmail(record, demoDef, config) {
     var html = 
       '<div style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; max-width:640px; margin:auto; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; overflow:hidden;">' +
         '<div style="background:' + demoDef.primaryColor + '; padding:24px; color:#FFFFFF;">' +
-          '<span style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:' + demoDef.secondaryColor + '; font-weight:700;">ScaleNova Hot Lead Alert • SLA < 30m</span>' +
+          '<span style="font-size:11px; text-transform:uppercase; letter-spacing:2px; color:' + demoDef.secondaryColor + '; font-weight:700;">ScaleNova Hot Lead Alert</span>' +
           '<h2 style="margin:6px 0 0; font-size:22px; font-weight:600;">' + demoDef.name + '</h2>' +
           '<p style="margin:4px 0 0; font-size:13px; color:#CBD5E1;">' + demoDef.industry + ' • Lead Type: ' + record.leadType + '</p>' +
         '</div>' +
@@ -574,11 +580,13 @@ function sendOwnerAlertEmail(record, demoDef, config) {
             '<tr><td style="padding:6px 0; color:#64748B;">Business Email:</td><td><a href="mailto:' + record.email + '" style="color:' + demoDef.secondaryColor + ';">' + record.email + '</a></td></tr>' +
             '<tr><td style="padding:6px 0; color:#64748B;">Phone:</td><td>' + (record.phone || '—') + (whatsappUrl ? ' &nbsp;<a href="' + whatsappUrl + '" style="color:#10B981; font-weight:600; text-decoration:none;">[WhatsApp Chat]</a>' : '') + '</td></tr>' +
             '<tr><td style="padding:6px 0; color:#64748B;">Organization:</td><td>' + record.company + '</td></tr>' +
-            '<tr><td style="padding:6px 0; color:#64748B;">Service / Subject:</td><td style="font-weight:600;">' + record.service + '</td></tr>' +
-            '<tr><td style="padding:6px 0; color:#64748B;">Scope / Need:</td><td>' + record.requirement + '</td></tr>' +
+            '<tr><td style="padding:6px 0; color:#64748B;">Service:</td><td style="font-weight:600;">' + record.service + '</td></tr>' +
+            '<tr><td style="padding:6px 0; color:#64748B;">Requirement:</td><td>' + record.requirement + '</td></tr>' +
+            '<tr><td style="padding:6px 0; color:#64748B;">Project Type:</td><td>' + record.projectType + '</td></tr>' +
+            '<tr><td style="padding:6px 0; color:#64748B;">Budget:</td><td>' + record.budget + '</td></tr>' +
             (record.preferredDate ? '<tr><td style="padding:6px 0; color:#64748B;">Preferred Slot:</td><td style="font-weight:700; color:' + demoDef.secondaryColor + ';">' + record.preferredDate + ' @ ' + record.preferredTime + '</td></tr>' : '') +
-            (record.budget && record.budget !== 'Confidential' ? '<tr><td style="padding:6px 0; color:#64748B;">Budget:</td><td>' + record.budget + '</td></tr>' : '') +
             '<tr><td style="padding:6px 0; color:#64748B;">Source / Page:</td><td>' + record.sourcePage + ' (' + record.source + ')</td></tr>' +
+            '<tr><td style="padding:6px 0; color:#64748B;">Created At:</td><td>' + record.createdAt + '</td></tr>' +
           '</table>' +
           '<div style="background:#FFFFFF; border:1px solid #E2E8F0; padding:16px; border-radius:6px; margin-top:12px;">' +
             '<strong style="color:#475569; font-size:12px; text-transform:uppercase; letter-spacing:1px; display:block; margin-bottom:6px;">Client Message:</strong>' +
@@ -586,7 +594,7 @@ function sendOwnerAlertEmail(record, demoDef, config) {
           '</div>' +
         '</div>' +
         '<div style="background:#F1F5F9; padding:14px; font-size:12px; color:#64748B; text-align:center; border-top:1px solid #E2E8F0;">' +
-          'ScaleNova Business OS Master Gateway • Dispatched from ' + config.demoEmail +
+          'ScaleNova Business OS Master Gateway • Dispatched to ' + recipient +
         '</div>' +
       '</div>';
 
@@ -647,8 +655,8 @@ function buildCustomerEmailTemplate(record, demoDef, config) {
         '<p>Thank you for contacting <strong>' + demoDef.name + '</strong>. We have successfully received your inquiry regarding <strong>' + record.service + '</strong>.</p>' +
         '<p>Your inquiry reference code is <strong>#' + record.submissionId + '</strong>.</p>' +
         appointmentBlock +
-        '<p>Our advisory and technical team is reviewing your requirements and will contact you within 24 business hours.</p>' +
-        '<p>For immediate inquiries or additional project documents, reply directly to this email or visit <a href="https://' + demoDef.domain + '" style="color:' + demoDef.secondaryColor + '; font-weight:600; text-decoration:none;">' + demoDef.domain + '</a>.</p>' +
+        '<p>Our advisory and technical team is reviewing your requirements and will contact you shortly.</p>' +
+        '<p>For immediate inquiries, reply directly to this email or visit <a href="https://' + demoDef.domain + '" style="color:' + demoDef.secondaryColor + '; font-weight:600; text-decoration:none;">' + demoDef.domain + '</a>.</p>' +
         '<p style="margin-bottom:0; margin-top:24px;">Warm regards,<br><strong>The ' + demoDef.name + ' Client Care Team</strong></p>' +
       '</div>' +
       '<div style="background:#F8FAFC; padding:16px; font-size:12px; color:#94A3B8; text-align:center; border-top:1px solid #E2E8F0;">' +
@@ -661,8 +669,14 @@ function buildCustomerEmailTemplate(record, demoDef, config) {
 // ==============================================================================
 // 11. FRAPPE API DISPATCHER & FAIL-SAFE SYNCHRONIZATION
 // ==============================================================================
+function getCleanFrappeEndpoint(rawUrl) {
+  if (!rawUrl) return '';
+  var cleaned = rawUrl.trim().replace(/\/+$/, '').replace(/\/app(\/.*)?$/, '');
+  return cleaned + '/api/resource/Lead';
+}
+
 function forwardLeadToFrappeCRM(record, demoDef, config) {
-  if (!config.frappeUrl || !config.frappeApiKey || !config.frappeApiSecret) {
+  if (!config.frappeApiKey || !config.frappeApiSecret) {
     Logger.log('[Notice] Frappe credentials not configured. Lead safely buffered in Google Sheets.');
     return {
       status: 'PENDING_CONFIG',
@@ -671,7 +685,15 @@ function forwardLeadToFrappeCRM(record, demoDef, config) {
     };
   }
 
-  var endpoint = config.frappeUrl + '/api/resource/Lead';
+  var endpoint = getCleanFrappeEndpoint(config.frappeApiUrl || config.frappeUrl);
+  if (!endpoint) {
+    return {
+      status: 'PENDING_CONFIG',
+      leadId: '',
+      message: 'Invalid Frappe API endpoint.'
+    };
+  }
+
   var leadPayload = buildFrappeLeadPayload(record, demoDef);
 
   var options = {
@@ -806,7 +828,6 @@ function cleanString(val) {
 function cleanPhone(phone) {
   if (!phone) return '';
   var cleaned = String(phone).trim();
-  // Standardize 10 digit Indian numbers with +91 prefix if not present
   var digits = cleaned.replace(/[^0-9]/g, '');
   if (digits.length === 10) {
     return '+91 ' + digits.substring(0, 5) + ' ' + digits.substring(5);
@@ -841,7 +862,6 @@ function isDuplicateSubmission(payload) {
   if (cache.get(hash)) {
     return true;
   }
-  // Suppress duplicates for 60 seconds
   cache.put(hash, '1', 60);
   return false;
 }
@@ -850,8 +870,8 @@ function isDuplicateSubmission(payload) {
 // 16. RETRY FUNCTIONS (retryFailedFrappeLeads)
 // ==============================================================================
 function retryFailedFrappeLeads() {
-  var config = getGatewayConfig();
-  if (!config.frappeUrl || !config.frappeApiKey || !config.frappeApiSecret) {
+  var config = getConfig();
+  if (!config.frappeApiKey || !config.frappeApiSecret) {
     Logger.log('[Retry Abort] Frappe credentials not configured.');
     return { status: 'ABORTED', reason: 'NO_FRAPPE_CREDENTIALS' };
   }
@@ -865,7 +885,6 @@ function retryFailedFrappeLeads() {
   var totalRetried = 0;
   var totalSuccess = 0;
 
-  // Iterate across all 5 demo tabs
   Object.keys(DEMO_REGISTRY).forEach(function(key) {
     var demoDef = DEMO_REGISTRY[key];
     var sheet = ss.getSheetByName(demoDef.sheetName);

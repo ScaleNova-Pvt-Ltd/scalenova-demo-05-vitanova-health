@@ -21,25 +21,26 @@ window.ScaleNovaAPI = (function () {
       return mockSuccessResponse(formData, 'SPAM_FILTERED');
     }
 
-    // 2. Validate mandatory fields
-    if (!formData.name || !formData.email) {
+    // 2. Validate mandatory fields (support fullName, patientName aliases)
+    const nameVal = (formData.name || formData.fullName || formData.patientName || '').trim();
+    if (!nameVal || !formData.email) {
       throw new Error('Name and email are mandatory fields.');
     }
 
     const payload = {
       demo_id: config.demoId || 'DEMO-05',
-      lead_type: (formData.lead_type || formData.leadType || 'LEAD').toUpperCase(),
-      name: formData.name.trim(),
+      lead_type: (formData.lead_type || formData.leadType || 'PATIENT_APPOINTMENT').toUpperCase(),
+      name: nameVal,
       email: formData.email.trim(),
       phone: (formData.phone || '').trim(),
-      company: (formData.company || '').trim() || 'Direct Client',
-      service: formData.service || formData.department || formData.course || formData.product || 'General Inquiry',
-      requirement: formData.requirement || formData.scope || formData.symptoms || formData.quantity || 'Standard Scope',
-      project_type: formData.project_type || formData.projectType || 'Commercial',
-      budget: formData.budget || 'Confidential',
+      company: (formData.company || formData.insuranceProvider || '').trim() || 'Private Patient',
+      service: formData.service || formData.department || formData.clinic || 'Executive Health Screening',
+      requirement: formData.requirement || formData.consultationType || formData.symptoms || 'General Consultation',
+      project_type: formData.project_type || formData.projectType || 'Outpatient',
+      budget: formData.budget || 'Standard Insurance / Self-Pay',
       preferred_date: formData.preferred_date || formData.preferredDate || formData.date || '',
       preferred_time: formData.preferred_time || formData.preferredTime || formData.time || '',
-      message: (formData.message || formData.notes || '').trim(),
+      message: (formData.message || formData.notes || formData.clinicalNotes || '').trim(),
       source: 'VitaNova Health Website',
       source_page: formData.source_page || formData.page || window.location.pathname || 'Home'
     };
@@ -100,5 +101,46 @@ window.ScaleNovaAPI = (function () {
     };
   }
 
-  return { submitLead };
+  function renderConfirmation(container, result, patientName) {
+    const subId = result.submission_id || ('SN-D05-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-0001');
+    const modal = document.createElement('div');
+    modal.className = 'vitanova-modal-overlay';
+    modal.innerHTML = `
+      <div class="vitanova-modal-card" style="background:#FFFFFF; border-radius:12px; border:1px solid #CCFBF1; padding:40px; max-width:540px; width:90%; box-shadow:0 24px 64px rgba(13,148,136,0.16); text-align:left; font-family:'Plus Jakarta Sans',sans-serif;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 14px; background:#F0FDF4; border:1px solid #BBF7D0; border-radius:999px; color:#166534; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:18px;">
+          ✓ Appointment Intake Confirmed
+        </div>
+        <h2 style="font-family:'Outfit',sans-serif; font-size:1.8rem; font-weight:700; color:#0A2540; margin-bottom:8px; line-height:1.2;">
+          Care Request Scheduled
+        </h2>
+        <p style="color:#475569; font-size:0.95rem; line-height:1.6; margin-bottom:24px;">
+          Thank you, <strong>${patientName || 'Patient'}</strong>. Your clinical appointment request has been securely registered with the VitaNova Clinical Concierge.
+        </p>
+        <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:18px; margin-bottom:24px;">
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#0D9488; font-weight:700; margin-bottom:4px;">Official Clinical Reference Number</div>
+          <div style="font-family:'Outfit',sans-serif; font-size:1.25rem; font-weight:700; color:#0A2540; letter-spacing:0.05em;">${subId}</div>
+          <div style="font-size:0.8rem; color:#64748B; margin-top:8px;">
+            A clinical liaison will contact you within 2 business hours to verify insurance or consultation requirements.
+          </div>
+        </div>
+        <button id="closeVitaModal" style="width:100%; padding:14px; background:#0D9488; color:#FFF; font-weight:700; border:none; border-radius:6px; cursor:pointer; font-size:0.95rem; transition:background 0.2s;">
+          Return to Clinical Portal
+        </button>
+      </div>
+    `;
+    (container || document.body).appendChild(modal);
+    modal.querySelector('#closeVitaModal').addEventListener('click', () => {
+      modal.remove();
+    });
+  }
+
+  const service = { submitLead, renderConfirmation };
+  if (typeof window !== 'undefined') {
+    window.ScaleNovaAPI = service;
+    window.IntegrationService = service;
+  }
+  return service;
 })();
+
+export const IntegrationService = window.ScaleNovaAPI;
+export default window.ScaleNovaAPI;

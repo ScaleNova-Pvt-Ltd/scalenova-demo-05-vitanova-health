@@ -3,182 +3,326 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VitaNova Health — Specialty Medical Centers & Advanced Surgery</title>
-  <meta name="description" content="NABH-accredited super-specialty medical centers delivering precision cardiology, robotic joint replacement, advanced oncology, and emergency critical care.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
+  <title>VitaNova Health — Care That Starts With Listening</title>
+  <meta name="description" content="Premier private healthcare group offering multidisciplinary centers of excellence in cardiology, oncology, orthopaedics, and robotic surgery.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Clinical Emergency & Concierge Top Bar -->
+  <aside class="emergency-topbar">
+    <div class="container emergency-topbar-inner">
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <span><strong>24/7 Clinical Emergency:</strong> +91 (80) 6199-4000</span>
+        <span style="opacity: 0.4;">|</span>
+        <span>NABH Accredited &bull; JCI Clinical Excellence</span>
+      </div>
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <a href="patient-experience.html" style="color: #CBD5E1; text-decoration: none;">Patient Portal</a>
+        <a href="facilities.html" style="color: #CBD5E1; text-decoration: none;">Visiting Hours (08:00 – 20:00)</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- High-Trust Medical Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">+</div>
-        <div class="brand-name">VitaNova Health</div>
+        <div class="brand-cross">+</div>
+        <div class="brand-text-col">
+          <span class="brand-name">VitaNova Health</span>
+          <span class="brand-sub">Private Healthcare & Research Institute</span>
+        </div>
       </a>
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="specialties.html" class="nav-link">Departments</a></li>
+          <li><a href="treatments.html" class="nav-link">Procedures</a></li>
+          <li><a href="specialist-detail.html" class="nav-link">Consultants</a></li>
           <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
-          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="health-insights.html" class="nav-link">Health Insights</a></li>
           <li><a href="contact.html" class="nav-link">Hospitals</a></li>
         </ul>
       </nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="book-appointment.html" class="btn btn-teal">Book Appointment</a>
     </div>
   </header>
 
-  <main style="padding-top: var(--header-height);">
-    <!-- Hero -->
-    <section style="padding: 64px 0 48px 0; background: linear-gradient(180deg, #F0FDFA 0%, #F8FAFC 100%); border-bottom: 1px solid var(--color-border);">
+  <main>
+    <!-- Clinical Editorial Hero: Real-Looking Healthcare Photography -->
+    <section style="padding: 80px 0; background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid var(--vn-border-clean);">
       <div class="container">
-        <div class="grid-2" style="align-items: center;">
+        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;">
           <div>
-            <span class="clinical-badge">NABH & JCI Accredited Super-Specialty Network</span>
-            <h1 style="margin-bottom: 20px;">Precision Clinical Science. Compassionate Healing.</h1>
-            <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 32px;">
-              From minimally invasive robotic bypasses to same-day joint replacements, our internationally trained surgeons and dedicated critical care teams put your health first.
+            <div class="clinical-eyebrow">
+              <span>MULTIDISCIPLINARY MEDICAL EXCELLENCE</span>
+            </div>
+            <h1 style="margin-bottom: 24px;">
+              CARE THAT <br>STARTS WITH <span style="color: var(--vn-teal-primary);">LISTENING.</span>
+            </h1>
+            <p style="font-size: 1.25rem; color: var(--vn-text-muted); line-height: 1.7; max-width: 540px; margin-bottom: 36px; font-weight: 400;">
+              Modern healthcare built around clinical expertise, state-of-the-art diagnostic imaging, and empathetic human care.
             </p>
-            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-              <a href="book-appointment.html" class="btn btn-teal">Book Outpatient Consultation</a>
-              <a href="specialties.html" class="btn btn-outline-teal">Explore Medical Centers</a>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+              <a href="book-appointment.html" class="btn btn-teal" style="padding: 15px 32px; font-size: 0.95rem;">Book an Appointment</a>
+              <a href="specialties.html" class="btn btn-outline-navy" style="padding: 15px 32px; font-size: 0.95rem;">Find a Department</a>
+            </div>
+
+            <!-- Clinical Safety & Credential Metrics -->
+            <div style="display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--vn-border-clean);">
+              <div>
+                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--vn-navy-deep);">150+</div>
+                <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--vn-text-light); letter-spacing: 0.06em;">Board Consultants</div>
+              </div>
+              <div style="width: 1px; height: 44px; background: var(--vn-border-clean);"></div>
+              <div>
+                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--vn-teal-primary);">99.4%</div>
+                <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--vn-text-light); letter-spacing: 0.06em;">Surgical Safety Index</div>
+              </div>
+              <div style="width: 1px; height: 44px; background: var(--vn-border-clean);"></div>
+              <div>
+                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--vn-navy-deep);">15 Min</div>
+                <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--vn-text-light); letter-spacing: 0.06em;">Rapid Triage Intake</div>
+              </div>
             </div>
           </div>
-          <div style="position: relative; min-height: 380px; display: flex; align-items: center; justify-content: center;">
-            <canvas id="vitalCanvas" style="width: 100%; height: 100%; max-height: 380px;"></canvas>
+
+          <!-- Editorial Clinical Photography -->
+          <div style="position: relative;">
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 20px 48px rgba(10, 37, 64, 0.12); border: 1px solid var(--vn-border-clean);">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80" 
+                   alt="Senior physician discussing diagnostic scan with patient in modern consultation suite" 
+                   style="width: 100%; height: 480px; object-fit: cover; display: block;">
+            </div>
+            <div style="position: absolute; bottom: -20px; left: -20px; background: #FFF; border: 1px solid var(--vn-border-clean); border-radius: 8px; padding: 18px 24px; box-shadow: 0 12px 28px rgba(0,0,0,0.06); max-width: 280px;">
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--vn-teal-primary); text-transform: uppercase;">
+                <span style="width: 8px; height: 8px; background: var(--vn-teal-primary); border-radius: 50%; display: inline-block;"></span>
+                NABH Gold Certified
+              </div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: var(--vn-navy-deep); margin-top: 4px;">Zero Medical Infection Benchmark</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Clinical Numbers -->
-    <section style="padding: 48px 0; background: #FFF; border-bottom: 1px solid var(--color-border);">
-      <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
-          <div>
-            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">99.4%</div>
-            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Surgical Success & Recovery Rate</div>
-          </div>
-          <div>
-            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">45+</div>
-            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Full-Time Super-Specialist Doctors</div>
-          </div>
-          <div>
-            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">0.08%</div>
-            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Hospital-Acquired Infection Rate (Class 10k OT)</div>
-          </div>
-          <div>
-            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">100%</div>
-            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Cashless TPA Insurance Desk Integration</div>
-          </div>
+    <!-- Clinical Mission & Standards Statement -->
+    <section style="padding: 64px 0; background: #FFF; border-bottom: 1px solid var(--vn-border-clean);">
+      <div class="container" style="max-width: 900px; text-align: center;">
+        <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--vn-teal-primary); margin-bottom: 12px;">The VitaNova Standard</div>
+        <p style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 600; color: var(--vn-navy-deep); line-height: 1.5; margin-bottom: 16px;">
+          “Every treatment plan is reviewed by our multidisciplinary clinical board before initiation, guaranteeing evidence-based protocols tailored to your unique biology.”
+        </p>
+        <div style="font-size: 0.88rem; color: var(--vn-text-muted);">
+          Dr. Rajeshwari Sengupta, MD, FRCP &bull; Chief Medical Officer
         </div>
       </div>
     </section>
 
-    <!-- Specialties Grid -->
-    <section style="padding: 88px 0; border-bottom: 1px solid var(--color-border);">
+    <!-- Centers of Excellence (Departments) -->
+    <section style="padding: 96px 0; background: var(--vn-surface-subtle); border-bottom: 1px solid var(--vn-border-clean);">
       <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px;">
           <div>
-            <span class="eyebrow">Centres of Excellence</span>
-            <h2>Super-Specialty Clinical Departments</h2>
+            <div class="clinical-eyebrow">Medical Departments</div>
+            <h2>Centers of Clinical Excellence</h2>
           </div>
-          <a href="specialties.html" style="color: var(--color-teal-primary); text-decoration: none; font-weight: 700; font-size: 0.9rem;">View All Departments &rarr;</a>
+          <a href="specialties.html" style="color: var(--vn-teal-primary); text-decoration: none; font-weight: 700; font-size: 0.92rem;">Explore All 14 Departments &rarr;</a>
         </div>
 
-        <div class="grid-3">
-          <div class="medical-card">
-            <span class="clinical-badge">CARDIAC SCIENCES</span>
-            <h3 style="margin-bottom: 12px;">Interventional Cardiology & Cardiac Surgery</h3>
-            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">
-              Primary coronary angioplasty, TAVR transcatheter valve replacement, and minimally invasive beating-heart coronary bypass surgery.
+        <div class="dept-grid">
+          <div class="dept-card">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary); margin-bottom: 8px;">Cardiovascular Sciences</div>
+            <h3 style="margin-bottom: 12px;">Interventional Cardiology & Electrophysiology</h3>
+            <p style="color: var(--vn-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+              Advanced optical coherence tomography (OCT), transcatheter aortic valve replacement (TAVR), and 24/7 primary angioplasty.
             </p>
-            <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-slate-dark);">24/7 Cath Lab</span>
-              <a href="specialist-detail.html" class="btn btn-outline-teal" style="padding: 6px 14px; font-size: 0.8rem;">Meet Specialists</a>
+            <a href="specialties.html" style="color: var(--vn-navy-deep); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Department Protocols &rarr;</a>
+          </div>
+
+          <div class="dept-card">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary); margin-bottom: 8px;">Comprehensive Oncology</div>
+            <h3 style="margin-bottom: 12px;">Precision Medical & Surgical Oncology</h3>
+            <p style="color: var(--vn-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+              Genomic biomarker profiling, stereotactic body radiation therapy (SBRT), and organ-sparing laparoscopic oncological surgery.
+            </p>
+            <a href="specialties.html" style="color: var(--vn-navy-deep); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Department Protocols &rarr;</a>
+          </div>
+
+          <div class="dept-card">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary); margin-bottom: 8px;">Orthopaedics & Joint Institute</div>
+            <h3 style="margin-bottom: 12px;">Robotic-Assisted Joint Replacement & Spine</h3>
+            <p style="color: var(--vn-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+              Sub-millimeter Mako robotic arthroplasty, endoscopic disc decompressions, and rapid-recovery physical rehabilitation suites.
+            </p>
+            <a href="specialties.html" style="color: var(--vn-navy-deep); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Department Protocols &rarr;</a>
+          </div>
+
+          <div class="dept-card">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary); margin-bottom: 8px;">Neurosciences Institute</div>
+            <h3 style="margin-bottom: 12px;">Micro-Neurosurgery & Stroke Rehabilitation</h3>
+            <p style="color: var(--vn-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+              Intraoperative neuro-monitoring, endovascular mechanical thrombectomy, and comprehensive cognitive restorative therapy.
+            </p>
+            <a href="specialties.html" style="color: var(--vn-navy-deep); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Department Protocols &rarr;</a>
+          </div>
+
+          <div class="dept-card">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary); margin-bottom: 8px;">Gastroenterology & Hepatology</div>
+            <h3 style="margin-bottom: 12px;">Advanced Endoscopic Intervention</h3>
+            <p style="color: var(--vn-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+              SpyGlass cholangioscopy, endoscopic mucosal resection (EMR), and comprehensive chronic liver metabolic management.
+            </p>
+            <a href="specialties.html" style="color: var(--vn-navy-deep); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Department Protocols &rarr;</a>
+          </div>
+
+          <div class="dept-card">
+            <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary); margin-bottom: 8px;">Executive Health & Longevity</div>
+            <h3 style="margin-bottom: 12px;">Preventative Genomic Screening & Diagnostics</h3>
+            <p style="color: var(--vn-text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px;">
+              Full-body low-dose dual-source CT angiography, epigenetic biological age profiling, and dedicated lifestyle physician guidance.
+            </p>
+            <a href="specialties.html" style="color: var(--vn-navy-deep); font-weight: 700; font-size: 0.85rem; text-decoration: none;">Department Protocols &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Medical Specialists & Consultants -->
+    <section style="padding: 96px 0; background: #FFF; border-bottom: 1px solid var(--vn-border-clean);">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 56px auto;">
+          <div class="clinical-eyebrow">Consultant Directory</div>
+          <h2>Lead Clinical Specialists</h2>
+          <p style="color: var(--vn-text-muted); font-size: 1.05rem; margin-top: 12px;">
+            Our department chairs are fellowship-trained at premier global medical institutes and maintain active international research appointments.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+          <div class="doctor-card">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80" 
+                 alt="Dr. Aris Thorne" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            <div style="padding: 24px;">
+              <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary);">Chair of Cardiovascular Sciences</div>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px 0;">Dr. Aris Thorne, MD, DM</h3>
+              <p style="font-size: 0.85rem; color: var(--vn-text-muted); line-height: 1.6;">
+                Former Senior Consultant at John Radcliffe Oxford; 22+ years performing complex percutaneous coronary interventions.
+              </p>
+              <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--vn-border-clean); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.8rem; font-weight: 600; color: var(--vn-navy-deep);">Mon &bull; Wed &bull; Fri</span>
+                <a href="book-appointment.html" class="btn btn-teal" style="padding: 6px 14px; font-size: 0.8rem;">Book Slot</a>
+              </div>
             </div>
           </div>
 
-          <div class="medical-card">
-            <span class="clinical-badge">ORTHOPEDICS & ROBOTICS</span>
-            <h3 style="margin-bottom: 12px;">Robotic Joint Replacement & Spine Surgery</h3>
-            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">
-              Mako robotic knee and hip arthroplasty, endoscopic spine disc repairs, and complex sports medicine ligament reconstructions.
-            </p>
-            <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-slate-dark);">Same-Day Mobility</span>
-              <a href="specialist-detail.html" class="btn btn-outline-teal" style="padding: 6px 14px; font-size: 0.8rem;">Meet Specialists</a>
+          <div class="doctor-card">
+            <img src="https://images.unsplash.com/photo-1594824813565-d01c0c169225?auto=format&fit=crop&w=600&q=80" 
+                 alt="Dr. Priya Deshmukh" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            <div style="padding: 24px;">
+              <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary);">Director of Precision Oncology</div>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px 0;">Dr. Priya Deshmukh, FRCS</h3>
+              <p style="font-size: 0.85rem; color: var(--vn-text-muted); line-height: 1.6;">
+                Fellow of Royal College of Surgeons; leading clinical investigator in targeted monoclonal antibody treatments.
+              </p>
+              <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--vn-border-clean); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.8rem; font-weight: 600; color: var(--vn-navy-deep);">Tue &bull; Thu &bull; Sat</span>
+                <a href="book-appointment.html" class="btn btn-teal" style="padding: 6px 14px; font-size: 0.8rem;">Book Slot</a>
+              </div>
             </div>
           </div>
 
-          <div class="medical-card">
-            <span class="clinical-badge">NEUROSCIENCES</span>
-            <h3 style="margin-bottom: 12px;">Comprehensive Brain & Spine Center</h3>
-            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">
-              Stereotactic neurosurgery, acute stroke mechanical thrombectomy unit, and intraoperative neuromonitoring brain tumor resections.
-            </p>
-            <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-slate-dark);">Stroke Emergency Ready</span>
-              <a href="specialist-detail.html" class="btn btn-outline-teal" style="padding: 6px 14px; font-size: 0.8rem;">Meet Specialists</a>
+          <div class="doctor-card">
+            <img src="https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&w=600&q=80" 
+                 alt="Dr. Vikramaditya Sen" style="width: 100%; height: 300px; object-fit: cover; display: block;">
+            <div style="padding: 24px;">
+              <div style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--vn-teal-primary);">Head of Robotic Orthopaedics</div>
+              <h3 style="font-size: 1.25rem; margin: 4px 0 8px 0;">Dr. Vikramaditya Sen, MS</h3>
+              <p style="font-size: 0.85rem; color: var(--vn-text-muted); line-height: 1.6;">
+                Specialist in kinematic alignment total knee replacement with over 4,500 successful robotic joint procedures.
+              </p>
+              <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--vn-border-clean); display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.8rem; font-weight: 600; color: var(--vn-navy-deep);">Daily (By Appointment)</span>
+                <a href="book-appointment.html" class="btn btn-teal" style="padding: 6px 14px; font-size: 0.8rem;">Book Slot</a>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rapid Appointment Scheduling CTA -->
+    <section style="padding: 88px 0; background: var(--vn-navy-deep); color: #FFF;">
+      <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center;">
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--vn-teal-soft); font-weight: 700; margin-bottom: 12px;">
+            Same-Day & Priority Consultations
+          </div>
+          <h2 style="color: #FFF; margin-bottom: 16px;">Schedule Your Specialist Consultation</h2>
+          <p style="color: #94A3B8; font-size: 1.05rem; line-height: 1.7; max-width: 540px;">
+            Whether you require an initial diagnostic evaluation, second surgical opinion, or executive wellness screening, our clinical desk will assign the appropriate consultant.
+          </p>
+        </div>
+        <div style="text-align: right;">
+          <a href="book-appointment.html" class="btn btn-teal" style="padding: 16px 36px; font-size: 1rem;">
+            Book Clinical Appointment &rarr;
+          </a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Clear Healthcare Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;">
         <div>
-          <div style="font-size: 1.4rem; font-weight: 800; color: #FFF; margin-bottom: 14px;">VITANOVA HEALTH</div>
-          <p style="font-size: 0.85rem; line-height: 1.7; color: #94A3B8; max-width: 320px;">
-            A network of premier tertiary and day-care surgical centers dedicated to ethical clinical excellence and transparent healthcare.
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+            <div class="brand-cross" style="width: 32px; height: 32px; font-size: 1.1rem;">+</div>
+            <span style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: #FFF;">VITANOVA HEALTH</span>
+          </div>
+          <p style="font-size: 0.88rem; line-height: 1.8; color: #94A3B8; max-width: 320px;">
+            Tertiary healthcare and research institution committed to clinical safety, diagnostic precision, and compassionate patient care.
           </p>
         </div>
         <div>
-          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--color-teal-light); margin-bottom: 14px;">Specialties</div>
-          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
-            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiac Sciences</a></li>
-            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
-            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences</a></li>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--vn-teal-soft); letter-spacing: 0.1em; margin-bottom: 18px;">Specialties</div>
+          <ul style="list-style: none; font-size: 0.88rem; line-height: 2.2;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Interventional Cardiology</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Precision Oncology</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopaedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences & Stroke</a></li>
           </ul>
         </div>
         <div>
-          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--color-teal-light); margin-bottom: 14px;">Patients</div>
-          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--vn-teal-soft); letter-spacing: 0.1em; margin-bottom: 18px;">Patient Care</div>
+          <ul style="list-style: none; font-size: 0.88rem; line-height: 2.2;">
             <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
-            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Insurance Desk</a></li>
-            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Health Packages</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Admission Protocols</a></li>
+            <li><a href="facilities.html" style="color: inherit; text-decoration: none;">Insurance Empanelment</a></li>
+            <li><a href="health-insights.html" style="color: inherit; text-decoration: none;">Patient Rights & Records</a></li>
           </ul>
         </div>
         <div>
-          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--color-teal-light); margin-bottom: 14px;">Emergency</div>
-          <p style="font-size: 0.82rem; line-height: 1.8; color: #94A3B8;">
-            <strong>24/7 Helpline:</strong> 1800-425-9900<br>
-            <strong>Ambulance:</strong> +91 (80) 4999-0108<br>
-            Bengaluru &bull; Hyderabad &bull; Mumbai
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--vn-teal-soft); letter-spacing: 0.1em; margin-bottom: 18px;">Hospital Centers</div>
+          <p style="font-size: 0.85rem; line-height: 1.9; color: #94A3B8;">
+            <strong>Bengaluru:</strong> Indiranagar 100ft Rd<br>
+            <strong>Hyderabad:</strong> Jubilee Hills Rd 36<br>
+            <strong>Emergency 24/7:</strong> +91 (80) 6199-4000<br>
+            <strong>Concierge:</strong> care@vitanova.demo
           </p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-        <div style="display: flex; gap: 20px;">
-          <a href="privacy.html" style="color: inherit; text-decoration: none;">Health Data Privacy</a>
-          <span style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</span>
+        <div>&copy; 2026 VitaNova Health Group Ltd. NABH & JCI Accredited.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="privacy.html" style="color: inherit; text-decoration: none;">HIPAA / Patient Confidentiality</a>
+          <span style="color: var(--vn-teal-soft);">ScaleNova Health Infrastructure</span>
         </div>
       </div>
     </div>
   </footer>
-
-  <script type="module">
-    import { VitalPulseCanvas } from './src/components/pulse-wave.js';
-    new VitalPulseCanvas('vitalCanvas');
-  </script>
 </body>
 </html>

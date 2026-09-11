@@ -3,133 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book a Doctor Consultation — VitaNova Health</title>
-  <meta name="description" content="Schedule an outpatient consultation with super-specialist doctors at VitaNova Health. Instant appointment confirmation.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
+  <title>Book Specialist Consultation — VitaNova Health</title>
+  <meta name="description" content="Schedule an outpatient specialist appointment or second surgical opinion at VitaNova Health hospitals.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo">
-        <div class="brand-icon">+</div>
-        <div class="brand-name">VitaNova Health</div>
+        <div class="brand-cross">+</div>
+        <div class="brand-text-col">
+          <span class="brand-name">VitaNova Health</span>
+          <span class="brand-sub">Private Healthcare & Research Institute</span>
+        </div>
       </a>
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="specialties.html" class="nav-link">Departments</a></li>
+          <li><a href="treatments.html" class="nav-link">Procedures</a></li>
+          <li><a href="specialist-detail.html" class="nav-link">Consultants</a></li>
           <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
-          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="health-insights.html" class="nav-link">Health Insights</a></li>
           <li><a href="contact.html" class="nav-link">Hospitals</a></li>
         </ul>
       </nav>
-      <a href="book-appointment.html" class="btn btn-teal active" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="book-appointment.html" class="btn btn-teal active">Book Appointment</a>
     </div>
   </header>
 
-  <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
+  <main style="padding: 64px 0 96px 0;">
     <div class="container">
       <div style="max-width: 820px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 40px;">
-          <span class="eyebrow">Outpatient & Diagnostic Booking</span>
-          <h1>Schedule a Specialist Medical Consultation</h1>
-          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6; margin-top: 12px;">
-            Consult with senior consultants with minimal waiting time. All appointments include digital vitals screening and electronic prescription records.
+          <div class="clinical-eyebrow">Outpatient Clinical Intake</div>
+          <h1 style="margin-bottom: 12px; font-weight: 700;">Schedule a Specialist Appointment</h1>
+          <p style="color: var(--vn-text-muted); font-size: 1.15rem; line-height: 1.7; max-width: 600px; margin: 0 auto;">
+            Connect with senior clinical consultants. In-clinic consultations and encrypted video telehealth appointments available.
           </p>
         </div>
 
-        <div style="background: #FFF; border: 1px solid var(--color-border); border-radius: 16px; padding: 44px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);">
+        <div style="background: #FFF; border: 1px solid var(--vn-border-clean); border-radius: 12px; padding: 48px; box-shadow: 0 16px 40px rgba(10, 37, 64, 0.06);">
           <form id="appointmentForm">
-            <div class="grid-2">
+            <!-- Anti-spam honeypot -->
+            <input type="text" name="website_hp" id="website_hp" style="display:none !important; position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
               <div class="form-group">
-                <label class="form-label" for="fullName">Patient Full Name *</label>
-                <input type="text" id="fullName" class="form-input" required placeholder="e.g. Ramesh Chandra">
+                <label class="form-label" for="patientName">Patient Full Name *</label>
+                <input type="text" id="patientName" class="form-input" required placeholder="e.g. Ramesh Kulkarni">
               </div>
               <div class="form-group">
-                <label class="form-label" for="email">Patient Email Address *</label>
-                <input type="email" id="email" class="form-input" required placeholder="ramesh.c@example.com">
+                <label class="form-label" for="email">Contact Email Address *</label>
+                <input type="email" id="email" class="form-input" required placeholder="ramesh.k@domain.com">
               </div>
             </div>
 
-            <div class="grid-2">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
               <div class="form-group">
-                <label class="form-label" for="phone">Mobile Number (for SMS confirmation) *</label>
-                <input type="tel" id="phone" class="form-input" required placeholder="+91 98450 67890">
+                <label class="form-label" for="phone">Phone / WhatsApp Number *</label>
+                <input type="tel" id="phone" class="form-input" required placeholder="+91 98860 11223">
               </div>
               <div class="form-group">
-                <label class="form-label" for="city">Select Hospital Campus *</label>
-                <select id="city" class="form-select" required>
-                  <option value="Bengaluru (Indiranagar Super-Specialty)">Bengaluru (Indiranagar Super-Specialty)</option>
-                  <option value="Hyderabad (Banjara Hills Medical Center)">Hyderabad (Banjara Hills Medical Center)</option>
-                  <option value="Mumbai (BKC Day-Care Surgical Center)">Mumbai (BKC Day-Care Surgical Center)</option>
+                <label class="form-label" for="insuranceProvider">Insurance Provider / Corporate Health Card</label>
+                <input type="text" id="insuranceProvider" class="form-input" placeholder="e.g. Star Health / HDFC Ergo / Self-Pay">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+              <div class="form-group">
+                <label class="form-label" for="departmentSelect">Clinical Department *</label>
+                <select id="departmentSelect" class="form-select" required>
+                  <option value="Interventional Cardiology">Interventional Cardiology & Cardiac Care</option>
+                  <option value="Precision Oncology">Precision Medical & Surgical Oncology</option>
+                  <option value="Robotic Orthopaedics & Spine">Robotic Orthopaedics & Joint Institute</option>
+                  <option value="Neurosciences & Stroke Rehabilitation">Neurosciences & Stroke Institute</option>
+                  <option value="Gastroenterology & Hepatology">Gastroenterology & Advanced Endoscopy</option>
+                  <option value="Executive Health Screening">Executive Health & Longevity Screening</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="consultationMode">Consultation Mode *</label>
+                <select id="consultationMode" class="form-select" required>
+                  <option value="In-Clinic Specialist Consultation">In-Clinic Consultation (Bengaluru / Hyderabad)</option>
+                  <option value="Encrypted HD Telehealth Video Call">Encrypted HD Telehealth Video Consultation</option>
+                  <option value="Second Surgical Opinion Board Review">Second Surgical Opinion (Medical Board Review)</option>
                 </select>
               </div>
             </div>
 
-            <div class="grid-2">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
               <div class="form-group">
-                <label class="form-label" for="serviceInterest">Clinical Specialty *</label>
-                <select id="serviceInterest" class="form-select" required>
-                  <option value="Cardiology & Heart Care">Cardiology & Heart Care</option>
-                  <option value="Robotic Orthopedics & Joint Replacement">Robotic Orthopedics & Joint Replacement</option>
-                  <option value="Neurology & Spine Surgery">Neurology & Spine Surgery</option>
-                  <option value="Medical & Surgical Oncology">Medical & Surgical Oncology</option>
-                  <option value="Gastroenterology & Hepato-Biliary">Gastroenterology & Hepato-Biliary</option>
-                  <option value="Executive Preventive Health Checkup">Executive Preventive Health Checkup</option>
-                </select>
+                <label class="form-label" for="preferredDate">Preferred Appointment Date</label>
+                <input type="date" id="preferredDate" class="form-input">
               </div>
               <div class="form-group">
-                <label class="form-label" for="consultationType">Consultation Format *</label>
-                <select id="consultationType" class="form-select" required>
-                  <option value="In-Person Hospital OPD Consultation">In-Person Hospital OPD Consultation</option>
-                  <option value="Video Tele-Consultation (Remote)">Video Tele-Consultation (Remote)</option>
-                  <option value="Priority Second Medical Opinion">Priority Second Medical Opinion</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid-2">
-              <div class="form-group">
-                <label class="form-label" for="preferredDate">Preferred Appointment Date *</label>
-                <input type="date" id="preferredDate" class="form-input" required>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="preferredSlot">Preferred Time Window</label>
-                <select id="preferredSlot" class="form-select">
-                  <option value="Morning (09:30 AM - 12:30 PM)">Morning (09:30 AM - 12:30 PM)</option>
-                  <option value="Afternoon (02:00 PM - 05:00 PM)">Afternoon (02:00 PM - 05:00 PM)</option>
-                  <option value="Evening (05:30 PM - 08:00 PM)">Evening (05:30 PM - 08:00 PM)</option>
+                <label class="form-label" for="preferredTime">Preferred Time Window</label>
+                <select id="preferredTime" class="form-select">
+                  <option value="Morning (09:00 – 12:00)">Morning (09:00 – 12:00)</option>
+                  <option value="Afternoon (12:00 – 16:00)">Afternoon (12:00 – 16:00)</option>
+                  <option value="Evening (16:00 – 20:00)">Evening (16:00 – 20:00)</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="insuranceProvider">Health Insurance / TPA Provider</label>
-              <select id="insuranceProvider" class="form-select">
-                <option value="Self-Pay Patient">Self-Pay Patient</option>
-                <option value="Star Health Insurance (Cashless)">Star Health Insurance (Cashless)</option>
-                <option value="HDFC ERGO Health (Cashless)">HDFC ERGO Health (Cashless)</option>
-                <option value="ICICI Lombard (Cashless)">ICICI Lombard (Cashless)</option>
-                <option value="Corporate Health TPA Insurance">Corporate Health TPA Insurance</option>
-              </select>
+              <label class="form-label" for="symptomsNotes">Chief Symptoms or Medical History Overview</label>
+              <textarea id="symptomsNotes" class="form-textarea" rows="3" placeholder="Describe symptoms, prior diagnoses, or current medications to assist the clinical intake nurse..."></textarea>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="symptomsDescription">Current Health Concerns / Symptoms Summary</label>
-              <textarea id="symptomsDescription" class="form-textarea" rows="3" placeholder="Briefly describe symptoms, duration, previous diagnoses, or specific doctor requested..."></textarea>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border);">
-              <div style="font-size: 0.8rem; color: var(--color-text-muted); max-width: 440px;">
-                Protected under medical confidentiality standards and synchronized with ScaleNova Health CRM.
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--vn-border-clean);">
+              <div style="font-size: 0.82rem; color: var(--vn-text-muted); max-width: 440px; line-height: 1.5;">
+                Confidential intake. Protected under healthcare privacy protocols. Integrated with ScaleNova CRM.
               </div>
-              <button type="submit" id="submitBtn" class="btn btn-teal" style="padding: 14px 30px;">
-                Confirm Appointment Slot
+              <button type="submit" id="submitBtn" class="btn btn-teal" style="padding: 14px 32px;">
+                Confirm Appointment Request
               </button>
             </div>
           </form>
@@ -140,8 +129,8 @@
 
   <footer class="site-footer">
     <div class="container footer-bottom">
-      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+      <div>&copy; 2026 VitaNova Health Group Ltd. NABH Accredited.</div>
+      <div style="color: var(--vn-teal-soft);">ScaleNova Health Infrastructure</div>
     </div>
   </footer>
 
@@ -151,39 +140,35 @@
     const form = document.getElementById('appointmentForm');
     const submitBtn = document.getElementById('submitBtn');
 
-    // Default date to tomorrow
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    document.getElementById('preferredDate').value = tomorrow.toISOString().split('T')[0];
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Booking Consultation...';
+      submitBtn.innerText = 'Transmitting Intake Request...';
 
-      const formData = {
-        fullName: document.getElementById('fullName').value.trim(),
+      const payload = {
+        name: document.getElementById('patientName').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: document.getElementById('phone').value.trim(),
-        city: document.getElementById('city').value,
-        serviceInterest: document.getElementById('serviceInterest').value,
-        consultationType: document.getElementById('consultationType').value,
-        preferredDate: document.getElementById('preferredDate').value,
-        preferredSlot: document.getElementById('preferredSlot').value,
-        insuranceProvider: document.getElementById('insuranceProvider').value,
-        symptomsDescription: document.getElementById('symptomsDescription').value.trim(),
-        leadType: 'Doctor Consultation Booking'
+        company: document.getElementById('insuranceProvider').value.trim() || 'Direct Patient',
+        service: document.getElementById('departmentSelect').value,
+        requirement: document.getElementById('consultationMode').value,
+        preferred_date: document.getElementById('preferredDate').value,
+        preferred_time: document.getElementById('preferredTime').value,
+        message: document.getElementById('symptomsNotes').value.trim(),
+        lead_type: 'PATIENT_APPOINTMENT',
+        website_hp: document.getElementById('website_hp').value
       };
 
       try {
-        const result = await IntegrationService.submitLead(formData);
-        IntegrationService.renderConfirmation(document.body, result, formData.fullName);
+        const result = await IntegrationService.submitLead(payload);
+        IntegrationService.renderConfirmation(document.body, result, payload.name);
         form.reset();
       } catch (err) {
-        alert('Booking error. Please call our 24/7 helpline.');
+        console.error('Appointment intake error:', err);
+        alert('Could not submit appointment request. Please call our 24/7 hotline directly.');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Confirm Appointment Slot';
+        submitBtn.innerText = 'Confirm Appointment Request';
       }
     });
   </script>

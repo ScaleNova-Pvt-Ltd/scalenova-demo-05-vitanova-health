@@ -1,0 +1,20 @@
+{
+  "name": "scalenova-demo-05-vitanova-health",
+  "version": "1.0.0",
+  "description": "ScaleNova EliteOS Demo 05: VitaNova Health — Super-Specialty Medical Centers & Hospital Website",
+  "scripts": {
+    "dev": "npx -y serve . -l 3005",
+    "test": "node test/validate-system.js"
+  },
+  "keywords": [
+    "scalenova",
+    "eliteos",
+    "healthcare",
+    "hospital",
+    "specialty-clinic",
+    "frappe-crm",
+    "google-apps-script"
+  ],
+  "author": "ScaleNova Systems Pvt Ltd",
+  "license": "UNLICENSED"
+}

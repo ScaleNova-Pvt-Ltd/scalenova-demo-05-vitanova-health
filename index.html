@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitaNova Health — Specialty Medical Centers & Advanced Surgery</title>
+  <meta name="description" content="NABH-accredited super-specialty medical centers delivering precision cardiology, robotic joint replacement, advanced oncology, and emergency critical care.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
+  <link rel="stylesheet" href="src/styles/theme.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">+</div>
+        <div class="brand-name">VitaNova Health</div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
+          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--header-height);">
+    <!-- Hero -->
+    <section style="padding: 64px 0 48px 0; background: linear-gradient(180deg, #F0FDFA 0%, #F8FAFC 100%); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="grid-2" style="align-items: center;">
+          <div>
+            <span class="clinical-badge">NABH & JCI Accredited Super-Specialty Network</span>
+            <h1 style="margin-bottom: 20px;">Precision Clinical Science. Compassionate Healing.</h1>
+            <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-bottom: 32px;">
+              From minimally invasive robotic bypasses to same-day joint replacements, our internationally trained surgeons and dedicated critical care teams put your health first.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="book-appointment.html" class="btn btn-teal">Book Outpatient Consultation</a>
+              <a href="specialties.html" class="btn btn-outline-teal">Explore Medical Centers</a>
+            </div>
+          </div>
+          <div style="position: relative; min-height: 380px; display: flex; align-items: center; justify-content: center;">
+            <canvas id="vitalCanvas" style="width: 100%; height: 100%; max-height: 380px;"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clinical Numbers -->
+    <section style="padding: 48px 0; background: #FFF; border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+          <div>
+            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">99.4%</div>
+            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Surgical Success & Recovery Rate</div>
+          </div>
+          <div>
+            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">45+</div>
+            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Full-Time Super-Specialist Doctors</div>
+          </div>
+          <div>
+            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">0.08%</div>
+            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Hospital-Acquired Infection Rate (Class 10k OT)</div>
+          </div>
+          <div>
+            <div style="font-size: 2.6rem; font-weight: 800; color: var(--color-teal-primary);">100%</div>
+            <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-top: 4px;">Cashless TPA Insurance Desk Integration</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialties Grid -->
+    <section style="padding: 88px 0; border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px;">
+          <div>
+            <span class="eyebrow">Centres of Excellence</span>
+            <h2>Super-Specialty Clinical Departments</h2>
+          </div>
+          <a href="specialties.html" style="color: var(--color-teal-primary); text-decoration: none; font-weight: 700; font-size: 0.9rem;">View All Departments &rarr;</a>
+        </div>
+
+        <div class="grid-3">
+          <div class="medical-card">
+            <span class="clinical-badge">CARDIAC SCIENCES</span>
+            <h3 style="margin-bottom: 12px;">Interventional Cardiology & Cardiac Surgery</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">
+              Primary coronary angioplasty, TAVR transcatheter valve replacement, and minimally invasive beating-heart coronary bypass surgery.
+            </p>
+            <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-slate-dark);">24/7 Cath Lab</span>
+              <a href="specialist-detail.html" class="btn btn-outline-teal" style="padding: 6px 14px; font-size: 0.8rem;">Meet Specialists</a>
+            </div>
+          </div>
+
+          <div class="medical-card">
+            <span class="clinical-badge">ORTHOPEDICS & ROBOTICS</span>
+            <h3 style="margin-bottom: 12px;">Robotic Joint Replacement & Spine Surgery</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">
+              Mako robotic knee and hip arthroplasty, endoscopic spine disc repairs, and complex sports medicine ligament reconstructions.
+            </p>
+            <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-slate-dark);">Same-Day Mobility</span>
+              <a href="specialist-detail.html" class="btn btn-outline-teal" style="padding: 6px 14px; font-size: 0.8rem;">Meet Specialists</a>
+            </div>
+          </div>
+
+          <div class="medical-card">
+            <span class="clinical-badge">NEUROSCIENCES</span>
+            <h3 style="margin-bottom: 12px;">Comprehensive Brain & Spine Center</h3>
+            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">
+              Stereotactic neurosurgery, acute stroke mechanical thrombectomy unit, and intraoperative neuromonitoring brain tumor resections.
+            </p>
+            <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 600; color: var(--color-slate-dark);">Stroke Emergency Ready</span>
+              <a href="specialist-detail.html" class="btn btn-outline-teal" style="padding: 6px 14px; font-size: 0.8rem;">Meet Specialists</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;">
+        <div>
+          <div style="font-size: 1.4rem; font-weight: 800; color: #FFF; margin-bottom: 14px;">VITANOVA HEALTH</div>
+          <p style="font-size: 0.85rem; line-height: 1.7; color: #94A3B8; max-width: 320px;">
+            A network of premier tertiary and day-care surgical centers dedicated to ethical clinical excellence and transparent healthcare.
+          </p>
+        </div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--color-teal-light); margin-bottom: 14px;">Specialties</div>
+          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiac Sciences</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--color-teal-light); margin-bottom: 14px;">Patients</div>
+          <ul style="list-style: none; font-size: 0.85rem; line-height: 2;">
+            <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Insurance Desk</a></li>
+            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Health Packages</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: var(--color-teal-light); margin-bottom: 14px;">Emergency</div>
+          <p style="font-size: 0.82rem; line-height: 1.8; color: #94A3B8;">
+            <strong>24/7 Helpline:</strong> 1800-425-9900<br>
+            <strong>Ambulance:</strong> +91 (80) 4999-0108<br>
+            Bengaluru &bull; Hyderabad &bull; Mumbai
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="privacy.html" style="color: inherit; text-decoration: none;">Health Data Privacy</a>
+          <span style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { VitalPulseCanvas } from './src/components/pulse-wave.js';
+    new VitalPulseCanvas('vitalCanvas');
+  </script>
+</body>
+</html>

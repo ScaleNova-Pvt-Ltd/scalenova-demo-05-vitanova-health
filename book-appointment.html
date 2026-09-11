@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Doctor Consultation — VitaNova Health</title>
+  <meta name="description" content="Schedule an outpatient consultation with super-specialist doctors at VitaNova Health. Instant appointment confirmation.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
+  <link rel="stylesheet" href="src/styles/theme.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">+</div>
+        <div class="brand-name">VitaNova Health</div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
+          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal active" style="padding: 10px 20px;">Book Doctor</a>
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
+    <div class="container">
+      <div style="max-width: 820px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <span class="eyebrow">Outpatient & Diagnostic Booking</span>
+          <h1>Schedule a Specialist Medical Consultation</h1>
+          <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.6; margin-top: 12px;">
+            Consult with senior consultants with minimal waiting time. All appointments include digital vitals screening and electronic prescription records.
+          </p>
+        </div>
+
+        <div style="background: #FFF; border: 1px solid var(--color-border); border-radius: 16px; padding: 44px; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);">
+          <form id="appointmentForm">
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label" for="fullName">Patient Full Name *</label>
+                <input type="text" id="fullName" class="form-input" required placeholder="e.g. Ramesh Chandra">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Patient Email Address *</label>
+                <input type="email" id="email" class="form-input" required placeholder="ramesh.c@example.com">
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label" for="phone">Mobile Number (for SMS confirmation) *</label>
+                <input type="tel" id="phone" class="form-input" required placeholder="+91 98450 67890">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="city">Select Hospital Campus *</label>
+                <select id="city" class="form-select" required>
+                  <option value="Bengaluru (Indiranagar Super-Specialty)">Bengaluru (Indiranagar Super-Specialty)</option>
+                  <option value="Hyderabad (Banjara Hills Medical Center)">Hyderabad (Banjara Hills Medical Center)</option>
+                  <option value="Mumbai (BKC Day-Care Surgical Center)">Mumbai (BKC Day-Care Surgical Center)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label" for="serviceInterest">Clinical Specialty *</label>
+                <select id="serviceInterest" class="form-select" required>
+                  <option value="Cardiology & Heart Care">Cardiology & Heart Care</option>
+                  <option value="Robotic Orthopedics & Joint Replacement">Robotic Orthopedics & Joint Replacement</option>
+                  <option value="Neurology & Spine Surgery">Neurology & Spine Surgery</option>
+                  <option value="Medical & Surgical Oncology">Medical & Surgical Oncology</option>
+                  <option value="Gastroenterology & Hepato-Biliary">Gastroenterology & Hepato-Biliary</option>
+                  <option value="Executive Preventive Health Checkup">Executive Preventive Health Checkup</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="consultationType">Consultation Format *</label>
+                <select id="consultationType" class="form-select" required>
+                  <option value="In-Person Hospital OPD Consultation">In-Person Hospital OPD Consultation</option>
+                  <option value="Video Tele-Consultation (Remote)">Video Tele-Consultation (Remote)</option>
+                  <option value="Priority Second Medical Opinion">Priority Second Medical Opinion</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label" for="preferredDate">Preferred Appointment Date *</label>
+                <input type="date" id="preferredDate" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="preferredSlot">Preferred Time Window</label>
+                <select id="preferredSlot" class="form-select">
+                  <option value="Morning (09:30 AM - 12:30 PM)">Morning (09:30 AM - 12:30 PM)</option>
+                  <option value="Afternoon (02:00 PM - 05:00 PM)">Afternoon (02:00 PM - 05:00 PM)</option>
+                  <option value="Evening (05:30 PM - 08:00 PM)">Evening (05:30 PM - 08:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="insuranceProvider">Health Insurance / TPA Provider</label>
+              <select id="insuranceProvider" class="form-select">
+                <option value="Self-Pay Patient">Self-Pay Patient</option>
+                <option value="Star Health Insurance (Cashless)">Star Health Insurance (Cashless)</option>
+                <option value="HDFC ERGO Health (Cashless)">HDFC ERGO Health (Cashless)</option>
+                <option value="ICICI Lombard (Cashless)">ICICI Lombard (Cashless)</option>
+                <option value="Corporate Health TPA Insurance">Corporate Health TPA Insurance</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="symptomsDescription">Current Health Concerns / Symptoms Summary</label>
+              <textarea id="symptomsDescription" class="form-textarea" rows="3" placeholder="Briefly describe symptoms, duration, previous diagnoses, or specific doctor requested..."></textarea>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border);">
+              <div style="font-size: 0.8rem; color: var(--color-text-muted); max-width: 440px;">
+                Protected under medical confidentiality standards and synchronized with ScaleNova Health CRM.
+              </div>
+              <button type="submit" id="submitBtn" class="btn btn-teal" style="padding: 14px 30px;">
+                Confirm Appointment Slot
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
+      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { IntegrationService } from './src/services/api.js';
+
+    const form = document.getElementById('appointmentForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Default date to tomorrow
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.getElementById('preferredDate').value = tomorrow.toISOString().split('T')[0];
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Booking Consultation...';
+
+      const formData = {
+        fullName: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        city: document.getElementById('city').value,
+        serviceInterest: document.getElementById('serviceInterest').value,
+        consultationType: document.getElementById('consultationType').value,
+        preferredDate: document.getElementById('preferredDate').value,
+        preferredSlot: document.getElementById('preferredSlot').value,
+        insuranceProvider: document.getElementById('insuranceProvider').value,
+        symptomsDescription: document.getElementById('symptomsDescription').value.trim(),
+        leadType: 'Doctor Consultation Booking'
+      };
+
+      try {
+        const result = await IntegrationService.submitLead(formData);
+        IntegrationService.renderConfirmation(document.body, result, formData.fullName);
+        form.reset();
+      } catch (err) {
+        alert('Booking error. Please call our 24/7 helpline.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Confirm Appointment Slot';
+      }
+    });
+  </script>
+</body>
+</html>

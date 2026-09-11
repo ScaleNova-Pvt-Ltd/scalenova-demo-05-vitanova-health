@@ -46,7 +46,8 @@ window.ScaleNovaAPI = (function () {
 
     const endpoint = window.APPS_SCRIPT_WEB_APP_URL || 
                      config.appsScriptUrl || 
-                     (window.SCALENOVA_GATEWAY && window.SCALENOVA_GATEWAY.submitUrl);
+                     (window.SCALENOVA_GATEWAY && window.SCALENOVA_GATEWAY.submitUrl) ||
+                     'https://script.google.com/macros/s/AKfycby-kC_gnWLAMrKc40yu0TOga5yZDreR50X-2AWw2rHrzCFi3oZp2W9Xqq3KXNoTh6bj/exec';
 
     const isPlaceholder = !endpoint || 
                           endpoint.includes('YOUR_SHARED_APPS_SCRIPT_WEB_APP_URL') || 

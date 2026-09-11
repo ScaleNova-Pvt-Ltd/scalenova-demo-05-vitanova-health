@@ -1,0 +1,14 @@
+name = "scalenova-demo-05-vitanova-health"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./"
+binding = "ASSETS"
+
+[vars]
+ENVIRONMENT = "production"
+DEMO_ID = "DEMO-05"
+CLIENT_NAME = "VitaNova Health"
+INDUSTRY = "Healthcare & Clinics"
+PRIMARY_DOMAIN = "demo5.scalenovasys.com"

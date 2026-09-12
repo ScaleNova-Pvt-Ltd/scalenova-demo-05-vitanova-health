@@ -37,17 +37,44 @@
       <nav>
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="specialties.html" class="nav-link">Departments</a></li>
-          <li><a href="treatments.html" class="nav-link">Procedures</a></li>
-          <li><a href="specialist-detail.html" class="nav-link">Consultants</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="specialist-detail.html" class="nav-link">Physicians</a></li>
           <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-          <li><a href="health-insights.html" class="nav-link">Health Insights</a></li>
           <li><a href="contact.html" class="nav-link">Hospitals</a></li>
         </ul>
       </nav>
-      <a href="book-appointment.html" class="btn btn-teal">Book Appointment</a>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="book-appointment.html" class="btn btn-teal" style="padding: 11px 22px; font-size: 0.85rem;">Book Appointment</a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation" onclick="toggleVitanovaSidePanel()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Slide-Out Mobile App-Like Drawer -->
+  <div class="side-panel-overlay" id="vitanovaSideOverlay" onclick="toggleVitanovaSidePanel()"></div>
+  <aside class="side-panel-drawer" id="vitanovaSideDrawer" aria-label="Mobile Navigation">
+    <div class="side-panel-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="brand-cross" style="width: 32px; height: 32px; font-size: 1.2rem;">+</div>
+        <span class="brand-name" style="font-size: 1.1rem; color: #FFFFFF;">VitaNova</span>
+      </div>
+      <button class="side-panel-close" aria-label="Close menu" onclick="toggleVitanovaSidePanel()">&times;</button>
+    </div>
+    <ul class="side-panel-nav">
+      <li><a href="index.html">Home <span>&rarr;</span></a></li>
+      <li><a href="specialties.html">Centers of Excellence <span>&rarr;</span></a></li>
+      <li><a href="treatments.html">Procedures & Robotic Surgery <span>&rarr;</span></a></li>
+      <li><a href="specialist-detail.html">Senior Consultants <span>&rarr;</span></a></li>
+      <li><a href="facilities.html">Hospital Infrastructure & ICU <span>&rarr;</span></a></li>
+      <li><a href="health-insights.html">Clinical Research <span>&rarr;</span></a></li>
+      <li><a href="contact.html">Hospital Locations <span>&rarr;</span></a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 24px;">
+      <a href="book-appointment.html" class="btn btn-teal" style="width: 100%; text-align: center; padding: 14px;">Book Clinical Appointment &rarr;</a>
+    </div>
+  </aside>
 
   <main>
     <!-- Clinical Editorial Hero: Real-Looking Healthcare Photography -->
@@ -88,8 +115,24 @@
             </div>
           </div>
 
-          <!-- Editorial Clinical Photography -->
-          <div style="position: relative;">
+          <!-- Editorial Clinical Photography with 3D Badges -->
+          <div style="position: relative;" class="hero-media-panel">
+            <div class="floating-clinical-badge" style="top: 18px; right: 18px;">
+              <span style="font-size: 1.2rem; color: var(--vn-teal-primary);">🩺</span>
+              <div>
+                <div style="font-size: 0.7rem; color: var(--vn-text-light); text-transform: uppercase; font-weight: 700;">Accreditation</div>
+                <div style="font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--vn-navy-deep);">NABH Gold &bull; JCI</div>
+              </div>
+            </div>
+
+            <div class="floating-clinical-badge" style="bottom: 24px; right: 18px; animation-delay: -3s;">
+              <span style="font-size: 1.2rem; color: #10B981;">⚡</span>
+              <div>
+                <div style="font-size: 0.7rem; color: var(--vn-text-light); text-transform: uppercase; font-weight: 700;">Emergency Desk</div>
+                <div style="font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--vn-navy-deep);">24/7 Rapid Triage</div>
+              </div>
+            </div>
+
             <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 20px 48px rgba(10, 37, 64, 0.12); border: 1px solid var(--vn-border-clean);">
               <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80" 
                    alt="Senior physician discussing diagnostic scan with patient in modern consultation suite" 
@@ -324,5 +367,23 @@
       </div>
     </div>
   </footer>
+  <script src="src/config/index.js"></script>
+  <script src="src/services/api.js"></script>
+  <script>
+    function toggleVitanovaSidePanel() {
+      const drawer = document.getElementById('vitanovaSideDrawer');
+      const overlay = document.getElementById('vitanovaSideOverlay');
+      const isOpen = drawer.classList.contains('active');
+      if (isOpen) {
+        drawer.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('side-panel-open');
+      } else {
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        document.body.classList.add('side-panel-open');
+      }
+    }
+  </script>
 </body>
 </html>

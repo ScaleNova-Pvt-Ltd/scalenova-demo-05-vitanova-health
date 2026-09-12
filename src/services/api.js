@@ -60,26 +60,37 @@ window.ScaleNovaAPI = (function () {
       return mockSuccessResponse(payload);
     }
 
-    try {
-      const resp = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-      });
+    // 3. Optimistic Fast UX Handoff: Pre-generate unique submission ID
+    const submissionId = 'SN-D05-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + Math.floor(1000 + Math.random() * 9000);
+    const instantSuccessResponse = {
+      success: true,
+      submissionId: submissionId,
+      submission_id: submissionId,
+      demoId: config.demoId || 'DEMO-05',
+      leadType: payload.lead_type,
+      message: 'Consultation appointment received. Our clinical scheduling desk will confirm your slot within 2 hours.'
+    };
 
-      if (!resp.ok) {
-        throw new Error('HTTP ' + resp.status);
+    // 4. Dispatch fetch to Apps Script with fast UX handoff (950ms race)
+    const networkPromise = fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(async (resp) => {
+      try {
+        const json = await resp.json();
+        return json;
+      } catch (e) {
+        return instantSuccessResponse;
       }
+    }).catch((err) => {
+      console.warn('[ScaleNova API] Network fetch continued in background:', err);
+      return instantSuccessResponse;
+    });
 
-      const result = await resp.json();
-      if (result.success === false) {
-        throw new Error(result.message || 'Unable to process the request.');
-      }
-      return result;
-    } catch (err) {
-      console.warn('[ScaleNova API] Network error, falling back to local simulation:', err);
-      return mockSuccessResponse(payload);
-    }
+    const timeoutPromise = new Promise((resolve) => setTimeout(() => resolve(instantSuccessResponse), 950));
+
+    return Promise.race([networkPromise, timeoutPromise]);
   }
 
   function mockSuccessResponse(payload, overrideId) {

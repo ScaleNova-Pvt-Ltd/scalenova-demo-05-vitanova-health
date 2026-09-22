@@ -849,3 +849,121 @@ body.side-panel-open {
   color: #475569;
 }
 
+
+
+/* ==========================================================================
+   PREMIUM COOKIE CONSENT BANNER & FOOTER ENHANCEMENTS
+   ========================================================================== */
+.cookie-banner-wrap {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  max-width: 480px;
+  width: calc(100% - 48px);
+  animation: cookieSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cookieSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cookie-banner-card {
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 20px 22px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  color: #F8FAFC;
+}
+
+.cookie-banner-content {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.cookie-banner-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cookie-banner-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.cookie-banner-desc {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #94A3B8;
+  margin: 0;
+}
+
+.cookie-banner-desc a {
+  text-decoration: underline;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.cookie-btn-primary {
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cookie-btn-secondary {
+  background: transparent;
+  color: #E2E8F0;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cookie-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 480px) {
+  .cookie-banner-wrap {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+  .cookie-banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cookie-btn-primary, .cookie-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}

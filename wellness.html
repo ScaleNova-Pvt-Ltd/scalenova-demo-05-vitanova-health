@@ -4,84 +4,459 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executive Health Checkup & Wellness Packages — VitaNova Health</title>
-  <meta name="description" content="Comprehensive preventive health screening packages including cardiac stress echo, cancer tumor markers, and whole-body MRI.">
+  <meta name="description" content="Comprehensive preventive health screening packages including cardiac stress echo, cancer tumor markers, and whole-body MRI at VitaNova Health.">
+  <meta name="keywords" content="executive health checkup Bangalore, whole body health check India, cardiac screening package, master health checkup, VitaNova Health">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Executive Health Checkup & Wellness Packages — VitaNova Health">
+  <meta property="og:description" content="Early detection protocols combining 110+ biomarkers, low-dose spectral CT, and 1-on-1 senior physician reviews.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "VitaNova Health Preventive Wellness Packages",
+    "description": "Executive health checkups and advanced biomarker screening.",
+    "priceRange": "₹6,500 - ₹48,000"
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Dispatch Bar -->
+  <div style="background: #042F2E; color: #CCFBF1; padding: 8px 0; font-size: 0.8rem; border-bottom: 1px solid rgba(20, 184, 166, 0.3);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 7px; height: 7px; background: #2DD4BF; border-radius: 50%;"></span>
+        <span>PREVENTIVE HEALTH LOUNGE ACTIVE</span> &bull; Same-Day Digital Reports &bull; Fasting Blood Draw from 07:00 AM
+      </div>
+      <div>
+        <a href="book-appointment.html" style="color: #2DD4BF; text-decoration: none; margin-right: 16px; font-weight: 600;">Reserve Morning Slot &rarr;</a>
+        Wellness Line: <a href="tel:1066" style="color: #FFF; text-decoration: none; font-weight: 700;">1066 / +91 80 6912 9000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo"><div class="brand-icon">+</div><div class="brand-name">VitaNova Health</div></a>
-      <nav><ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-        <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
-        <li><a href="wellness.html" class="nav-link active">Checkups</a></li>
-        <li><a href="health-insights.html" class="nav-link">Insights</a></li>
-        <li><a href="contact.html" class="nav-link">Hospitals</a></li>
-      </ul></nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="index.html" class="brand-logo" aria-label="VitaNova Health Home">
+        <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+        <div>
+          <div class="brand-name" style="font-weight: 700; color: #042F2E; font-size: 1.15rem;">VitaNova Health</div>
+          <div style="font-size: 0.68rem; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">Institutes of Precision Medicine & Surgery</div>
+        </div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link active">Checkups</a></li>
+          <li><a href="health-plans.html" class="nav-link">Plans</a></li>
+          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; background: #0D9488; color: #FFF; border-radius: 6px; text-decoration: none;">Book Consultation</a>
     </div>
   </header>
 
   <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
     <div class="container">
-      <div style="max-width: 820px; margin-bottom: 56px;">
-        <span class="eyebrow">Preventive Health</span>
-        <h1>Executive Health & Wellness Packages</h1>
-        <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 16px;">
-          Early detection remains the most effective cure. Our preventive packages combine advanced biomarker panels, non-invasive cardiac imaging, and 1-on-1 lifestyle physician counselling.
+      <!-- Breadcrumb & Header -->
+      <div style="max-width: 860px; margin-bottom: 48px;">
+        <span class="eyebrow" style="color: #0D9488; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">PREVENTIVE MEDICINE & LONGEVITY</span>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(2.3rem, 5vw, 3.4rem); color: #042F2E; line-height: 1.15; margin: 12px 0 16px;">
+          Early Detection That Saves Lives
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.8; max-width: 760px;">
+          Advanced biomarker panels, low-radiation spectral CT calcium scoring, and whole-body MRI protocols calibrated to reveal preclinical vulnerabilities before symptoms appear.
         </p>
       </div>
 
-      <div class="grid-3">
-        <div class="medical-card">
-          <span class="clinical-badge">ESSENTIAL &bull; 62 PARAMETERS</span>
-          <h3>Executive Wellness Screening</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
-            Complete lipid panel, HbA1c, liver & kidney profile, thyroid panel, resting ECG, ultrasound abdomen, and chest X-ray.
-          </p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-weight: 700; color: var(--color-teal-primary);">₹6,500</span>
-            <a href="book-appointment.html" class="btn btn-teal" style="padding: 6px 14px; font-size: 0.8rem;">Book Package</a>
-          </div>
+      <!-- KPI Stat Ribbon -->
+      <div class="kpi-ribbon" style="margin-bottom: 64px;">
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="112" data-suffix=" tests">112 tests</div>
+          <div class="kpi-label">Parameters in Gold Standard Master Check</div>
         </div>
-
-        <div class="medical-card">
-          <span class="clinical-badge">CARDIAC &bull; 88 PARAMETERS</span>
-          <h3>Comprehensive Heart Check</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
-            Everything in Executive plus Treadmill Test (TMT), 2D Echocardiogram, High-Sensitivity Troponin-I, Carotid Doppler, and Senior Cardiologist Review.
-          </p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-weight: 700; color: var(--color-teal-primary);">₹14,500</span>
-            <a href="book-appointment.html" class="btn btn-teal" style="padding: 6px 14px; font-size: 0.8rem;">Book Package</a>
-          </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="4.5" data-suffix=" hrs">4.5 hrs</div>
+          <div class="kpi-label">Average Checkup Completion in VIP Lounge</div>
         </div>
-
-        <div class="medical-card">
-          <span class="clinical-badge">GOLD STANDARD &bull; 110+ PARAMETERS</span>
-          <h3>Whole-Body Master Checkup</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6;">
-            Includes CT Coronary Calcium Score, whole-body screening MRI, tumor markers (PSA/CA-125), bone DEXA scan, and nutritional guidance.
-          </p>
-          <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-weight: 700; color: var(--color-teal-primary);">₹28,000</span>
-            <a href="book-appointment.html" class="btn btn-teal" style="padding: 6px 14px; font-size: 0.8rem;">Book Package</a>
-          </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="99.1" data-suffix="%">99.1%</div>
+          <div class="kpi-label">Subclinical Risk Stratification Accuracy</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="100" data-suffix="%">100%</div>
+          <div class="kpi-label">Doctor-Led 1-on-1 Lifestyle Counseling</div>
         </div>
       </div>
+
+      <!-- Interactive Package Tier Switcher -->
+      <section style="margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          <span style="font-size: 0.78rem; letter-spacing: 0.12em; color: #0D9488; font-weight: 700; text-transform: uppercase;">SCREENING TIERS</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #042F2E; margin-top: 8px;">
+            Targeted Preventive Diagnostics
+          </h2>
+          <p style="color: #64748B; font-size: 0.95rem;">Select your screening profile based on age, cardiac history, and lifestyle risk factors.</p>
+        </div>
+
+        <div class="tech-switcher">
+          <div class="switcher-nav">
+            <button class="switcher-btn active" data-target="pkg-executive">01 Executive Screening (62 Tests)</button>
+            <button class="switcher-btn" data-target="pkg-cardiac">02 Comprehensive Heart Check (88 Tests)</button>
+            <button class="switcher-btn" data-target="pkg-master">03 Whole-Body Master (110+ Tests)</button>
+            <button class="switcher-btn" data-target="pkg-longevity">04 Genomic Longevity (140+ Tests)</button>
+          </div>
+
+          <!-- Panel 1: Executive Screening -->
+          <div id="pkg-executive" class="switcher-panel active">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Annual Baseline</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹6,500</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Executive Wellness Screening</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Comprehensive metabolic panel, HbA1c, full lipid fraction, liver & renal panels, resting 12-lead ECG, ultrasound abdomen, and chest digital X-ray.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Parameters:</strong> 62 Included</span>
+                  <span><strong>Duration:</strong> 2.5 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-exec" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Inclusions &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Women's Health</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹8,500</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Executive Women's Wellness</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Everything in Executive plus Digital Bilateral Mammography / Breast Ultrasound, Pap smear cytology, CA-125 ovarian screen, and bone mineral DEXA scan.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Parameters:</strong> 68 Included</span>
+                  <span><strong>Duration:</strong> 3.0 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-exec" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Inclusions &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Senior Care</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹9,200</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Active Senior Living Shield</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Tailored for adults aged 60+. Focuses on arthritis markers, serum vitamin D3 & B12, PSA for men, audiometry, cognitive baseline, and ophthalmology screening.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Parameters:</strong> 74 Included</span>
+                  <span><strong>Duration:</strong> 3.0 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-exec" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Inclusions &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Comprehensive Heart Check -->
+          <div id="pkg-cardiac" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Cardiac Advanced</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹14,500</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Comprehensive Heart Shield</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Includes Treadmill Stress Test (TMT), 2D Doppler Echocardiography, High-Sensitivity Troponin-I, hs-CRP, Homocysteine, and Senior Cardiologist Review.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Biomarkers:</strong> 88 Tests</span>
+                  <span><strong>Imaging:</strong> 2D Echo + TMT</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-cardiac" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Heart Panel &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Coronary Imaging</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹19,500</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">CT Calcium Score & Angio Panel</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Adds ultra-low dose 512-slice CT Coronary Calcium Scoring (Agatston index) to detect calcified atherosclerotic plaque decades before vascular occlusion.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Radiation:</strong> &lt; 0.8 mSv</span>
+                  <span><strong>Scan Time:</strong> 5 Seconds</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-cardiac" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Calcium Panel &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Vascular Stroke</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹17,000</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Neuro-Vascular Stroke Prevention</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  High-resolution Carotid Doppler ultrasonography evaluating intima-media thickness (CIMT) and turbulent blood flow leading to the brain, plus Apolipoprotein B.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Targets:</strong> Carotid Stenosis</span>
+                  <span><strong>Specialist:</strong> Neurologist Review</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-cardiac" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Stroke Panel &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Whole-Body Master -->
+          <div id="pkg-master" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Gold Standard</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹28,000</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Whole-Body Master Checkup</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  CT Calcium scoring, 3T MRI brain & spine screening, whole-body cancer biomarkers (PSA, CA-125, CEA, AFP), bone DEXA, and 4 specialist consultations.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Biomarkers:</strong> 112 Parameters</span>
+                  <span><strong>Imaging:</strong> CT + 3T MRI</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-master" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Master Inclusions &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Cancer Early Screen</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹32,500</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Precision Oncology Screen</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Combines Low-Dose CT Chest for lung nodules, digital mammography / prostate MRI, stool occult DNA, and blood multi-tumor protein biomarker panels.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Tumors:</strong> 7 Organ Systems</span>
+                  <span><strong>Board:</strong> Oncologist Consult</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-master" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Cancer Screen &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Endocrine Metabolic</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹22,000</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Metabolic & Fatty Liver Reversal</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Liver Fibroscan elastography measuring liver stiffness and fat percentage, fasting insulin (HOMA-IR), lipid subfractions, and personalized endocrinology consult.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Elastography:</strong> FibroScan 502</span>
+                  <span><strong>Nutrition:</strong> 90-Day Diet Plan</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-master" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Liver Panel &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Longevity -->
+          <div id="pkg-longevity" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Epigenetics</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹48,000</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Genomic Longevity & Biological Age</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  DNA methylation clock analysis revealing your true biological rate of cellular aging, pharmacogenomics drug compatibility, and hereditary cardiac gene panels.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Genes:</strong> Next-Gen Sequencing</span>
+                  <span><strong>Longevity:</strong> Epigenetic Clock</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-master" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Genomic Dossier &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Gut Microbiome</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹24,500</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Metagenomic Gut Microbiome Mapping</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Deep 16S / shotgun metagenomic sequencing of your gut bacterial ecosystem, measuring intestinal inflammation, short-chain fatty acids, and immune resistance.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Analysis:</strong> 250+ Microbial Strains</span>
+                  <span><strong>Action Plan:</strong> Precision Probiotics</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-master" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Microbiome &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Neuro-Cognitive</span>
+                  <span style="font-size: 1.15rem; font-weight: 700; color: #0D9488;">₹21,000</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Executive Brain Health & Memory</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Volumetric 3T MRI measuring hippocampal subfields, computerized neuro-cognitive psychometrics, sleep architecture analysis, and neurologist consultation.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Imaging:</strong> Hippocampal Volumetry</span>
+                  <span><strong>Baseline:</strong> Executive Function</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-pkg-master" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Brain Health &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking Guarantee Box -->
+      <section style="background: #F0FDFA; border: 1px solid #CCFBF1; border-radius: 16px; padding: 48px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 32px;">
+        <div style="max-width: 640px;">
+          <span style="color: #0D9488; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Fasting Blood Draw Comfort</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.9rem; color: #042F2E; margin: 10px 0 12px;">
+            Breakfast in the Executive Wellness Lounge
+          </h2>
+          <p style="color: #334155; font-size: 0.95rem; line-height: 1.7;">
+            Following your 07:00 AM fasting blood work and ultrasound, enjoy a chef-prepared complimentary hot gourmet breakfast in our private wellness lounge with high-speed Wi-Fi before physician rounding.
+          </p>
+        </div>
+        <div>
+          <a href="book-appointment.html" class="btn btn-teal" style="padding: 14px 28px; font-weight: 700; border-radius: 8px; text-decoration: none;">Book Your Checkup Today &rarr;</a>
+        </div>
+      </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">
-      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+  <!-- Modals -->
+  <!-- Modal 1: Master Inclusions -->
+  <div id="modal-pkg-master" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="master-pkg-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">110+ PARAMETERS</span>
+        <span style="font-size: 0.75rem; color: #64748B;">Complete Diagnostic Profile</span>
+      </div>
+      <h3 id="master-pkg-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">Whole-Body Master Checkup Dossier</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        Designed for comprehensive multi-system assessment, detecting cardiovascular calcification, early malignant markers, bone density decline, and silent organ stresses.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Key Inclusions</h4>
+        <ul style="font-size: 0.85rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+          <li>CT Coronary Calcium Scoring (Agatston Plaque Quantification).</li>
+          <li>Whole-body non-contrast 3T MRI screening for neurological and soft-tissue masses.</li>
+          <li>Tumor markers: Total PSA (Men), CA-125 (Women), CEA, AFP, and CA 19-9.</li>
+          <li>Treadmill Stress Test (TMT), 2D Echocardiogram, and Carotid IMT Doppler.</li>
+          <li>Senior Physician, Cardiologist, Gynecologist/Urologist, and Dietitian consultations.</li>
+        </ul>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Reserve Master Checkup Slot &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="background: #042F2E; color: #A7F3D0; padding: 64px 0 32px; border-top: 1px solid rgba(20, 184, 166, 0.2);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px;">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+            <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+            <div class="brand-name" style="color: #FFF; font-weight: 700;">VitaNova Health</div>
+          </div>
+          <p style="font-size: 0.85rem; color: #A7F3D0; line-height: 1.8; max-width: 320px;">
+            Pioneering precision medicine, minimally invasive robotics, and compassionate tertiary care across India and the Emirates.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Institutes</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiology & PPCI</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences & Spine</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Surgical Oncology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Patients & Visitors</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
+            <li><a href="facilities.html" style="color: inherit; text-decoration: none;">Diagnostic Suites & ICUs</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Patient Care & Rooms</a></li>
+            <li><a href="health-plans.html" style="color: inherit; text-decoration: none;">Executive Health Checks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Hospital</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="about.html" style="color: inherit; text-decoration: none;">Clinical Leadership</a></li>
+            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Preventive Medicine</a></li>
+            <li><a href="health-insights.html" style="color: inherit; text-decoration: none;">Medical Insights & Blog</a></li>
+            <li><a href="sitemap.xml" style="color: inherit; text-decoration: none;">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #5EEAD4; flex-wrap: wrap; gap: 12px;">
+        <div>&copy; 2026 VitaNova Health System. ScaleNova HealthOS Client Platform.</div>
+        <div>Hospitals: Bengaluru &bull; Hyderabad &bull; Chennai &bull; Dubai Healthcare City</div>
+      </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="src/components/pulse-wave.js"></script>
+  <script src="src/components/modal-controller.js"></script>
+  <script src="src/components/visual-infographics.js"></script>
 </body>
 </html>

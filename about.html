@@ -4,63 +4,433 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About VitaNova Health — Clinical Governance & Medical Council</title>
-  <meta name="description" content="NABH-accredited tertiary care, zero-infection surgical standards, and physician-led clinical ethics at VitaNova Health.">
+  <meta name="description" content="NABH & JCI-accredited tertiary care, zero-infection surgical standards, and physician-led clinical ethics at VitaNova Health.">
+  <meta name="keywords" content="about VitaNova Health, doctor led hospital Bangalore, JCI accredited hospital India, clinical governance, medical directorate">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About VitaNova Health — Clinical Governance & Medical Council">
+  <meta property="og:description" content="Founded by senior cardiac and orthopedic surgeons with a commitment to evidence-based tertiary care without commercial compromise.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hospital",
+    "name": "VitaNova Health System",
+    "founder": "Consortium of Senior Surgeons",
+    "foundingDate": "2015",
+    "hasCredential": "JCI Gold Accreditation, NABH"
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Dispatch Bar -->
+  <div style="background: #042F2E; color: #CCFBF1; padding: 8px 0; font-size: 0.8rem; border-bottom: 1px solid rgba(20, 184, 166, 0.3);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 7px; height: 7px; background: #2DD4BF; border-radius: 50%;"></span>
+        <span>GOVERNANCE CHARTER: PHYSICIAN-LED</span> &bull; Zero Commercial Surgical Quotas &bull; JCI Gold Accredited
+      </div>
+      <div>
+        <a href="book-appointment.html" style="color: #2DD4BF; text-decoration: none; margin-right: 16px; font-weight: 600;">Meet the Clinical Directorate &rarr;</a>
+        Executive Office: <a href="tel:1066" style="color: #FFF; text-decoration: none; font-weight: 700;">1066 / +91 80 6912 9000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo"><div class="brand-icon">+</div><div class="brand-name">VitaNova Health</div></a>
-      <nav><ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link active">About</a></li>
-        <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-        <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
-        <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-        <li><a href="health-insights.html" class="nav-link">Insights</a></li>
-        <li><a href="contact.html" class="nav-link">Hospitals</a></li>
-      </ul></nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="index.html" class="brand-logo" aria-label="VitaNova Health Home">
+        <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+        <div>
+          <div class="brand-name" style="font-weight: 700; color: #042F2E; font-size: 1.15rem;">VitaNova Health</div>
+          <div style="font-size: 0.68rem; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">Institutes of Precision Medicine & Surgery</div>
+        </div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
+          <li><a href="health-plans.html" class="nav-link">Plans</a></li>
+          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; background: #0D9488; color: #FFF; border-radius: 6px; text-decoration: none;">Book Consultation</a>
     </div>
   </header>
 
   <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
     <div class="container">
-      <div style="max-width: 820px; margin-bottom: 56px;">
-        <span class="eyebrow">Medical Philosophy</span>
-        <h1>Evidence-Based Medicine Without Compromise</h1>
-        <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 16px;">
-          Established in 2015 by a consortium of senior cardiac and orthopedic surgeons, VitaNova Health was designed around a singular premise: clinical outcomes improve when hospitals are led by doctors rather than private-equity spreadsheets.
+      <!-- Breadcrumb & Header -->
+      <div style="max-width: 860px; margin-bottom: 48px;">
+        <span class="eyebrow" style="color: #0D9488; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">MEDICAL PHILOSOPHY & LEADERSHIP</span>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(2.3rem, 5vw, 3.4rem); color: #042F2E; line-height: 1.15; margin: 12px 0 16px;">
+          Physician Governance Without Compromise
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.8; max-width: 760px;">
+          Established in 2015 by senior academic surgeons, VitaNova was designed on a single inviolable premise: clinical outcomes improve when hospitals are governed by practicing physicians rather than private-equity targets.
         </p>
       </div>
 
-      <div class="grid-2">
-        <div class="medical-card">
-          <span class="clinical-badge">ETHICAL PROTOCOLS</span>
-          <h3>Zero Unnecessary Surgeries</h3>
-          <p style="color: var(--color-text-muted); line-height: 1.7; margin-top: 8px;">
-            Every major surgical recommendation undergoes mandatory peer review by a multi-disciplinary tumor or surgical board to ensure conservative medical management has been thoroughly explored.
-          </p>
+      <!-- KPI Stat Ribbon -->
+      <div class="kpi-ribbon" style="margin-bottom: 64px;">
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="100" data-suffix="%">100%</div>
+          <div class="kpi-label">Physician-Led Clinical Executive Board</div>
         </div>
-        <div class="medical-card">
-          <span class="clinical-badge">ACCREDITATION</span>
-          <h3>NABH & JCI Standards</h3>
-          <p style="color: var(--color-text-muted); line-height: 1.7; margin-top: 8px;">
-            Our surgical suites, clinical laboratories, blood bank, and inpatient units operate under continuous National Accreditation Board for Hospitals and Healthcare Providers compliance.
-          </p>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="0" data-suffix="%">0%</div>
+          <div class="kpi-label">Commercial Surgical Quotas or Incentives</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="280" data-suffix="+">280+</div>
+          <div class="kpi-label">Full-Time Super-Specialist Faculty</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="99.6" data-suffix="%">99.6%</div>
+          <div class="kpi-label">NABH & JCI Metric Audit Compliance</div>
         </div>
       </div>
+
+      <!-- Interactive Tenets Switcher -->
+      <section style="margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          <span style="font-size: 0.78rem; letter-spacing: 0.12em; color: #0D9488; font-weight: 700; text-transform: uppercase;">INSTITUTIONAL PILLARS</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #042F2E; margin-top: 8px;">
+            The Foundation of Ethical Medicine
+          </h2>
+          <p style="color: #64748B; font-size: 0.95rem;">Explore our clinical governance architecture, surgical peer review boards, and leadership council.</p>
+        </div>
+
+        <div class="tech-switcher">
+          <div class="switcher-nav">
+            <button class="switcher-btn active" data-target="about-ethics">01 Ethical Surgical Boards</button>
+            <button class="switcher-btn" data-target="about-council">02 Medical Council Leadership</button>
+            <button class="switcher-btn" data-target="about-standards">03 Safety & JCI Standards</button>
+            <button class="switcher-btn" data-target="about-milestones">04 Institutional Milestones</button>
+          </div>
+
+          <!-- Panel 1: Ethical Surgical Boards -->
+          <div id="about-ethics" class="switcher-panel active">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Peer Review</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Mandatory Protocol</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Zero Unnecessary Surgeries</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Every major joint, spine, or coronary bypass indication must be reviewed by a multi-disciplinary committee to verify conservative therapeutic trials have been exhausted.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Audit Rate:</strong> 100% Complex Cases</span>
+                  <span><strong>Second Opinion:</strong> In-House Free</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Governance Charter &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Tumor Board</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Multi-Specialty</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Multi-Disciplinary Tumor Boards</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Oncology cases are reviewed collaboratively by surgical, medical, radiation oncologists, radiologists, and molecular pathologists before treatment commences.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Convened:</strong> Twice Weekly</span>
+                  <span><strong>Consensus:</strong> Documented Plan</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Tumor Board Protocol &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Infection Control</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Surveillance</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Hospital Infection Control (HICC)</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Full-time clinical epidemiologists continuously monitor air microbial counts, surgical site swab cultures, antibiotic stewardship, and water purification standards.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>HAI Rate:</strong> 0.12% vs 4.8% Avg</span>
+                  <span><strong>Antibiogram:</strong> Published Monthly</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect HICC Protocols &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Medical Council Leadership -->
+          <div id="about-council" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Director & Chief</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">22+ Yrs Exp</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 6px;">Dr. Arvind Swaminathan</h3>
+                <p style="font-size: 0.82rem; color: #0D9488; font-weight: 600; margin-bottom: 12px;">MCh (CTVS - AIIMS), FACS (USA), Cleveland Clinic Fellow</p>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Head of Cardiac Sciences and Minimally Invasive Cardiovascular Surgery. Over 6,500 open and beating-heart cardiac surgeries completed.
+                </p>
+                <a href="specialist-detail.html" class="btn btn-outline" style="display: block; text-align: center; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; text-decoration: none;">
+                  View Full Profile &rarr;
+                </a>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Director & Joint Head</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">19+ Yrs Exp</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 6px;">Dr. Meenakshi Sundaram</h3>
+                <p style="font-size: 0.82rem; color: #0D9488; font-weight: 600; margin-bottom: 12px;">MS (Ortho), MCh (Ortho - UK), Robotic Fellow (Stryker)</p>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Director of Robotic Arthroplasty and Sports Medicine. Pioneer in Mako CT-guided knee resurfacing with over 4,200 joint surgeries.
+                </p>
+                <a href="book-appointment.html" class="btn btn-outline" style="display: block; text-align: center; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; text-decoration: none;">
+                  Schedule Consultation &rarr;
+                </a>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Medical Director</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">24+ Yrs Exp</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 6px;">Dr. Rajeshwar Varma</h3>
+                <p style="font-size: 0.82rem; color: #0D9488; font-weight: 600; margin-bottom: 12px;">MD, DM (Cardiology), FACC (USA), FSCAI (USA)</p>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Chairman of Medical Administration & Interventional Cardiology. National pioneer in Door-to-Balloon PPCI angioplasty fast-tracks.
+                </p>
+                <a href="book-appointment.html" class="btn btn-outline" style="display: block; text-align: center; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; text-decoration: none;">
+                  Schedule Consultation &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Standards -->
+          <div id="about-standards" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">JCI Global</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Gold Seal</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Joint Commission International (JCI)</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Meeting the gold standard for global hospital safety, patient rights, international patient identification protocols, and medication reconciliation.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Accredited:</strong> Since 2018</span>
+                  <span><strong>Audit Cycle:</strong> Triennial Gold</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect JCI Inclusions &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">National Accreditation</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Apex Standard</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">NABH Institutional Certification</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Highest Indian accreditation for nursing excellence, clinical blood bank handling, patient safety indicators, and ethical clinical trials compliance.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Blood Bank:</strong> NABH Certified</span>
+                  <span><strong>Nursing:</strong> Nursing Excellence Badge</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect NABH Scope &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Pathology</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">ISO 15189</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">NABL Accredited Central Laboratories</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Complete in-house automated robotic biochemistry, flow cytometry, microbiology, and molecular genetics with 24/7 internal quality calibrators.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Standard:</strong> ISO 15189:2022</span>
+                  <span><strong>Tests/Month:</strong> 120,000+</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Lab Calibration &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Milestones -->
+          <div id="about-milestones" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">2015</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Founding</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Flagship Bengaluru Hospital</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  350-bed tertiary facility opened in Indiranagar, Bengaluru, featuring India's first fully integrated hybrid biplane cath lab and laminar flow modular OT suites.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Capacity:</strong> 350 Tertiary Beds</span>
+                  <span><strong>ICU Beds:</strong> 72 Critical Beds</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  View Campus Profile &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">2021</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Robotic Milestone</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Center for Robotic Innovation</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Installed dual Mako orthopedic systems and Da Vinci Xi 4th Generation surgical consoles, inaugurating the surgical fellowship training program.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Fellows Trained:</strong> 42 Specialists</span>
+                  <span><strong>Robotic Volume:</strong> #1 in South India</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  View Milestone Archive &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">2025</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Global Network</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Dubai Healthcare City Center</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Expanded international footprint with a specialized day-care surgery and second-opinion referral hub in Dubai Healthcare City, UAE.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Hub:</strong> DHCC Phase 2</span>
+                  <span><strong>Licensing:</strong> DHA Compliant</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ethics" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  View Dubai Facility &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">
-      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+  <!-- Modals -->
+  <!-- Modal 1: Governance Charter -->
+  <div id="modal-ethics" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="ethics-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">CLINICAL GOVERNANCE</span>
+        <span style="font-size: 0.75rem; color: #64748B;">Institutional Charter #2015</span>
+      </div>
+      <h3 id="ethics-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">The Inviolable Physician Charter</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        VitaNova Health was founded under a legally binding constitution stipulating that no commercial stakeholder, board investor, or hospital administrator may set surgical conversion quotas, revenue minimums, or influence patient admission decisions.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Constitutional Protections</h4>
+        <ul style="font-size: 0.85rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+          <li>All surgical recommendations subject to mandatory unprompted tumor/surgical board review.</li>
+          <li>Full clinical audit transparency published in our annual Medical Directorate Report.</li>
+          <li>Right of immediate free second opinion by alternate department head for every inpatient.</li>
+        </ul>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Consult Clinical Directorate &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="background: #042F2E; color: #A7F3D0; padding: 64px 0 32px; border-top: 1px solid rgba(20, 184, 166, 0.2);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px;">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+            <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+            <div class="brand-name" style="color: #FFF; font-weight: 700;">VitaNova Health</div>
+          </div>
+          <p style="font-size: 0.85rem; color: #A7F3D0; line-height: 1.8; max-width: 320px;">
+            Pioneering precision medicine, minimally invasive robotics, and compassionate tertiary care across India and the Emirates.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Institutes</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiology & PPCI</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences & Spine</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Surgical Oncology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Patients & Visitors</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
+            <li><a href="facilities.html" style="color: inherit; text-decoration: none;">Diagnostic Suites & ICUs</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Patient Care & Rooms</a></li>
+            <li><a href="health-plans.html" style="color: inherit; text-decoration: none;">Executive Health Checks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Hospital</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="about.html" style="color: inherit; text-decoration: none;">Clinical Leadership</a></li>
+            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Preventive Medicine</a></li>
+            <li><a href="health-insights.html" style="color: inherit; text-decoration: none;">Medical Insights & Blog</a></li>
+            <li><a href="sitemap.xml" style="color: inherit; text-decoration: none;">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #5EEAD4; flex-wrap: wrap; gap: 12px;">
+        <div>&copy; 2026 VitaNova Health System. ScaleNova HealthOS Client Platform.</div>
+        <div>Hospitals: Bengaluru &bull; Hyderabad &bull; Chennai &bull; Dubai Healthcare City</div>
+      </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="src/components/pulse-wave.js"></script>
+  <script src="src/components/modal-controller.js"></script>
+  <script src="src/components/visual-infographics.js"></script>
 </body>
 </html>

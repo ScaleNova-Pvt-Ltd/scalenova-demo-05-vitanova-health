@@ -4,70 +4,481 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hospital Facilities & Clinical Infrastructure — VitaNova Health</title>
-  <meta name="description" content="Tour our Class 10,000 modular operating theaters, 24/7 cardiac ICU, and 3-Tesla digital MRI imaging suites.">
+  <meta name="description" content="Tour our ISO Class 5 modular operating theaters, 3-Tesla digital MRI, biplane hybrid cath labs, and 1:1 nurse-patient cardiac ICU.">
+  <meta name="keywords" content="hospital facilities Bangalore, modular operation theatre, 3T MRI India, hybrid cath lab, cardiac ICU, VitaNova Health">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hospital Facilities & Clinical Infrastructure — VitaNova Health">
+  <meta property="og:description" content="Purpose-built tertiary infrastructure engineered with medical laminar airflow, acoustic isolation, and robotic surgical consoles.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "VitaNova Health Clinical Facilities",
+    "description": "Tertiary clinical infrastructure and advanced surgical theaters.",
+    "amenityFeature": ["Class 10,000 Modular OTs", "3-Tesla MRI", "Biplane Cath Lab", "Cardiac ICU"]
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Dispatch Bar -->
+  <div style="background: #042F2E; color: #CCFBF1; padding: 8px 0; font-size: 0.8rem; border-bottom: 1px solid rgba(20, 184, 166, 0.3);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 7px; height: 7px; background: #2DD4BF; border-radius: 50%;"></span>
+        <span>INFRASTRUCTURE STATUS: OPTIMAL</span> &bull; HEPA Filtration Positive Pressure Active &bull; JCI Facility Gold Shield
+      </div>
+      <div>
+        <a href="book-appointment.html" style="color: #2DD4BF; text-decoration: none; margin-right: 16px; font-weight: 600;">Schedule Facility Walkthrough &rarr;</a>
+        Facilities Desk: <a href="tel:1066" style="color: #FFF; text-decoration: none; font-weight: 700;">1066 / +91 80 6912 9000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo"><div class="brand-icon">+</div><div class="brand-name">VitaNova Health</div></a>
-      <nav><ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="facilities.html" class="nav-link active">Facilities</a></li>
-        <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
-        <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-        <li><a href="health-insights.html" class="nav-link">Insights</a></li>
-        <li><a href="contact.html" class="nav-link">Hospitals</a></li>
-      </ul></nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="index.html" class="brand-logo" aria-label="VitaNova Health Home">
+        <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+        <div>
+          <div class="brand-name" style="font-weight: 700; color: #042F2E; font-size: 1.15rem;">VitaNova Health</div>
+          <div style="font-size: 0.68rem; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">Institutes of Precision Medicine & Surgery</div>
+        </div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link active">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
+          <li><a href="health-plans.html" class="nav-link">Plans</a></li>
+          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; background: #0D9488; color: #FFF; border-radius: 6px; text-decoration: none;">Book Consultation</a>
     </div>
   </header>
 
   <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
     <div class="container">
-      <div style="max-width: 820px; margin-bottom: 56px;">
-        <span class="eyebrow">Clinical Infrastructure</span>
-        <h1>Engineered for Patient Safety & Comfort</h1>
-        <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 16px;">
-          Our hospital architecture prioritizes natural healing light, acoustic isolation, and positive-pressure laminar airflow filtration to eliminate infection risk.
+      <!-- Breadcrumb & Header -->
+      <div style="max-width: 860px; margin-bottom: 48px;">
+        <span class="eyebrow" style="color: #0D9488; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">CLINICAL INFRASTRUCTURE & ARCHITECTURE</span>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(2.3rem, 5vw, 3.4rem); color: #042F2E; line-height: 1.15; margin: 12px 0 16px;">
+          Engineered for Biological Safety
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.8; max-width: 760px;">
+          Purpose-built tertiary environments pairing positive-pressure vertical laminar airflow with integrated robotic telemetry to eradicate infection risks and optimize surgical workflows.
         </p>
       </div>
 
-      <div class="grid-3">
-        <div class="medical-card">
-          <span class="clinical-badge">SURGICAL SUITES</span>
-          <h3>Class 10,000 Modular OTs</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
-            Seamless antibacterial glass walls, HEPA filtration with 30 air changes per hour, and integrated endoscopic video routing consoles.
-          </p>
+      <!-- KPI Stat Ribbon -->
+      <div class="kpi-ribbon" style="margin-bottom: 64px;">
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="32" data-suffix="/hr">32/hr</div>
+          <div class="kpi-label">HEPA Air Changes per Hour in OTs</div>
         </div>
-        <div class="medical-card">
-          <span class="clinical-badge">CRITICAL CARE</span>
-          <h3>1:1 Nurse-Patient Cardiac ICU</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
-            Intensive coronary care unit staffed 24/7 by critical care intensivists with continuous invasive hemodynamic monitoring.
-          </p>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="0.002" data-suffix="%">0.002%</div>
+          <div class="kpi-label">Surgical Suite Particulate Index</div>
         </div>
-        <div class="medical-card">
-          <span class="clinical-badge">RADIOLOGY</span>
-          <h3>3-Tesla Digital Wide-Bore MRI</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
-            Ultra-fast neuro, cardiac, and musculoskeletal scans with 70cm wide bore to eliminate claustrophobia in adult and pediatric patients.
-          </p>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="1" data-suffix=":1">1:1</div>
+          <div class="kpi-label">Dedicated ICU Nurse-to-Bed Clinical Ratio</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="100" data-suffix="%">100%</div>
+          <div class="kpi-label">Uninterrupted N+1 Redundant Medical Gases</div>
         </div>
       </div>
+
+      <!-- Interactive Facility Switcher -->
+      <section style="margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          <span style="font-size: 0.78rem; letter-spacing: 0.12em; color: #0D9488; font-weight: 700; text-transform: uppercase;">CAMPUS TOPOLOGY</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #042F2E; margin-top: 8px;">
+            The Anatomy of Our Care Environments
+          </h2>
+          <p style="color: #64748B; font-size: 0.95rem;">Explore our sterile surgical suites, high-field imaging bays, and intensive healing sanctuaries.</p>
+        </div>
+
+        <div class="tech-switcher">
+          <div class="switcher-nav">
+            <button class="switcher-btn active" data-target="fac-surgical">01 Modular Surgical Suites</button>
+            <button class="switcher-btn" data-target="fac-imaging">02 Advanced Imaging & Radiology</button>
+            <button class="switcher-btn" data-target="fac-critical">03 Critical Care & Coronary ICU</button>
+            <button class="switcher-btn" data-target="fac-inpatient">04 Inpatient Healing Suites</button>
+          </div>
+
+          <!-- Panel 1: Surgical Suites -->
+          <div id="fac-surgical" class="switcher-panel active">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">ISO Class 5</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Laminar Plenums</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Class 10,000 Modular Theaters</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Antibacterial corian glass walling, seamless conductive vinyl flooring, and downward unidirectional laminar air flow preventing micro-droplet settling.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Filter:</strong> ULPA 99.999%</span>
+                  <span><strong>Pressure:</strong> +18 Pascal Delta</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-modular-ot" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Theater Specifications &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Hybrid OR</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Robotic C-Arm</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Biplane Robotic Cath Lab OR</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Allows simultaneous cardiac catheter intervention and instant transition to open cardiac bypass surgery without moving the patient across the hospital.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Switch Time:</strong> &lt; 90 Seconds</span>
+                  <span><strong>Angiography:</strong> 3D DynaCT</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-biplane" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Hybrid Architecture &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Robotic Bay</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Dual Consoles</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Da Vinci Xi Surgical Cockpit</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Dedicated robotic console bay with high-speed fiber telemetry, 4K multi-display video distribution, and ergonomic surgeon master controls.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Latency:</strong> &lt; 2 Milliseconds</span>
+                  <span><strong>Magnification:</strong> 10x 3D HD</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-davinci-bay" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Console Bay &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Imaging & Radiology -->
+          <div id="fac-imaging" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">High-Field MRI</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">70cm Wide Bore</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">3-Tesla Digital Wide-Bore MRI</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Full digital dStream architecture delivering 40% higher signal-to-noise ratio. Non-claustrophobic wide bore suited for pediatric and bariatric imaging.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Acoustics:</strong> -80% Noise Floor</span>
+                  <span><strong>Scan Time:</strong> Cut by 50%</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-mri" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect 3T MRI Dossier &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Cardiac Computed Tomography</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Single Heartbeat</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">512-Slice Spectral Ultra-Fast CT</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Captures entire coronary arterial vasculature in 0.28 seconds with 85% radiation reduction via iterative model reconstruction algorithms.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Radiation:</strong> &lt; 1 mSv Dosage</span>
+                  <span><strong>Temporal:</strong> 66 Milliseconds</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ct" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Spectral CT &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Nuclear Medicine</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Time-of-Flight</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Digital PET-CT Molecular Suite</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Solid-state silicon photomultiplier detectors localize microscopic metastatic clusters as small as 2mm for hyper-targeted oncological radiation planning.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Resolution:</strong> 2.0 mm Lesions</span>
+                  <span><strong>Sensitivity:</strong> 2x Conventional</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-petct" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Molecular Suite &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Critical Care & ICU -->
+          <div id="fac-critical" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Cardiac Intensive Care</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">1:1 Ratio</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Coronary Critical Care Unit (CCU)</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Continuous invasive arterial line telemetry, continuous cardiac output hemodynamic monitors, and bedside ECMO life support conduits.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Staffing:</strong> Resident Intensivists 24/7</span>
+                  <span><strong>Beds:</strong> Single-Room Pods</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-ccu" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect CCU Pods &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Isolation Protocols</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Negative Pressure</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Bio-Containment Isolation Suites</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Airlock anteroom design with dedicated high-velocity exhaust scrubbing preventing cross-contamination during severe infectious or neutropenic recovery.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Exhaust:</strong> Dual In-Line HEPA</span>
+                  <span><strong>Anteroom:</strong> Interlocking Doors</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-isolation" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Bio-Containment &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Pediatric Care</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Level III NICU</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Level III Neonatal Intensive Care</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Equipped with high-frequency oscillatory ventilators, therapeutic hypothermia coolers, and sound-attenuated developmental incubators.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Specialty:</strong> Extreme Pre-Term (&lt;28 wks)</span>
+                  <span><strong>Sound:</strong> &lt; 45 Decibels</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-nicu" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect NICU Technology &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Inpatient Healing Suites -->
+          <div id="fac-inpatient" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Presidential Wing</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Private Sanctuary</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Executive Inpatient Pavilions</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Expansive multi-room recovery suites featuring dedicated attendant lounges, en-suite pantry, circadian biodynamic lighting, and private nurse calling hubs.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Living Area:</strong> 650 sq ft</span>
+                  <span><strong>Acoustics:</strong> Soundproof Glazing</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-inpatient" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Pavilion Layout &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Nutritional Medicine</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Clinical Dietetics</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Therapeutic Culinary Kitchen</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  HACCP-certified culinary laboratory preparing individualized clinical meal plans mapped to renal, glycemic, and post-cardiac recovery demands.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Standards:</strong> ISO 22000 Clean</span>
+                  <span><strong>Consulting:</strong> Senior Dietitian</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-culinary" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Dietetic Lab &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Rehabilitation</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Gait Telemetry</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Hydrotherapy & Neuro-Robotic Gym</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Zero-gravity Lokomat exoskeleton gait training and heated underwater treadmills for accelerated post-stroke and joint replacement motor recovery.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Exoskeleton:</strong> Lokomat Pro</span>
+                  <span><strong>Pool:</strong> 34&deg;C Hydrotherapy</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-rehab" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Rehab Gym &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Facility Safety Callout -->
+      <section style="background: #F0FDFA; border: 1px solid #CCFBF1; border-radius: 16px; padding: 48px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 32px;">
+        <div style="max-width: 640px;">
+          <span style="color: #0D9488; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Zero-Infection Architectural Standard</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.9rem; color: #042F2E; margin: 10px 0 12px;">
+            The Safest Air You Will Ever Breathe
+          </h2>
+          <p style="color: #334155; font-size: 0.95rem; line-height: 1.7;">
+            VitaNova's air handling units cycle completely clean, pressurized medical air through terminal HEPA 14 filters every 110 seconds in our operating theaters and intensive care modules.
+          </p>
+        </div>
+        <div>
+          <a href="book-appointment.html" class="btn btn-teal" style="padding: 14px 28px; font-weight: 700; border-radius: 8px; text-decoration: none;">Book Physician Consultation &rarr;</a>
+        </div>
+      </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">
-      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+  <!-- Modals -->
+  <!-- Modal 1: Modular OT -->
+  <div id="modal-modular-ot" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modular-ot-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">ISO CLASS 5 / CLASS 10,000</span>
+        <span style="font-size: 0.75rem; color: #64748B;">NABH Cleanroom Standard</span>
+      </div>
+      <h3 id="modular-ot-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">Class 10,000 Modular OT Engineering</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        Every millimeter of our operating theaters is sealed with non-porous antimicrobial corian panels that prevent bacterial harborage in wall crevices. Vertical laminar airflow diffusers maintain a constant 0.45 m/s positive downward column over the sterile surgical field.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Technical Specifications</h4>
+        <ul style="font-size: 0.85rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+          <li>Air changes per hour: 32 full cycles with 100% fresh conditioned air.</li>
+          <li>Temperature stability within &plusmn;0.5&deg;C (range 18&deg;C to 24&deg;C) for precise hypothermia control.</li>
+          <li>Integrated medical gas pendants and articulated surgical ceiling arms eliminate floor cables.</li>
+        </ul>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Consult Surgical Director &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Modal 2: 3T MRI -->
+  <div id="modal-mri" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="mri-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">DIGITAL HIGH-FIELD RADIOLOGY</span>
+        <span style="font-size: 0.75rem; color: #64748B;">70cm Wide Aperture</span>
+      </div>
+      <h3 id="mri-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">3-Tesla Digital Wide-Bore MRI Dossier</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        Equipped with digital broadband radiofrequency digitizers right in the RF coil on the patient. This eliminates analog signal degradation and captures micro-structural tissue details, including non-contrast arterial spin labeling for cerebral perfusion and 4D Flow cardiac MRI.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Diagnostic Capabilities</h4>
+        <ul style="font-size: 0.85rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+          <li>Acoustic voice coil dampening delivers up to 80% reduction in sound pressure during scans.</li>
+          <li>Sub-millimeter diffuse axonal injury (DAI) and spinal cord compression resolution.</li>
+          <li>Whole-body multi-parametric oncology screening completed within 45 minutes.</li>
+        </ul>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Book MRI Diagnostic Scan &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="background: #042F2E; color: #A7F3D0; padding: 64px 0 32px; border-top: 1px solid rgba(20, 184, 166, 0.2);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px;">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+            <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+            <div class="brand-name" style="color: #FFF; font-weight: 700;">VitaNova Health</div>
+          </div>
+          <p style="font-size: 0.85rem; color: #A7F3D0; line-height: 1.8; max-width: 320px;">
+            Pioneering precision medicine, minimally invasive robotics, and compassionate tertiary care across India and the Emirates.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Institutes</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiology & PPCI</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences & Spine</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Surgical Oncology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Patients & Visitors</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
+            <li><a href="facilities.html" style="color: inherit; text-decoration: none;">Diagnostic Suites & ICUs</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Patient Care & Rooms</a></li>
+            <li><a href="health-plans.html" style="color: inherit; text-decoration: none;">Executive Health Checks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Hospital</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="about.html" style="color: inherit; text-decoration: none;">Clinical Leadership</a></li>
+            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Preventive Medicine</a></li>
+            <li><a href="health-insights.html" style="color: inherit; text-decoration: none;">Medical Insights & Blog</a></li>
+            <li><a href="sitemap.xml" style="color: inherit; text-decoration: none;">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #5EEAD4; flex-wrap: wrap; gap: 12px;">
+        <div>&copy; 2026 VitaNova Health System. ScaleNova HealthOS Client Platform.</div>
+        <div>Hospitals: Bengaluru &bull; Hyderabad &bull; Chennai &bull; Dubai Healthcare City</div>
+      </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="src/components/pulse-wave.js"></script>
+  <script src="src/components/modal-controller.js"></script>
+  <script src="src/components/visual-infographics.js"></script>
 </body>
 </html>

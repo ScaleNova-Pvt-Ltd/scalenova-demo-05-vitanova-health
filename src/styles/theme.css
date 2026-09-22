@@ -480,3 +480,349 @@ body.side-panel-open {
   0% { transform: translateY(0px) rotate(0deg); }
   100% { transform: translateY(-8px) rotate(-0.5deg); }
 }
+
+/* VITANOVA ENTERPRISE ENHANCEMENTS */
+.top-clinical-bar {
+  background: #06182B;
+  color: #94A3B8;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.top-clinical-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.clinical-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #14B8A6;
+  box-shadow: 0 0 10px #14B8A6;
+  display: inline-block;
+  animation: clinicalPulse 2s infinite;
+}
+@keyframes clinicalPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Health Plans Grid */
+.health-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+@media (max-width: 992px) {
+  .health-plans-grid { grid-template-columns: 1fr; }
+}
+.health-plan-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 40px 32px;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.health-plan-card:hover {
+  transform: translateY(-6px);
+  border-color: #0D9488;
+  box-shadow: 0 16px 40px rgba(13, 148, 136, 0.12);
+}
+.health-plan-card.featured {
+  background: #0A2540;
+  color: #FFFFFF;
+  border: 1px solid #0D9488;
+  box-shadow: 0 20px 48px rgba(10, 37, 64, 0.25);
+}
+.health-plan-card.featured h3,
+.health-plan-card.featured .health-plan-price {
+  color: #FFFFFF;
+}
+.health-plan-card.featured p { color: #CBD5E1; }
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 32px;
+  background: #0D9488;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 14px;
+  border-radius: 4px;
+}
+.health-plan-price {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: #0A2540;
+  margin: 16px 0 6px;
+}
+.health-plan-scope {
+  font-size: 0.8rem;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+.health-plan-card.featured .health-plan-scope { color: #2DD4BF; }
+.health-plan-features {
+  list-style: none;
+  margin: 28px 0;
+  flex-grow: 1;
+}
+.health-plan-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.health-plan-card.featured .health-plan-feature-item { color: #F1F5F9; }
+.health-plan-feature-item svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  stroke: #0D9488;
+}
+.health-plan-card.featured .health-plan-feature-item svg { stroke: #2DD4BF; }
+
+/* Modals */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 24, 43, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+.modal-dialog {
+  background: #FFFFFF;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  padding: 40px;
+}
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #F0FDFA;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F766E;
+  transition: all 0.2s;
+}
+.modal-close:hover {
+  background: #0D9488;
+  color: #FFFFFF;
+}
+.video-responsive-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #000;
+  margin: 20px 0;
+}
+.video-responsive-wrapper video,
+.video-responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================================================================
+   ScaleNova EliteOS — Interactive Visual Components & 3D Biometric Ambient Styles
+   ========================================================================== */
+
+.ambient-3d-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+/* KPI Stat Ribbon */
+.kpi-ribbon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(13, 148, 136, 0.06);
+  position: relative;
+  z-index: 1;
+}
+.kpi-card {
+  text-align: center;
+  padding: 12px;
+  border-right: 1px solid #F1F5F9;
+}
+.kpi-card:last-child {
+  border-right: none;
+}
+.kpi-value {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0F766E;
+  letter-spacing: -0.02em;
+}
+.kpi-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  margin-top: 4px;
+}
+
+/* 3D Tilt Card */
+.tilt-card {
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease, border-color 0.2s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+.tilt-card:hover {
+  box-shadow: 0 16px 36px rgba(13, 148, 136, 0.12);
+  border-color: #0D9488;
+}
+
+/* Clinical / Technology Protocol Switcher */
+.tech-switcher {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(13, 148, 136, 0.05);
+  position: relative;
+  z-index: 1;
+}
+.switcher-nav {
+  display: flex;
+  background: #F0FDFA;
+  border-bottom: 1px solid #CCFBF1;
+  overflow-x: auto;
+}
+.switcher-btn {
+  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748B;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.switcher-btn:hover {
+  color: #0D9488;
+}
+.switcher-btn.active {
+  color: #0D9488;
+  background: #FFFFFF;
+  border-bottom-color: #0D9488;
+}
+.switcher-content {
+  padding: 32px;
+}
+.switcher-panel {
+  display: none;
+}
+.switcher-panel.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Visual Badges & Chips */
+.chip {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  background: #F1F5F9;
+  color: #334155;
+}
+.chip-teal {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0F766E;
+}
+
+/* Modal Window */
+.modal-window {
+  background: #FFFFFF;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 16px;
+}
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #64748B;
+}
+.modal-body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #475569;
+}
+

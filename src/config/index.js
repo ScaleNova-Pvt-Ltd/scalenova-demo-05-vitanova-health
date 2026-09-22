@@ -19,7 +19,7 @@ export const APP_CONFIG = {
   
   // Public Gateway URL (Shared ScaleNova Google Apps Script Web App)
   submitUrl: window.__SCALENOVA_CONFIG__?.appsScriptUrl || 
-             'https://script.google.com/macros/s/DEMO_ENDPOINT_ID_REPLACE_IN_PRODUCTION/exec',
+             'https://script.google.com/macros/s/AKfycby-kC_gnWLAMrKc40yu0TOga5yZDreR50X-2AWw2rHrzCFi3oZp2W9Xqq3KXNoTh6bj/exec',
   
   // Demo Fallback / Simulation Settings
   simulationMode: true,

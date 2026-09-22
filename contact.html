@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
   <!-- Clinical Emergency Top Bar -->
   <aside class="emergency-topbar">
     <div class="container emergency-topbar-inner">
@@ -234,5 +237,6 @@
       }
     }
   </script>
+  <script src="src/components/pulse-wave.js"></script>
 </body>
 </html>

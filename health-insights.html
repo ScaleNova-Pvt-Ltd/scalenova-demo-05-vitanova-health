@@ -3,76 +3,460 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Health Insights & Clinical Articles — VitaNova Health</title>
-  <meta name="description" content="Evidence-based articles on cardiovascular wellness, arthritis management, and early detection protocols by VitaNova physicians.">
+  <title>Health Insights & Clinical Research — VitaNova Health</title>
+  <meta name="description" content="Evidence-based medical monographs, clinical research whitepapers, and patient health guides authored by VitaNova physician specialists.">
+  <meta name="keywords" content="clinical cardiology insights, robotic joint research, oncology whitepapers, medical journal articles India, VitaNova Health">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Health Insights & Clinical Research — VitaNova Health">
+  <meta property="og:description" content="Peer-reviewed clinical guides and surgical innovation monographs from VitaNova's medical directors.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalScholarlyArticle",
+    "headline": "VitaNova Clinical Research & Medical Insights",
+    "author": {
+      "@type": "Organization",
+      "name": "VitaNova Medical Directorate"
+    }
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Dispatch Bar -->
+  <div style="background: #042F2E; color: #CCFBF1; padding: 8px 0; font-size: 0.8rem; border-bottom: 1px solid rgba(20, 184, 166, 0.3);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 7px; height: 7px; background: #2DD4BF; border-radius: 50%;"></span>
+        <span>ACADEMIC MEDICAL REPOSITORY ACTIVE</span> &bull; 140+ Peer-Reviewed Publications &bull; Clinical Trials Active
+      </div>
+      <div>
+        <a href="book-appointment.html" style="color: #2DD4BF; text-decoration: none; margin-right: 16px; font-weight: 600;">Consult Authoring Physician &rarr;</a>
+        Academic Office: <a href="tel:1066" style="color: #FFF; text-decoration: none; font-weight: 700;">1066 / +91 80 6912 9000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo"><div class="brand-icon">+</div><div class="brand-name">VitaNova Health</div></a>
-      <nav><ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-        <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
-        <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-        <li><a href="health-insights.html" class="nav-link active">Insights</a></li>
-        <li><a href="contact.html" class="nav-link">Hospitals</a></li>
-      </ul></nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="index.html" class="brand-logo" aria-label="VitaNova Health Home">
+        <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+        <div>
+          <div class="brand-name" style="font-weight: 700; color: #042F2E; font-size: 1.15rem;">VitaNova Health</div>
+          <div style="font-size: 0.68rem; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">Institutes of Precision Medicine & Surgery</div>
+        </div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
+          <li><a href="health-plans.html" class="nav-link">Plans</a></li>
+          <li><a href="health-insights.html" class="nav-link active">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; background: #0D9488; color: #FFF; border-radius: 6px; text-decoration: none;">Book Consultation</a>
     </div>
   </header>
 
   <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
     <div class="container">
-      <div style="max-width: 820px; margin-bottom: 56px;">
-        <span class="eyebrow">Medical Advisory</span>
-        <h1>Clinical Insights & Patient Health Guides</h1>
-        <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 16px;">
-          Authoritative articles reviewed and approved by VitaNova department heads and research fellows.
+      <!-- Breadcrumb & Header -->
+      <div style="max-width: 860px; margin-bottom: 48px;">
+        <span class="eyebrow" style="color: #0D9488; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">CLINICAL RESEARCH & EVIDENCE-BASED GUIDES</span>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(2.3rem, 5vw, 3.4rem); color: #042F2E; line-height: 1.15; margin: 12px 0 16px;">
+          Physician Research & Monographs
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.8; max-width: 760px;">
+          Rigorous clinical whitepapers, surgical outcome audits, and authoritative diagnostic advisories reviewed and published by VitaNova's department chairs.
         </p>
       </div>
 
-      <div class="grid-3">
-        <div class="medical-card">
-          <span class="clinical-badge">CARDIAC ADVISORY</span>
-          <h3>Recognizing Atypical Heart Attack Symptoms in Women</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.6; margin-top: 8px;">
-            Why fatigue, jaw discomfort, and shortness of breath are frequently misdiagnosed as anxiety or gastric distress.
-          </p>
-          <a href="book-appointment.html" style="color: var(--color-teal-primary); font-size: 0.85rem; font-weight: 700; margin-top: 16px; display: inline-block;">Read Clinical Guide &rarr;</a>
+      <!-- KPI Stat Ribbon -->
+      <div class="kpi-ribbon" style="margin-bottom: 64px;">
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="142" data-suffix="+">142+</div>
+          <div class="kpi-label">Peer-Reviewed Physician Publications</div>
         </div>
-
-        <div class="medical-card">
-          <span class="clinical-badge">ORTHOPEDIC SCIENCE</span>
-          <h3>When is Robotic Joint Replacement Truly Necessary?</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.6; margin-top: 8px;">
-            Comparing conservative hyaluronic acid injections against partial robotic unicompartmental knee resurfacing.
-          </p>
-          <a href="book-appointment.html" style="color: var(--color-teal-primary); font-size: 0.85rem; font-weight: 700; margin-top: 16px; display: inline-block;">Read Clinical Guide &rarr;</a>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="48" data-suffix=" active">48 active</div>
+          <div class="kpi-label">Institutional Review Board Clinical Trials</div>
         </div>
-
-        <div class="medical-card">
-          <span class="clinical-badge">PREVENTIVE ONCOLOGY</span>
-          <h3>The Role of Low-Dose CT (LDCT) in Lung Health</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.85rem; line-height: 1.6; margin-top: 8px;">
-            How annual low-dose screening reduces lung cancer mortality by 20% in long-term smokers and urban professionals.
-          </p>
-          <a href="book-appointment.html" style="color: var(--color-teal-primary); font-size: 0.85rem; font-weight: 700; margin-top: 16px; display: inline-block;">Read Clinical Guide &rarr;</a>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="100" data-suffix="%">100%</div>
+          <div class="kpi-label">Mandatory Surgical Tumor Board Review</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="28" data-suffix=" yrs">28 yrs</div>
+          <div class="kpi-label">Longitudinal Patient Outcome Tracking</div>
         </div>
       </div>
+
+      <!-- Interactive Research Switcher -->
+      <section style="margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          <span style="font-size: 0.78rem; letter-spacing: 0.12em; color: #0D9488; font-weight: 700; text-transform: uppercase;">SPECIALTY ARCHIVE</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #042F2E; margin-top: 8px;">
+            Clinical Whitepapers & Advisories
+          </h2>
+          <p style="color: #64748B; font-size: 0.95rem;">Select a therapeutic domain to review surgical outcomes, trial data, and clinical guidance.</p>
+        </div>
+
+        <div class="tech-switcher">
+          <div class="switcher-nav">
+            <button class="switcher-btn active" data-target="ins-cardiac">01 Cardiovascular Science</button>
+            <button class="switcher-btn" data-target="ins-ortho">02 Robotic Orthopedics</button>
+            <button class="switcher-btn" data-target="ins-onco">03 Precision Oncology</button>
+            <button class="switcher-btn" data-target="ins-neuro">04 Neurosciences & Longevity</button>
+          </div>
+
+          <!-- Panel 1: Cardiovascular Science -->
+          <div id="ins-cardiac" class="switcher-panel active">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Cardiac Advisory</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Lancet Oncology Ref</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Atypical Myocardial Infarction in Women</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Analysis of 1,200 female cardiac admissions demonstrating that epigastric distress, unprovoked dyspnea, and mid-scapular ache frequently precede angiographic occlusion without classic substernal pain.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Author:</strong> Dr. Swaminathan et al.</span>
+                  <span><strong>Impact:</strong> Diagnostic Protocol</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-cardiac" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Electrophysiology</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">JACC Clinical</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Pulsed-Field Ablation vs Thermal RF</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Comparative 3-year multicenter study proving that non-thermal electroporation eliminates esophageal ulceration risk while matching 91.4% sinus rhythm retention at 12 months.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Cohort:</strong> 640 AF Patients</span>
+                  <span><strong>Safety:</strong> Zero Thermal Burns</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-cardiac" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Structural Heart</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">NEJM Observational</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">TAVR Durability in Bicuspid Valves</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Evaluating 7-year hemodynamic gradient stability and paravalvular regurgitation in Asian bicuspid aortic stenosis cohorts undergoing transcatheter valve deployment.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Duration:</strong> 7 Years Follow-up</span>
+                  <span><strong>Gradients:</strong> Mean &lt; 9.2 mmHg</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-cardiac" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2: Robotic Orthopedics -->
+          <div id="ins-ortho" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Robotic Orthopedics</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">JBJS Published</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Haptic Boundary Precision in Knee Surgery</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Kinematic alignment study confirming that robotic resection prevents soft tissue iatrogenic injury, cutting post-operative knee swelling and hospital stays by 38%.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Accuracy:</strong> &plusmn; 0.5 mm Resection</span>
+                  <span><strong>Ambulation:</strong> Day 0 Mobility</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-ortho" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Direct Anterior Hip</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Clinical Ortho</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Muscle-Sparing Anterior Arthroplasty</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Fluoroscopic navigation through the Hueter interval preserving piriformis and obturator tendons. 99.4% of patients walk without crutches by Day 10.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Dislocation:</strong> 0.08% Lifetime</span>
+                  <span><strong>Discharge:</strong> 36 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-ortho" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Biologics</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Regenerative Med</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">High-Density PRP in Early Chondropathy</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Assessing leukocyte-poor platelet-rich plasma (LP-PRP) intra-articular injections in Grade II knee osteoarthritis, demonstrating cartilage preservation over 24 months.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Concentration:</strong> 6x Baseline Platelets</span>
+                  <span><strong>Pain Score:</strong> -62% at 1 Year</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-ortho" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Precision Oncology -->
+          <div id="ins-onco" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Preventive Oncology</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Thorax Ref</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Low-Dose CT (LDCT) Lung Screening</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Demonstrating that annual low-dose screening among asymptomatic smokers and high-pollution urbanites catches 82% of lung cancers at Stage I, boosting 5-year survival to 90%.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Early Detection:</strong> 82% Stage I</span>
+                  <span><strong>Mortality Cut:</strong> -24% in Cohort</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-onco" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Robotic Surgery</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">European Urology</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Nerve-Sparing RALP Margins & Continence</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  10-year surgical review of 1,800 robot-assisted laparoscopic radical prostatectomies demonstrating 98.2% oncological negative margin clearance and 96.8% urinary continence retention.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Cohort:</strong> 1,800 RALP Cases</span>
+                  <span><strong>Continence:</strong> 96.8% at 90 Days</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-onco" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Immunotherapy</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Onco-Genomics</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">PD-L1 Expression & Targeted Checkpoint Blockade</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Integrating comprehensive genomic profiling (CGP) to match advanced gastrointestinal tumors with personalized monoclonal antibody checkpoint inhibitors.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Sequencing:</strong> 500+ Cancer Genes</span>
+                  <span><strong>Response:</strong> +42% PFS</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-onco" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4: Neurosciences & Longevity -->
+          <div id="ins-neuro" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Neuro-Radiology</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Brain Imaging</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Pre-Symptomatic Tau & Amyloid PET</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Combining volumetric 3T hippocampal MRI with fluorodeoxyglucose PET imaging to identify neurodegenerative pathology 12 to 15 years prior to clinical cognitive decline.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Horizon:</strong> 15-Year Early Window</span>
+                  <span><strong>Resolution:</strong> 3T Volumetric</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-neuro" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Metabolic Longevity</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Cell Metabolism</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Reversing Visceral Adipose Dysfunction</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Continuous glucose monitoring (CGM) combined with targeted GLP-1 receptor modulation and structured resistance exercise to reverse non-alcoholic steatohepatitis (NASH).
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Liver Fat Cut:</strong> -45% in 6 Mos</span>
+                  <span><strong>HOMA-IR:</strong> Normalized 88%</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-neuro" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Spine Biomechanics</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">European Spine</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Full-Endoscopic Cervical Foraminotomy</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Posterior endoscopic nerve root decompression avoiding anterior cervical discectomy and fusion (ACDF), maintaining natural cervical lordosis and motion preservation.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Motion:</strong> 100% Preserved</span>
+                  <span><strong>Hospital Stay:</strong> 12 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-paper-neuro" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Read Clinical Abstract &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Academic Board Callout -->
+      <section style="background: #F0FDFA; border: 1px solid #CCFBF1; border-radius: 16px; padding: 48px; margin-bottom: 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 32px;">
+        <div style="max-width: 640px;">
+          <span style="color: #0D9488; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Collaborative Medicine</span>
+          <h2 style="font-family: var(--font-heading); font-size: 1.9rem; color: #042F2E; margin: 10px 0 12px;">
+            Physician Clinical Research & Clinical Trials
+          </h2>
+          <p style="color: #334155; font-size: 0.95rem; line-height: 1.7;">
+            VitaNova partners with leading international universities and medical device researchers. Patients with refractory conditions may qualify for ethical, IRB-approved therapeutic trials.
+          </p>
+        </div>
+        <div>
+          <a href="book-appointment.html" class="btn btn-teal" style="padding: 14px 28px; font-weight: 700; border-radius: 8px; text-decoration: none;">Inquire About Clinical Trials &rarr;</a>
+        </div>
+      </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">
-      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+  <!-- Modals -->
+  <!-- Modal 1: Cardiac Paper Abstract -->
+  <div id="modal-paper-cardiac" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="paper-cardiac-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">CLINICAL CARDIOLOGY AUDIT</span>
+        <span style="font-size: 0.75rem; color: #64748B;">IRB Approved #2024-CT-09</span>
+      </div>
+      <h3 id="paper-cardiac-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">Diagnostic Stratification in Female Acute Coronary Syndromes</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        <strong>Background:</strong> Female patients presenting with coronary ischemia demonstrate non-obstructive coronary artery disease (MINOCA) or microvascular spasm at a rate 3.4x higher than males, leading to critical diagnostic delays in conventional emergency triage.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Study Findings & Protocol</h4>
+        <ul style="font-size: 0.85rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+          <li>Routine implementation of high-sensitivity Troponin-I sex-specific cutoffs improved diagnostic accuracy by 26%.</li>
+          <li>Coronary CT angiography (CCTA) identified soft plaque erosion that was completely invisible on conventional planar fluoroscopy.</li>
+          <li>Revised protocol reduced emergency department discharge of active ischemic patients to absolute zero across 18 months.</li>
+        </ul>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Consult Senior Cardiologist &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="background: #042F2E; color: #A7F3D0; padding: 64px 0 32px; border-top: 1px solid rgba(20, 184, 166, 0.2);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px;">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+            <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+            <div class="brand-name" style="color: #FFF; font-weight: 700;">VitaNova Health</div>
+          </div>
+          <p style="font-size: 0.85rem; color: #A7F3D0; line-height: 1.8; max-width: 320px;">
+            Pioneering precision medicine, minimally invasive robotics, and compassionate tertiary care across India and the Emirates.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Institutes</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiology & PPCI</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences & Spine</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Surgical Oncology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Patients & Visitors</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
+            <li><a href="facilities.html" style="color: inherit; text-decoration: none;">Diagnostic Suites & ICUs</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Patient Care & Rooms</a></li>
+            <li><a href="health-plans.html" style="color: inherit; text-decoration: none;">Executive Health Checks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Hospital</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="about.html" style="color: inherit; text-decoration: none;">Clinical Leadership</a></li>
+            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Preventive Medicine</a></li>
+            <li><a href="health-insights.html" style="color: inherit; text-decoration: none;">Medical Insights & Blog</a></li>
+            <li><a href="sitemap.xml" style="color: inherit; text-decoration: none;">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #5EEAD4; flex-wrap: wrap; gap: 12px;">
+        <div>&copy; 2026 VitaNova Health System. ScaleNova HealthOS Client Platform.</div>
+        <div>Hospitals: Bengaluru &bull; Hyderabad &bull; Chennai &bull; Dubai Healthcare City</div>
+      </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="src/components/pulse-wave.js"></script>
+  <script src="src/components/modal-controller.js"></script>
+  <script src="src/components/visual-infographics.js"></script>
 </body>
 </html>

@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Clinical Bar -->
+  <div class="top-clinical-bar">
+    <div class="container top-clinical-inner">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span class="clinical-live-dot"></span>
+        <span>EMERGENCY & TRAUMA 24/7 ACTIVE</span> &bull; NABH & JCI Accredited Hospital Centres &bull; Cashless TPA Fast-Track
+      </div>
+      <div>
+        <a href="health-plans.html" style="color:#2DD4BF; text-decoration:none; margin-right:16px;">View Health Plans &rarr;</a>
+        Emergency: <a href="tel:+918061994000" style="color:#FFF; text-decoration:none; font-weight:700;">+91 80 6199 4000</a>
+      </div>
+    </div>
+  </div>
   <!-- Clinical Emergency & Concierge Top Bar -->
   <aside class="emergency-topbar">
     <div class="container emergency-topbar-inner">
@@ -385,5 +401,42 @@
       }
     }
   </script>
+
+  <!-- Robotic Surgery Suite Video Modal -->
+  <div class="modal-overlay" id="roboticTheatreModal" onclick="if(event.target===this) closeRoboticTheatreTour()">
+    <div class="modal-dialog">
+      <button class="modal-close" onclick="closeRoboticTheatreTour()">&times;</button>
+      <span class="eyebrow" style="color:#0D9488;">CLINICAL THEATRE TOUR &bull; 4K</span>
+      <h3 style="margin: 10px 0 16px;">Inside VitaNova: 4th Generation Da Vinci Xi Robotic Surgery Suite</h3>
+      <div class="video-responsive-wrapper">
+        <video controls poster="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1200&q=80">
+          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <p style="font-size: 0.88rem; color: #475569; line-height: 1.6;">
+        Dr. Vikramaditya Sen and the surgical robotics team demonstrate sub-millimeter kinematic alignment in total joint replacements and minimally invasive oncological resections.
+      </p>
+      <div style="margin-top: 20px; display:flex; justify-content: flex-end; gap: 12px;">
+        <button class="btn btn-secondary" onclick="closeRoboticTheatreTour()">Close Window</button>
+        <a href="book-appointment.html" class="btn btn-teal">Book Consultation &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openRoboticTheatreTour() {
+      document.getElementById('roboticTheatreModal').classList.add('active');
+    }
+    function closeRoboticTheatreTour() {
+      const modal = document.getElementById('roboticTheatreModal');
+      modal.classList.remove('active');
+      const video = modal.querySelector('video');
+      if (video) video.pause();
+    }
+  <!-- Interactive & 3D Scripts -->
+  <script src="src/components/pulse-wave.js"></script>
+  <script src="src/components/modal-controller.js"></script>
+  <script src="src/components/visual-infographics.js"></script>
 </body>
 </html>

@@ -4,70 +4,480 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient Experience & Cashless Insurance Desk — VitaNova Health</title>
-  <meta name="description" content="Pre-admission concierge, hassle-free cashless insurance claim desk, and international patient assistance.">
+  <meta name="description" content="Pre-admission digital fast-track, transparent cashless insurance TPA desk, and international patient medical concierge at VitaNova Health.">
+  <meta name="keywords" content="cashless hospitalization Bangalore, TPA insurance desk, international patient concierge India, medical visa hospital, VitaNova Health">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Patient Experience & Cashless Insurance Desk — VitaNova Health">
+  <meta property="og:description" content="Stress-free hospital care journeys with rapid TPA approvals, private inpatient sanctuaries, and multilingual patient liaisons.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "VitaNova Health Patient Care & Services",
+    "description": "Comprehensive inpatient concierge and cashless insurance coordination."
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230D9488'/><path d='M14 8H18V14H24V18H18V24H14V18H8V14H14V8Z' fill='%23FFFFFF'/></svg>">
   <link rel="stylesheet" href="src/styles/theme.css">
 </head>
 <body>
+  <!-- Ambient 3D Physiological Waveform Canvas -->
+  <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Dispatch Bar -->
+  <div style="background: #042F2E; color: #CCFBF1; padding: 8px 0; font-size: 0.8rem; border-bottom: 1px solid rgba(20, 184, 166, 0.3);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 7px; height: 7px; background: #2DD4BF; border-radius: 50%;"></span>
+        <span>PATIENT CONCIERGE DESK OPEN</span> &bull; 35+ Cashless TPAs Active &bull; Zero Waiting Pre-Admission
+      </div>
+      <div>
+        <a href="book-appointment.html" style="color: #2DD4BF; text-decoration: none; margin-right: 16px; font-weight: 600;">Check TPA Eligibility &rarr;</a>
+        Helpdesk: <a href="tel:1066" style="color: #FFF; text-decoration: none; font-weight: 700;">1066 / +91 80 6912 9000</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo"><div class="brand-icon">+</div><div class="brand-name">VitaNova Health</div></a>
-      <nav><ul class="nav-menu">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="specialties.html" class="nav-link">Specialties</a></li>
-        <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-        <li><a href="patient-experience.html" class="nav-link active">Patient Care</a></li>
-        <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-        <li><a href="health-insights.html" class="nav-link">Insights</a></li>
-        <li><a href="contact.html" class="nav-link">Hospitals</a></li>
-      </ul></nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 20px;">Book Doctor</a>
+      <a href="index.html" class="brand-logo" aria-label="VitaNova Health Home">
+        <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+        <div>
+          <div class="brand-name" style="font-weight: 700; color: #042F2E; font-size: 1.15rem;">VitaNova Health</div>
+          <div style="font-size: 0.68rem; color: #64748B; letter-spacing: 0.08em; text-transform: uppercase;">Institutes of Precision Medicine & Surgery</div>
+        </div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="specialties.html" class="nav-link">Specialties</a></li>
+          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
+          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
+          <li><a href="patient-experience.html" class="nav-link active">Patient Care</a></li>
+          <li><a href="wellness.html" class="nav-link">Checkups</a></li>
+          <li><a href="health-plans.html" class="nav-link">Plans</a></li>
+          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="contact.html" class="nav-link">Hospitals</a></li>
+        </ul>
+      </nav>
+      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; background: #0D9488; color: #FFF; border-radius: 6px; text-decoration: none;">Book Consultation</a>
     </div>
   </header>
 
   <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
     <div class="container">
-      <div style="max-width: 820px; margin-bottom: 56px;">
-        <span class="eyebrow">Patient Stewardship</span>
-        <h1>Transparent, Stress-Free Care Journeys</h1>
-        <p style="font-size: 1.15rem; color: var(--color-text-muted); line-height: 1.7; margin-top: 16px;">
-          Healthcare shouldn't feel like an administrative maze. From your first OPD consultation to post-discharge medication delivery, a dedicated care manager guides your family.
+      <!-- Breadcrumb & Header -->
+      <div style="max-width: 860px; margin-bottom: 48px;">
+        <span class="eyebrow" style="color: #0D9488; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">PATIENT STEWARDSHIP & CONCIERGE</span>
+        <h1 style="font-family: var(--font-heading); font-size: clamp(2.3rem, 5vw, 3.4rem); color: #042F2E; line-height: 1.15; margin: 12px 0 16px;">
+          Dignified, Frictionless Care
+        </h1>
+        <p style="font-size: 1.15rem; color: #475569; line-height: 1.8; max-width: 760px;">
+          Eliminating administrative friction through rapid cashless insurance authorizations, transparent clinical disclosures, and dedicated personal patient navigators for every family.
         </p>
       </div>
 
-      <div class="grid-3">
-        <div class="medical-card">
-          <span class="clinical-badge">INSURANCE HELP</span>
-          <h3>Cashless TPA Assistance</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
-            Empanelled with over 35 major private health insurers and TPAs. Pre-authorization processing completed within 60 minutes of admission.
-          </p>
+      <!-- KPI Stat Ribbon -->
+      <div class="kpi-ribbon" style="margin-bottom: 64px;">
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="45" data-suffix=" min">45 min</div>
+          <div class="kpi-label">Average Cashless TPA Pre-Authorization</div>
         </div>
-        <div class="medical-card">
-          <span class="clinical-badge">CONCIERGE</span>
-          <h3>Pre-Admission Fast-Track</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
-            Complete diagnostic pre-tests, room allocations, and consent reviews digitally before arrival, eliminating waiting room delays on surgery day.
-          </p>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="38" data-suffix="+">38+</div>
+          <div class="kpi-label">Empanelled Health Insurers & Global TPAs</div>
         </div>
-        <div class="medical-card">
-          <span class="clinical-badge">GLOBAL PATIENTS</span>
-          <h3>International Patient Desk</h3>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">
-            Medical visa invitation letters, multilingual translator services, airport ambulance transfers, and post-discharge tele-rehabilitation.
-          </p>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="98.7" data-suffix="%">98.7%</div>
+          <div class="kpi-label">Patient Experience Satisfaction Score</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value" data-counter="100" data-suffix="%">100%</div>
+          <div class="kpi-label">Itemized Pre-Admission Cost Transparency</div>
         </div>
       </div>
+
+      <!-- Interactive Patient Journey Roadmap Switcher -->
+      <section style="margin-bottom: 80px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 36px;">
+          <span style="font-size: 0.78rem; letter-spacing: 0.12em; color: #0D9488; font-weight: 700; text-transform: uppercase;">THE CONTINUUM OF CARE</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; color: #042F2E; margin-top: 8px;">
+            A Stress-Free Healing Journey
+          </h2>
+          <p style="color: #64748B; font-size: 0.95rem;">Select each stage to see how VitaNova guides you from initial diagnosis to long-term vitality.</p>
+        </div>
+
+        <div class="tech-switcher">
+          <div class="switcher-nav">
+            <button class="switcher-btn active" data-target="journey-stage1">Stage 01: Pre-Admission</button>
+            <button class="switcher-btn" data-target="journey-stage2">Stage 02: Hospitalization</button>
+            <button class="switcher-btn" data-target="journey-stage3">Stage 03: Cashless TPA</button>
+            <button class="switcher-btn" data-target="journey-stage4">Stage 04: Post-Discharge</button>
+          </div>
+
+          <!-- Stage 1: Pre-Admission -->
+          <div id="journey-stage1" class="switcher-panel active">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Zero Queues</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Mobile Pre-Check</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Digital Pre-Registration</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Upload prior physician prescriptions, government IDs, and policy documents from home. Your room is pre-assigned before you set foot on hospital grounds.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Check-in Time:</strong> &lt; 3 Minutes</span>
+                  <span><strong>Portal:</strong> Secure WhatsApp</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-fasttrack" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Fast-Track Flow &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Diagnostics</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Home Sample</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Pre-Surgical Blood & ECG at Home</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Certified phlebotomists collect complete surgical workups at your residence 48 hours in advance, allowing anesthesia clearance before admission morning.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Coverage:</strong> Bangalore Metro</span>
+                  <span><strong>Turnaround:</strong> 6 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-fasttrack" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  View Home Sample Protocol &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Financial Clarity</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">No Surprises</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Itemized Clinical Cost Estimates</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Written disclosure detailing surgeon fees, OT charges, implant model prices, and expected pharmacy consumption before any procedure is scheduled.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Estimation Variance:</strong> &lt; 5%</span>
+                  <span><strong>Counseling:</strong> Dedicated Advisor</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-fasttrack" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Cost Model &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 2: Hospitalization -->
+          <div id="journey-stage2" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Personal Navigator</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">1-on-1 Assigned</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Dedicated Patient Care Manager</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  A single point of contact coordinating doctors' rounding schedules, dietitian consults, medication schedules, and family daily clinical briefings.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Availability:</strong> 24/7 Inpatient</span>
+                  <span><strong>Briefings:</strong> Daily at 11 AM</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-concierge" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Learn More About Navigators &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Sanctuary</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Acoustic Isolation</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Private Healing Suites</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Smart room tablet controls for circadian lighting, motorized medical recliners, air purification, and on-demand streaming for accompanying families.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Noise Level:</strong> &lt; 38 dB Quiet</span>
+                  <span><strong>Attendant:</strong> Private Sofa-Bed</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-concierge" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  View Suite Specifications &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Nutrition</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Custom Menus</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Chef-Curated Clinical Dining</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Nutritionally calibrated meals prepared fresh without excess sodium or processed oils, customized for diabetic, cardiac, and renal therapeutic regimens.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Meals:</strong> 5 Scheduled Servings</span>
+                  <span><strong>Attendant Dining:</strong> A la Carte</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-concierge" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  View Dining Protocols &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 3: Cashless TPA -->
+          <div id="journey-stage3" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Pre-Auth</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">45-Min Target</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Direct TPA Liaison Officers</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Dedicated on-site billing and insurance specialists submit pre-authorizations directly to portals of Star Health, Care, HDFC ERGO, ICICI Lombard, and Medi Assist.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Query Rate:</strong> &lt; 3.2%</span>
+                  <span><strong>Portal:</strong> National Health Claims</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-tpa" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect TPA Empanelment &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Discharge Clearance</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Fast Turnaround</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Express Final Bill Settlement</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Discharge summary, pharmacy reconciliation, and final TPA settlement completed within 90 minutes of the morning doctor rounding sign-off.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Avg Clearance:</strong> 78 Minutes</span>
+                  <span><strong>Digital Copy:</strong> PDF via Email</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-tpa" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Discharge Protocol &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Global Patients</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Cross-Border Cover</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">International Insurance & Guarantee</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Accepting Direct Letters of Guarantee (GOP) from Bupa Global, Cigna Global, Allianz Care, AXA PPP, and government health ministries across the GCC.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>GOP Verification:</strong> &lt; 2 Hours</span>
+                  <span><strong>Embassy Desk:</strong> Dedicated Liaison</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-intl" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Global Desk &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stage 4: Post-Discharge -->
+          <div id="journey-stage4" class="switcher-panel">
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Home Health</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Wound Care</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Post-Operative Home Nursing</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Hospital-trained nurses visit your home on Day 3 and Day 7 for sterile surgical dressing changes, suture inspection, and vitals assessment.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Visits:</strong> 2 Included Visits</span>
+                  <span><strong>Protocol:</strong> Sterile Dressing Kit</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-tele" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Home Nursing &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Tele-Medicine</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Surgeon Follow-Up</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">High-Definition Video Follow-Up</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Complimentary 15-minute video consultation with your primary operating surgeon at 14 days and 30 days post-surgery, avoiding unnecessary travel.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Cost:</strong> 100% Complimentary</span>
+                  <span><strong>Access:</strong> Phone or Laptop</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-tele" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Tele-Consult &rarr;
+                </button>
+              </div>
+
+              <div class="tilt-card" style="background: #FFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 28px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Pharmacy</span>
+                  <span style="font-size: 0.75rem; color: #64748B;">Temperature Controlled</span>
+                </div>
+                <h3 style="font-size: 1.25rem; color: #042F2E; margin-bottom: 10px;">Doorstep Chronic Medication</h3>
+                <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; margin-bottom: 18px;">
+                  Direct pharmacy dispatch delivers your 30-day post-discharge cardiac or orthopedic prescription directly to your doorstep in cold-chain packaging.
+                </p>
+                <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 0.8rem; color: #334155; display: flex; justify-content: space-between;">
+                  <span><strong>Cold Chain:</strong> 2&deg;C - 8&deg;C Verified</span>
+                  <span><strong>Delivery:</strong> Express 4 Hours</span>
+                </div>
+                <button class="btn btn-outline" data-modal="modal-tele" style="width: 100%; border: 1px solid #0D9488; color: #0D9488; padding: 10px; border-radius: 6px; font-weight: 600; background: transparent; cursor: pointer;">
+                  Inspect Delivery Protocol &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Global Patients Concierge Callout -->
+      <section style="background: linear-gradient(135deg, #042F2E 0%, #115E59 100%); border-radius: 16px; padding: 56px 48px; color: #FFF; margin-bottom: 48px; position: relative; overflow: hidden;">
+        <div style="max-width: 720px; position: relative; z-index: 2;">
+          <span style="background: rgba(45, 212, 191, 0.2); color: #2DD4BF; padding: 6px 14px; border-radius: 100px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Cross-Border Medical Tourism</span>
+          <h2 style="font-family: var(--font-heading); font-size: 2.2rem; margin: 16px 0 12px; color: #FFF;">
+            International Patient Concierge Office
+          </h2>
+          <p style="color: #CCFBF1; font-size: 1.05rem; line-height: 1.7; margin-bottom: 28px;">
+            Patients traveling from Oman, UAE, Kenya, Bangladesh, and Nigeria receive end-to-end travel management, priority medical visa letters within 24 hours, and airport paramedic reception.
+          </p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <button class="btn btn-teal" data-modal="modal-intl" style="background: #2DD4BF; color: #042F2E; padding: 14px 28px; font-weight: 700; border-radius: 8px; border: none; cursor: pointer;">Connect With International Desk</button>
+            <a href="book-appointment.html" class="btn btn-outline" style="border: 1px solid rgba(255,255,255,0.4); color: #FFF; padding: 14px 28px; font-weight: 600; border-radius: 8px; text-decoration: none;">Submit Records for Review &rarr;</a>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-bottom">
-      <div>&copy; 2026 VitaNova Health Care Ltd. All rights reserved.</div>
-      <div style="color: var(--color-teal-light);">ScaleNova EliteOS Demo Platform</div>
+  <!-- Modals -->
+  <!-- Modal 1: TPA Assistance -->
+  <div id="modal-tpa" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="tpa-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">CASHLESS INSURANCE</span>
+        <span style="font-size: 0.75rem; color: #64748B;">IRDAI Compliant Protocol</span>
+      </div>
+      <h3 id="tpa-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">Cashless TPA Empanelment & Protocol</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        VitaNova Health works seamlessly with all major government and private insurance underwriters. Our dedicated on-site insurance desk processes pre-authorizations electronically, verifying coverage and exclusions before hospital arrival.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Empanelled Underwriters</h4>
+        <p style="font-size: 0.85rem; color: #334155; line-height: 1.8; margin-bottom: 8px;">
+          Star Health &bull; Care Health &bull; HDFC ERGO &bull; ICICI Lombard &bull; Max Bupa / Niva Bupa &bull; Medi Assist TPA &bull; Vidal Health &bull; Paramount Health &bull; Heritage Health &bull; Family Health Plan (FHPL)
+        </p>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Check My Policy Coverage &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Modal 2: International Desk -->
+  <div id="modal-intl" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="intl-title">
+    <div class="modal-window">
+      <button class="modal-close" data-close-modal aria-label="Close modal">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <span style="font-size: 0.75rem; font-weight: 700; color: #0D9488; background: #F0FDFA; padding: 3px 8px; border-radius: 4px;">GLOBAL PATIENTS</span>
+        <span style="font-size: 0.75rem; color: #64748B;">Cross-Border Travel Care</span>
+      </div>
+      <h3 id="intl-title" style="font-size: 1.5rem; color: #042F2E; margin-bottom: 16px;">International Patient Concierge Charter</h3>
+      <p style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+        Our multilingual international patient care team coordinates clinical tele-opinions, visa invitations, airport transfers, halal / regional dining, and comfortable nearby guest house lodging for patient families.
+      </p>
+      <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 16px; margin-bottom: 24px;">
+        <h4 style="font-size: 0.85rem; color: #042F2E; margin-bottom: 8px; text-transform: uppercase;">Concierge Inclusions</h4>
+        <ul style="font-size: 0.85rem; color: #334155; line-height: 1.8; padding-left: 20px;">
+          <li>Official Medical Visa Assistance Letter dispatched in under 24 hours.</li>
+          <li>Tarmac airport ambulance pickup or private chauffeured transfer.</li>
+          <li>Translators fluent in Arabic, French, Swahili, Russian, and Bengali.</li>
+          <li>SIM card, currency exchange, and FRRO registration support.</li>
+        </ul>
+      </div>
+      <a href="book-appointment.html" class="btn btn-teal" style="display: block; text-align: center; background: #0D9488; color: #FFF; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 600;">Contact International Liaison Officer &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" style="background: #042F2E; color: #A7F3D0; padding: 64px 0 32px; border-top: 1px solid rgba(20, 184, 166, 0.2);">
+    <div class="container">
+      <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-bottom: 48px;">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
+            <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">+</div>
+            <div class="brand-name" style="color: #FFF; font-weight: 700;">VitaNova Health</div>
+          </div>
+          <p style="font-size: 0.85rem; color: #A7F3D0; line-height: 1.8; max-width: 320px;">
+            Pioneering precision medicine, minimally invasive robotics, and compassionate tertiary care across India and the Emirates.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Institutes</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Cardiology & PPCI</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Robotic Orthopedics</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Neurosciences & Spine</a></li>
+            <li><a href="specialties.html" style="color: inherit; text-decoration: none;">Surgical Oncology</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Patients & Visitors</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="book-appointment.html" style="color: inherit; text-decoration: none;">Book Consultation</a></li>
+            <li><a href="facilities.html" style="color: inherit; text-decoration: none;">Diagnostic Suites & ICUs</a></li>
+            <li><a href="patient-experience.html" style="color: inherit; text-decoration: none;">Patient Care & Rooms</a></li>
+            <li><a href="health-plans.html" style="color: inherit; text-decoration: none;">Executive Health Checks</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFF; font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-heading);">Hospital</h4>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; color: #A7F3D0;">
+            <li><a href="about.html" style="color: inherit; text-decoration: none;">Clinical Leadership</a></li>
+            <li><a href="wellness.html" style="color: inherit; text-decoration: none;">Preventive Medicine</a></li>
+            <li><a href="health-insights.html" style="color: inherit; text-decoration: none;">Medical Insights & Blog</a></li>
+            <li><a href="sitemap.xml" style="color: inherit; text-decoration: none;">XML Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #5EEAD4; flex-wrap: wrap; gap: 12px;">
+        <div>&copy; 2026 VitaNova Health System. ScaleNova HealthOS Client Platform.</div>
+        <div>Hospitals: Bengaluru &bull; Hyderabad &bull; Chennai &bull; Dubai Healthcare City</div>
+      </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="src/components/pulse-wave.js"></script>
+  <script src="src/components/modal-controller.js"></script>
+  <script src="src/components/visual-infographics.js"></script>
 </body>
 </html>

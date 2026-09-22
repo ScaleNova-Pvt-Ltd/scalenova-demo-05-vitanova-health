@@ -1,10 +1,10 @@
 /**
  * ScaleNova EliteOS — Demo 05: VitaNova Health
- * Calming Physiological Biometric Wave Canvas
+ * Calming Physiological Biometric Wave Canvas (60fps Ambient Background)
  */
 
-export class VitalPulseCanvas {
-  constructor(canvasId) {
+class VitalPulseCanvas {
+  constructor(canvasId = 'biometric-canvas') {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
@@ -18,36 +18,30 @@ export class VitalPulseCanvas {
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
-    this.canvas.addEventListener('mousemove', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      this.mouse.x = e.clientX - rect.left;
-      this.mouse.y = e.clientY - rect.top;
-    });
-
-    this.canvas.addEventListener('mouseleave', () => {
-      this.mouse.x = -1000;
-      this.mouse.y = -1000;
+    window.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
     });
 
     this.animate();
   }
 
   resize() {
-    this.width = this.canvas.parentElement.clientWidth || window.innerWidth;
-    this.height = this.canvas.parentElement.clientHeight || 440;
-    this.canvas.width = this.width * window.devicePixelRatio;
-    this.canvas.height = this.height * window.devicePixelRatio;
-    this.ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.canvas.width = this.width * (window.devicePixelRatio || 1);
+    this.canvas.height = this.height * (window.devicePixelRatio || 1);
+    this.ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
   }
 
   draw() {
     this.ctx.clearRect(0, 0, this.width, this.height);
-    const cy = this.height / 2;
+    const cy = this.height * 0.45;
 
-    // Background vital grid
-    this.ctx.strokeStyle = 'rgba(13, 148, 136, 0.05)';
+    // Background vital grid (very subtle sage/teal grid)
+    this.ctx.strokeStyle = 'rgba(13, 148, 136, 0.035)';
     this.ctx.lineWidth = 1;
-    const gridStep = 32;
+    const gridStep = 48;
     for (let x = 0; x < this.width; x += gridStep) {
       this.ctx.beginPath();
       this.ctx.moveTo(x, 0);
@@ -63,22 +57,22 @@ export class VitalPulseCanvas {
 
     // 3 layered physiological sine rhythms
     const waves = [
-      { amp: 28, freq: 0.012, speed: 0.03, color: 'rgba(13, 148, 136, 0.4)', width: 1.5 },
-      { amp: 45, freq: 0.008, speed: 0.02, color: 'rgba(2, 132, 199, 0.5)', width: 2 },
-      { amp: 20, freq: 0.018, speed: 0.04, color: 'rgba(20, 184, 166, 0.3)', width: 1 }
+      { amp: 32, freq: 0.009, speed: 0.025, color: 'rgba(13, 148, 136, 0.22)', width: 1.5 },
+      { amp: 48, freq: 0.006, speed: 0.018, color: 'rgba(2, 132, 199, 0.28)', width: 2 },
+      { amp: 24, freq: 0.014, speed: 0.032, color: 'rgba(20, 184, 166, 0.18)', width: 1 }
     ];
 
     waves.forEach((w) => {
       this.ctx.beginPath();
-      for (let x = 0; x < this.width; x += 3) {
+      for (let x = 0; x < this.width; x += 4) {
         let mouseDist = Math.abs(x - this.mouse.x);
-        let mouseLift = mouseDist < 100 ? (100 - mouseDist) * 0.25 : 0;
+        let mouseLift = mouseDist < 140 ? (140 - mouseDist) * 0.2 : 0;
         
         // Periodic ECG heartbeat blip
         const pulseCycle = (this.time * w.speed + x * w.freq) % (Math.PI * 2);
         let ecgSpike = 0;
         if (pulseCycle > 2.8 && pulseCycle < 3.2) {
-          ecgSpike = Math.sin((pulseCycle - 2.8) * Math.PI / 0.4) * 35;
+          ecgSpike = Math.sin((pulseCycle - 2.8) * Math.PI / 0.4) * 36;
         }
 
         const y = cy + Math.sin(this.time * w.speed + x * w.freq) * w.amp - ecgSpike - mouseLift;
@@ -99,4 +93,17 @@ export class VitalPulseCanvas {
     this.draw();
     requestAnimationFrame(() => this.animate());
   }
+}
+
+// Global auto-init
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('biometric-canvas')) {
+    window.vitalPulse = new VitalPulseCanvas('biometric-canvas');
+  } else if (document.getElementById('vitalPulseCanvas')) {
+    window.vitalPulse = new VitalPulseCanvas('vitalPulseCanvas');
+  }
+});
+
+if (typeof window !== 'undefined') {
+  window.VitalPulseCanvas = VitalPulseCanvas;
 }

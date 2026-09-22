@@ -115,9 +115,11 @@ h3 {
   gap: 14px;
   text-decoration: none;
   color: var(--vn-navy-deep);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.brand-cross {
+.brand-cross, .brand-icon {
   width: 40px;
   height: 40px;
   border-radius: 8px;
@@ -129,6 +131,7 @@ h3 {
   font-size: 1.4rem;
   font-weight: 800;
   box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+  flex-shrink: 0;
 }
 
 .brand-text-col {
@@ -143,6 +146,7 @@ h3 {
   letter-spacing: -0.02em;
   color: var(--vn-navy-deep);
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .brand-sub {
@@ -151,6 +155,7 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--vn-teal-primary);
+  white-space: nowrap;
 }
 
 .nav-menu {
@@ -168,6 +173,7 @@ h3 {
   transition: var(--transition-smooth);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -188,8 +194,9 @@ h3 {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 12px 26px;
+  padding: 11px 22px;
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 700;
@@ -198,6 +205,8 @@ h3 {
   border-radius: 6px;
   border: 1px solid transparent;
   transition: var(--transition-smooth);
+  white-space: nowrap !important;
+  flex-shrink: 0;
 }
 
 .btn-teal {
@@ -341,13 +350,27 @@ h3 {
   border: none;
   color: var(--vn-navy-deep);
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
 }
 
-@media (max-width: 960px) {
-  .nav-menu { display: none; }
-  .mobile-nav-toggle { display: block; }
+@media (max-width: 1024px) {
+  .nav-menu { display: none !important; }
+  .mobile-nav-toggle { display: flex !important; align-items: center; justify-content: center; }
   .dept-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px; }
+  .footer-bottom {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .top-dispatch-bar > div, div[style*="background: #042F2E"] > div {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
 }
 
 /* Form 2-Column Responsive Stacking */

@@ -57,20 +57,52 @@
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="specialties.html" class="nav-link active">Specialties</a></li>
-          <li><a href="treatments.html" class="nav-link">Treatments</a></li>
-          <li><a href="facilities.html" class="nav-link">Facilities</a></li>
-          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
           <li><a href="wellness.html" class="nav-link">Checkups</a></li>
-          <li><a href="health-plans.html" class="nav-link">Plans</a></li>
-          <li><a href="health-insights.html" class="nav-link">Insights</a></li>
+          <li><a href="patient-experience.html" class="nav-link">Patient Care</a></li>
           <li><a href="contact.html" class="nav-link">Hospitals</a></li>
         </ul>
       </nav>
-      <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; background: #0D9488; color: #FFF; border-radius: 6px; text-decoration: none;">Book Consultation</a>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; white-space: nowrap;">Book Consultation</a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation" onclick="toggleVitanovaSidePanel()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
     </div>
   </header>
+
+  <!-- Slide-Out Mobile App-Like Drawer -->
+  <div class="side-panel-overlay" id="vitanovaSideOverlay" onclick="toggleVitanovaSidePanel()"></div>
+  <aside class="side-panel-drawer" id="vitanovaSideDrawer" aria-label="Mobile Navigation">
+    <div class="side-panel-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="brand-icon" style="background: #0D9488; color: #FFF; font-weight: 800; border-radius: 8px; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">+</div>
+        <span class="brand-name" style="font-size: 1.15rem; color: #042F2E;">VitaNova</span>
+      </div>
+      <button class="side-panel-close" aria-label="Close menu" onclick="toggleVitanovaSidePanel()">&times;</button>
+    </div>
+    <ul class="side-panel-nav">
+      <li><a href="index.html">Home <span>&rarr;</span></a></li>
+      <li><a href="specialties.html">Clinical Specialties & Centers <span>&rarr;</span></a></li>
+      <li><a href="specialist-detail.html">Consultant Physicians & Surgeons <span>&rarr;</span></a></li>
+      <li><a href="treatments.html">Surgical Theatres & Interventions <span>&rarr;</span></a></li>
+      <li><a href="facilities.html">ICU & Imaging Infrastructure <span>&rarr;</span></a></li>
+      <li><a href="wellness.html">Preventive Health Checkups <span>&rarr;</span></a></li>
+      <li><a href="patient-experience.html">Patient Lounge & Concierge <span>&rarr;</span></a></li>
+      <li><a href="health-plans.html">Comprehensive Healthcare Plans <span>&rarr;</span></a></li>
+      <li><a href="health-insights.html">Clinical Research & Publications <span>&rarr;</span></a></li>
+      <li><a href="about.html">Accreditations & Medical Board <span>&rarr;</span></a></li>
+      <li><a href="contact.html">Hospital Locations & Emergency Desks <span>&rarr;</span></a></li>
+      <li><a href="book-appointment.html">Book Specialist Consultation <span>&rarr;</span></a></li>
+      <li><a href="sitemap.xml">XML Index <span>&rarr;</span></a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid rgba(20, 184, 166, 0.2); font-size: 0.8rem; color: #0F766E;">
+      <div>EMERGENCY: 1066 / +91 80 6912 9000</div>
+      <div style="margin-top: 4px;">INDIRANAGAR &bull; BENGALURU</div>
+    </div>
+  </aside>
 
   <main style="padding-top: calc(var(--header-height) + 40px); padding-bottom: 96px;">
     <div class="container">
@@ -452,5 +484,24 @@
   <script src="src/components/pulse-wave.js"></script>
   <script src="src/components/modal-controller.js"></script>
   <script src="src/components/visual-infographics.js"></script>
+
+  <script>
+    function toggleVitanovaSidePanel() {
+      const drawer = document.getElementById("vitanovaSideDrawer");
+      const overlay = document.getElementById("vitanovaSideOverlay");
+      if (drawer && overlay) {
+        const isOpen = drawer.classList.contains("active");
+        if (isOpen) {
+          drawer.classList.remove("active");
+          overlay.classList.remove("active");
+          document.body.classList.remove("side-panel-open");
+        } else {
+          drawer.classList.add("active");
+          overlay.classList.add("active");
+          document.body.classList.add("side-panel-open");
+        }
+      }
+    }
+  </script>
 </body>
 </html>

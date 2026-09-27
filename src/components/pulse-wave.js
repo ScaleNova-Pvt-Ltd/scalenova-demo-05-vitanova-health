@@ -10,20 +10,33 @@ class VitalPulseCanvas {
     this.ctx = this.canvas.getContext('2d');
     this.time = 0;
     this.mouse = { x: -1000, y: -1000 };
+    this.isVisible = true;
+    this.animId = null;
+    this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     this.init();
   }
 
   init() {
     this.resize();
-    window.addEventListener('resize', () => this.resize());
+    window.addEventListener('resize', () => this.resize(), { passive: true });
 
     window.addEventListener('mousemove', (e) => {
       this.mouse.x = e.clientX;
       this.mouse.y = e.clientY;
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+      this.isVisible = !document.hidden;
+      if (this.isVisible && !this.animId && !this.prefersReducedMotion) {
+        this.animate();
+      }
     });
 
-    this.animate();
+    this.draw();
+    if (!this.prefersReducedMotion) {
+      this.animate();
+    }
   }
 
   resize() {
@@ -89,9 +102,15 @@ class VitalPulseCanvas {
   }
 
   animate() {
+    if (!this.isVisible) {
+      this.animId = null;
+      return;
+    }
     this.time += 1;
     this.draw();
-    requestAnimationFrame(() => this.animate());
+    if (!this.prefersReducedMotion) {
+      this.animId = requestAnimationFrame(() => this.animate());
+    }
   }
 }
 

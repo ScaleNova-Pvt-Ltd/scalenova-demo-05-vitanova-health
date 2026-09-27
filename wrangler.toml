@@ -12,3 +12,6 @@ DEMO_ID = "DEMO-05"
 CLIENT_NAME = "VitaNova Health"
 INDUSTRY = "Healthcare & Clinics"
 PRIMARY_DOMAIN = "demo5.scalenovasys.com"
+
+workers_dev = true
+

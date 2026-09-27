@@ -283,7 +283,7 @@
           margin: 8px 0 6px;
         }
         .scheduler-sub {
-          color: #475569;
+          color: #0F172A;
           font-size: 0.92rem;
           line-height: 1.6;
         }
@@ -349,13 +349,13 @@
         .doc-spec {
           display: block;
           font-size: 0.82rem;
-          color: #334155;
+          color: #0F172A;
           margin-top: 4px;
         }
         .doc-days {
           display: block;
           font-size: 0.78rem;
-          color: #64748B;
+          color: #1E293B;
           margin-top: 4px;
           font-weight: 500;
         }
@@ -373,7 +373,7 @@
           padding: 8px 14px;
           border: 1px solid #CBD5E1;
           background: #F8FAFC;
-          color: #334155;
+          color: #0F172A;
           font-size: 0.82rem;
           font-weight: 600;
           border-radius: 20px;

@@ -1474,3 +1474,55 @@ body.side-panel-open {
 table {
   max-width: 100% !important;
 }
+
+/* Universal Light Background & Footer Contrast Protection */
+.site-footer {
+  background-color: #F8FAFC !important;
+  color: #334155 !important;
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+.site-footer span, .site-footer strong, .site-footer h3, .site-footer h4, .site-footer .footer-heading,
+.footer-brand h3, .footer-brand span, .footer-col h4, .footer-column h4 {
+  color: #0F172A !important;
+}
+
+.site-footer p, .site-footer div, .site-footer li, .site-footer a {
+  color: #475569 !important;
+}
+
+.site-footer a:hover {
+  color: #0F172A !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid #E2E8F0 !important;
+  color: #64748B !important;
+}
+
+.side-panel-drawer {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+.side-panel-header .brand-name {
+  color: #0F172A !important;
+}
+
+.side-panel-close {
+  color: #0F172A !important;
+}
+
+.side-panel-section-title {
+  color: #64748B !important;
+  font-weight: 700 !important;
+}
+
+.side-panel-nav li a {
+  color: #1E293B !important;
+  font-weight: 500 !important;
+}
+
+.side-panel-footer p {
+  color: #64748B !important;
+}

@@ -967,7 +967,7 @@ body.side-panel-open {
     text-align: center;
   }
 }
-\n
+
 /* =========================================================================
  * SCALENOVA PREMIUM LIGHT LUXURY & MOTIONSITES.AI DESIGN SYSTEM TOKENS
  * Mobile-First Single-Column Stacked Forms, Light Luxury Aesthetic,
@@ -1136,7 +1136,7 @@ input:focus, select:focus, textarea:focus {
 .subpage-nav-bar {
   background: #F8FAFC !important;
   border-bottom: 1px solid #E2E8F0 !important;
-  padding: 12px 0 !important;
+  padding: 10px 0 !important;
   position: relative !important;
   z-index: 40 !important;
 }
@@ -1362,19 +1362,46 @@ body.side-panel-open {
 }
 
 /* 5. Mobile Compact Header [Logo] [☰] */
-@media (max-width: 640px) {
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+@media (max-width: 768px) {
   .site-header {
     height: auto !important;
-    min-height: 64px !important;
-    padding: 10px 0 !important;
+    min-height: 60px !important;
+    padding: 8px 0 !important;
   }
   .header-inner {
     padding-left: 16px !important;
     padding-right: 16px !important;
     gap: 12px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: auto !important;
+  }
+  .header-cta-btn,
   .header-inner .btn {
-    display: none !important; /* Hide header CTA on mobile for clean app header */
+    display: none !important; /* Hide header CTA on mobile for clean iPhone app bar */
+  }
+  .brand-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+  .brand-cross, .brand-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.2rem !important;
+    border-radius: 8px !important;
   }
   .brand-sub {
     display: none !important; /* Hide secondary subtext on phones */
@@ -1382,7 +1409,202 @@ body.side-panel-open {
   .brand-name {
     font-size: 1.05rem !important;
     letter-spacing: -0.01em !important;
+    color: var(--vn-navy-deep) !important;
   }
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    border: none !important;
+    background: transparent !important;
+    color: var(--vn-navy-deep) !important;
+    cursor: pointer !important;
+    padding: 8px !important;
+  }
+}
+
+/* Hero Section & Healthcare Framing */
+.hero-section {
+  padding: 80px 0 72px 0;
+  background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+  border-bottom: 1px solid var(--vn-border-clean);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-actions-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-metrics-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--vn-border-clean);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-divider {
+  width: 1px;
+  height: 44px;
+  background: var(--vn-border-clean);
+}
+
+.metric-num {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--vn-navy-deep);
+  line-height: 1.1;
+}
+
+.metric-num.highlight {
+  color: var(--vn-teal-primary);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--vn-text-light);
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+.hero-media-panel {
+  position: relative;
+  width: 100%;
+}
+
+.hero-image-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(10, 37, 64, 0.12);
+  border: 1px solid var(--vn-border-clean);
+  position: relative;
+  background: #E2E8F0;
+}
+
+.hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-clinical-badge {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--vn-border-clean);
+  border-radius: 10px;
+  padding: 12px 18px;
+  box-shadow: 0 12px 28px rgba(10, 37, 64, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.floating-clinical-badge.badge-top-right {
+  top: 18px;
+  right: 18px;
+}
+
+.floating-clinical-badge.badge-bottom-right {
+  bottom: 24px;
+  right: 18px;
+}
+
+.badge-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.badge-label {
+  font-size: 0.68rem;
+  color: var(--vn-text-light);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.badge-val {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--vn-navy-deep);
+  white-space: nowrap;
+}
+
+.hero-highlight-card {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: #FFFFFF;
+  border: 1px solid var(--vn-border-clean);
+  border-radius: 10px;
+  padding: 16px 22px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  max-width: 280px;
+  z-index: 4;
+}
+
+.highlight-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--vn-teal-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tag-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--vn-teal-primary);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.highlight-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--vn-navy-deep);
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+.cta-split-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-form-card {
+  padding: 48px;
 }
 
 /* 6. Mobile Typography & Fluid Scaling */
@@ -1408,6 +1630,110 @@ body.side-panel-open {
     padding-right: 18px !important;
     max-width: 100% !important;
     width: 100% !important;
+  }
+  .hero-section {
+    padding: 32px 0 36px 0 !important;
+  }
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+  .hero-actions-row {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .hero-actions-row .btn {
+    width: 100% !important;
+    min-height: 48px !important;
+    text-align: center !important;
+    font-size: 0.95rem !important;
+  }
+  .hero-metrics-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    margin-top: 24px !important;
+    padding-top: 18px !important;
+    text-align: center !important;
+  }
+  .metric-divider {
+    display: none !important;
+  }
+  .metric-num {
+    font-size: 1.35rem !important;
+  }
+  .metric-label {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.04em !important;
+  }
+  .hero-media-panel {
+    width: 100% !important;
+    position: relative !important;
+    margin-top: 4px !important;
+  }
+  .hero-image-card {
+    width: 100% !important;
+    border-radius: 16px !important;
+    aspect-ratio: 16 / 10 !important;
+    overflow: hidden !important;
+    position: relative !important;
+    box-shadow: 0 12px 32px rgba(10, 37, 64, 0.12) !important;
+  }
+  .hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .floating-clinical-badge.badge-top-right {
+    top: 10px !important;
+    right: 10px !important;
+    padding: 6px 10px !important;
+    gap: 8px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+  }
+  .floating-clinical-badge.badge-top-right .badge-icon {
+    font-size: 1rem !important;
+  }
+  .floating-clinical-badge.badge-top-right .badge-label {
+    font-size: 0.58rem !important;
+  }
+  .floating-clinical-badge.badge-top-right .badge-val {
+    font-size: 0.78rem !important;
+  }
+  .floating-clinical-badge.badge-bottom-right {
+    display: none !important;
+  }
+  .hero-highlight-card {
+    position: relative !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    margin-top: 14px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    padding: 14px 18px !important;
+    box-shadow: 0 4px 16px rgba(10, 37, 64, 0.06) !important;
+  }
+  .cta-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    text-align: left !important;
+  }
+  .cta-split-grid div:last-child {
+    text-align: left !important;
+  }
+  .cta-split-grid .btn {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .contact-form-card {
+    padding: 24px 18px !important;
   }
   .hero-editorial-grid,
   .hero-grid,

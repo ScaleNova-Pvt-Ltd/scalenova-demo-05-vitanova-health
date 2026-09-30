@@ -12,9 +12,9 @@
   <!-- Ambient 3D Physiological Waveform Canvas -->
   <canvas id="biometric-canvas" class="ambient-3d-canvas" aria-hidden="true"></canvas>
 
-  <header class="site-header">
+    <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
+      <a href="index.html" class="brand-logo" aria-label="VitaNova Health Home">
         <div class="brand-cross">+</div>
         <div class="brand-text-col">
           <span class="brand-name">VitaNova Health</span>
@@ -31,15 +31,14 @@
         </ul>
       </nav>
 
-      <div style="display: flex; align-items: center; gap: 14px;">
-        <a href="book-appointment.html" class="btn btn-teal" style="padding: 10px 22px; font-size: 0.85rem; white-space: nowrap;">Book Consultation</a>
+      <div class="header-actions">
+        <a href="book-appointment.html" class="btn btn-teal header-cta-btn" style="padding: 10px 22px; font-size: 0.85rem; white-space: nowrap;">Book Consultation</a>
         <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation" onclick="toggleVitanovaSidePanel()">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
     </div>
   </header>
-
     <!-- Slide-Out Mobile App-Like Drawer -->
   <div class="side-panel-overlay" id="vitanovaSideOverlay" onclick="toggleVitanovaSidePanel()"></div>
   <aside class="side-panel-drawer" id="vitanovaSideDrawer" aria-label="Mobile Navigation" aria-hidden="true">
@@ -82,9 +81,9 @@
 
   <main>
     <!-- Clinical Editorial Hero: Real-Looking Healthcare Photography -->
-    <section style="padding: 80px 0; background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); border-bottom: 1px solid var(--vn-border-clean);">
+    <section class="hero-section">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;">
+        <div class="hero-grid">
           <div>
             <div class="clinical-eyebrow">
               <span>MULTIDISCIPLINARY MEDICAL EXCELLENCE</span>
@@ -95,59 +94,59 @@
             <p style="font-size: 1.25rem; color: var(--vn-text-muted); line-height: 1.7; max-width: 540px; margin-bottom: 36px; font-weight: 400;">
               Modern healthcare built around clinical expertise, state-of-the-art diagnostic imaging, and empathetic human care.
             </p>
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+            <div class="hero-actions-row">
               <a href="book-appointment.html" class="btn btn-teal" style="padding: 15px 32px; font-size: 0.95rem;">Book an Appointment</a>
               <a href="specialties.html" class="btn btn-outline-navy" style="padding: 15px 32px; font-size: 0.95rem;">Find a Department</a>
             </div>
 
             <!-- Clinical Safety & Credential Metrics -->
-            <div style="display: flex; gap: 40px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--vn-border-clean);">
-              <div>
-                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--vn-navy-deep);">150+</div>
-                <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--vn-text-light); letter-spacing: 0.06em;">Board Consultants</div>
+            <div class="hero-metrics-row">
+              <div class="metric-item">
+                <div class="metric-num">150+</div>
+                <div class="metric-label">Board Consultants</div>
               </div>
-              <div style="width: 1px; height: 44px; background: var(--vn-border-clean);"></div>
-              <div>
-                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--vn-teal-primary);">99.4%</div>
-                <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--vn-text-light); letter-spacing: 0.06em;">Surgical Safety Index</div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <div class="metric-num highlight">99.4%</div>
+                <div class="metric-label">Surgical Safety Index</div>
               </div>
-              <div style="width: 1px; height: 44px; background: var(--vn-border-clean);"></div>
-              <div>
-                <div style="font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--vn-navy-deep);">15 Min</div>
-                <div style="font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--vn-text-light); letter-spacing: 0.06em;">Rapid Triage Intake</div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <div class="metric-num">15 Min</div>
+                <div class="metric-label">Rapid Triage Intake</div>
               </div>
             </div>
           </div>
 
           <!-- Editorial Clinical Photography with 3D Badges -->
-          <div style="position: relative;" class="hero-media-panel">
-            <div class="floating-clinical-badge" style="top: 18px; right: 18px;">
-              <span style="font-size: 1.2rem; color: var(--vn-teal-primary);">🩺</span>
+          <div class="hero-media-panel">
+            <div class="floating-clinical-badge badge-top-right">
+              <span class="badge-icon">🩺</span>
               <div>
-                <div style="font-size: 0.7rem; color: var(--vn-text-light); text-transform: uppercase; font-weight: 700;">Accreditation</div>
-                <div style="font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--vn-navy-deep);">NABH Gold &bull; JCI</div>
+                <div class="badge-label">Accreditation</div>
+                <div class="badge-val">NABH Gold &bull; JCI</div>
               </div>
             </div>
 
-            <div class="floating-clinical-badge" style="bottom: 24px; right: 18px; animation-delay: -3s;">
-              <span style="font-size: 1.2rem; color: #10B981;">⚡</span>
+            <div class="floating-clinical-badge badge-bottom-right">
+              <span class="badge-icon">⚡</span>
               <div>
-                <div style="font-size: 0.7rem; color: var(--vn-text-light); text-transform: uppercase; font-weight: 700;">Emergency Desk</div>
-                <div style="font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--vn-navy-deep);">24/7 Rapid Triage</div>
+                <div class="badge-label">Emergency Desk</div>
+                <div class="badge-val">24/7 Rapid Triage</div>
               </div>
             </div>
 
-            <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 20px 48px rgba(10, 37, 64, 0.12); border: 1px solid var(--vn-border-clean);">
+            <div class="hero-image-card">
               <img src="assets/images/vitanova-hospital-hero.jpg" 
                    alt="Senior physician discussing diagnostic scan with patient in modern consultation suite" 
-                   style="width: 100%; height: 480px; object-fit: cover; display: block;">
+                   class="hero-img">
             </div>
-            <div style="position: absolute; bottom: -20px; left: -20px; background: #FFF; border: 1px solid var(--vn-border-clean); border-radius: 8px; padding: 18px 24px; box-shadow: 0 12px 28px rgba(0,0,0,0.06); max-width: 280px;">
-              <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: var(--vn-teal-primary); text-transform: uppercase;">
-                <span style="width: 8px; height: 8px; background: var(--vn-teal-primary); border-radius: 50%; display: inline-block;"></span>
+            <div class="hero-highlight-card">
+              <div class="highlight-tag">
+                <span class="tag-dot"></span>
                 NABH Gold Certified
               </div>
-              <div style="font-size: 0.95rem; font-weight: 700; color: var(--vn-navy-deep); margin-top: 4px;">Zero Medical Infection Benchmark</div>
+              <div class="highlight-title">Zero Medical Infection Benchmark</div>
             </div>
           </div>
         </div>
@@ -301,7 +300,7 @@
 
     <!-- Rapid Appointment Scheduling CTA -->
     <section style="padding: 88px 0; background: var(--vn-navy-deep); color: #FFF;">
-      <div class="container" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center;">
+      <div class="container cta-split-grid">
         <div>
           <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--vn-teal-soft); font-weight: 700; margin-bottom: 12px;">
             Same-Day & Priority Consultations
